@@ -1,0 +1,5 @@
+---
+source: crates/aroma-lang/tests/lwc_js_adapter.rs
+---
+["{##}", "{", ["function###", "function", {$"accept"#0}, ["(#)", "(", {$"item"#1}, ")"], ["{#}", "{", ["return#;", "return", ["#.#", {$"item"#1}, ".", {"active"}], ";"], "}"]], ["return#;", "return", ["##", ["#.#", {$"items"}, ".", {"filter"}], ["(#)", "(", {$"accept"#0}, ")"]], ";"], "}"]
+["{#}", "{", ["return#;", "return", ["#.#", {$"item"}, ".", {"active"}], ";"], "}"]

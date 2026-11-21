@@ -1,0 +1,33 @@
+id = "lwc10-record-edit-form"
+category = "forms"
+lang = "lwchtml"
+repo = "https://github.com/trailheadapps/lwc-recipes"
+commit = "b5af6ecb2f8d5d75d161b2a702d899f6e4ffc878"
+source_file = "force-app/main/default/lwc/recordEditFormStaticContact/recordEditFormStaticContact.html"
+source_lines = [7, 35]
+query = """
+                <lightning-input-field
+                    field-name={accountField}
+                ></lightning-input-field>
+                <lightning-input-field
+                    field-name={nameField}
+                ></lightning-input-field>
+                <lightning-input-field
+                    field-name={titleField}
+                ></lightning-input-field>
+                <lightning-input-field
+                    field-name={phoneField}
+                ></lightning-input-field>
+                <lightning-input-field
+                    field-name={emailField}
+                ></lightning-input-field>
+"""
+required = [
+    "<lightning-record-edit-form",
+    "type=\"submit\"",
+]
+notes = "Edit a record through lightning-record-edit-form, lightning-input-field entries, and a submit button."
+answer_witness = [
+    "trailheadapps/lwc-recipes:force-app/main/default/lwc/dispatchRefreshEvent/dispatchRefreshEvent.html:4",
+    "trailheadapps/lwc-recipes:force-app/main/default/lwc/recordEditFormDynamicContact/recordEditFormDynamicContact.html:7",
+]

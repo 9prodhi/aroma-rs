@@ -1,0 +1,14 @@
+id = "ar12-org-cache-get"
+category = "other"
+repo = "https://github.com/trailheadapps/apex-recipes"
+commit = "eda6167c5126a34daf66d9e1371ff6957ae223bd"
+source_file = "force-app/main/default/classes/Platform Cache Recipes/PlatformCacheRecipes.cls"
+source_lines = [124, 130]
+query = """
+Cache.Partition defPartition = getDefaultPartition(PartitionType.ORG);
+"""
+required = [
+    "defPartition.contains(key)",
+    "defPartition.get(key)",
+]
+notes = "Platform cache read: check contains(key) before get(key) and fall back on a miss."

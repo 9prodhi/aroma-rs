@@ -1,0 +1,24 @@
+id = "meta15-cmdt-record-values"
+category = "custom-metadata"
+lang = "sfmeta"
+repo = "https://github.com/SalesforceLabs/Configurable-Self-Registration-for-Experience-Cloud"
+commit = "9712e7ddcaf35e6b4de40be0cc5e12cdf6439044"
+source_file = "force-app/main/default/customMetadata/Custom_Registration_Configuration.First_Name.md-meta.xml"
+source_lines = [1, 131]
+query = """
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>First Name</label>
+    <protected>false</protected>
+</CustomMetadata>
+"""
+required = [
+    "<values>",
+    "<field>",
+    "<value",
+]
+notes = "Custom metadata record definition populating custom field values."
+answer_witness = [
+    "SalesforceFoundation/EDA:force-app/main/default/customMetadata/Product_Registry.EDAProductInformation.md-meta.xml:5",
+    "SalesforceFoundation/PMM:force-app/main/default/customMetadata/BucketedField.ServiceStatuses.md-meta.xml:5",
+    "SalesforceLabs/Configurable-Self-Registration-for-Experience-Cloud:force-app/main/default/customMetadata/Custom_Registration_Configuration.Identifier.md-meta.xml:5",
+]

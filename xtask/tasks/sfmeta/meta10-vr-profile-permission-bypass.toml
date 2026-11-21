@@ -1,0 +1,25 @@
+id = "meta10-vr-profile-permission-bypass"
+category = "validation-rule"
+lang = "sfmeta"
+repo = "https://github.com/navikt/crm-arbeidsgiver-base"
+commit = "c0636283547e6c95c95a7fe0adc7f6faf48989a3"
+source_file = "force-app/main/default/objects/Contract__c/validationRules/verify_strategic_partner_permission.validationRule-meta.xml"
+source_lines = [1, 10]
+query = """
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>verify_strategic_partner_permission</fullName>
+    <active>true</active>
+    <errorDisplayField>TAG_Category__c</errorDisplayField>
+    <errorMessage>Strategisk partneravtale kan kun opprettes av enkelt brukere. Kontakt markedskoordinator i fylket for spørsmål.</errorMessage>
+</ValidationRule>
+"""
+required = [
+    "$Permission.",
+    "NOT(",
+    "ISCHANGED(",
+]
+notes = "Validation rule restricting modifications with custom permission bypass."
+answer_witness = [
+    "navikt/crm-ips:force-app/main/default/objects/Work_Trail__c/validationRules/Worktrail_Prevent_Status_Change_If_Ended.validationRule-meta.xml:11",
+    "navikt/crm-arbeidsgiver-base:force-app/main/default/objects/EmployerInquiry__c/validationRules/LockForUpdate.validationRule-meta.xml:19",
+]

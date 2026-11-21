@@ -1,0 +1,25 @@
+[package]
+name = "aroma-core"
+description = "Aroma structural code search: language-agnostic algorithm and on-disk index"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+license.workspace = true
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true
+postcard.workspace = true
+xxhash-rust.workspace = true
+memmap2.workspace = true
+bytemuck.workspace = true
+blake3.workspace = true
+fd-lock.workspace = true
+thiserror.workspace = true
+tracing.workspace = true
+
+[dev-dependencies]
+proptest.workspace = true
+insta.workspace = true
+tempfile.workspace = true

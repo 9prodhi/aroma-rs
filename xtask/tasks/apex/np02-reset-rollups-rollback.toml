@@ -1,0 +1,17 @@
+id = "np02-reset-rollups-rollback"
+category = "error-handling"
+repo = "https://github.com/SalesforceFoundation/NPSP"
+commit = "f5072b44781e7f31cb396c6919cfa7d0ead0ec6a"
+source_file = "force-app/main/default/classes/STG_PanelCustomizableRollup_CTRL.cls"
+source_lines = [107, 125]
+query = """
+STG_SettingsManager_CTRL.idPanelCurrent = idPanel();
+
+Savepoint sp = Database.setSavepoint();
+"""
+required = [
+    "Database.rollback(sp)",
+    "ERR_Handler.processError(e",
+    "ApexPages.addMessage(",
+]
+notes = "Settings action: savepoint, try the change, roll back, log through ERR_Handler and show a page message."

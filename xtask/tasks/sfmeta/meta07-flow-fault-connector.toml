@@ -1,0 +1,28 @@
+id = "meta07-flow-fault-connector"
+category = "flow-fault"
+lang = "sfmeta"
+repo = "https://github.com/SalesforceLabs/AnimalShelterStarter"
+commit = "c6eec92002eedde52ed332469b37f5552912ab86"
+source_file = "force-app/main/default/flows/Animal_Action_Scheduler.flow-meta.xml"
+source_lines = [384, 396]
+query = """
+    <recordCreates>
+        <name>Generate_Action_Records</name>
+        <label>Generate Action Records</label>
+        <locationX>50</locationX>
+        <locationY>1190</locationY>
+        <connector>
+            <targetReference>Final_Screen</targetReference>
+        </connector>
+"""
+required = [
+    "<faultConnector>",
+    "</faultConnector>",
+    "<inputReference>",
+]
+notes = "Flow DML recordCreates element handling exceptions via a faultConnector."
+answer_witness = [
+    "navikt/crm-ips:force-app/main/default/flows/IPS_Archive_worktrail.flow-meta.xml:2024",
+    "SalesforceLabs/AnimalShelterStarter:force-app/main/default/flows/Adopter_Match_create_auto_match_records_Subflow.flow-meta.xml:352",
+    "SalesforceLabs/AnimalShelterStarter:force-app/main/default/flows/Adopter_Profile_Create_new_Adopter_Profile.flow-meta.xml:257",
+]

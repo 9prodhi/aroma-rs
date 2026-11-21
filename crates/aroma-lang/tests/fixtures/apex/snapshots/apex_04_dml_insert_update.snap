@@ -1,0 +1,11 @@
+---
+source: crates/aroma-lang/tests/apex_adapter.rs
+---
+unit 0
+tree: ["{###}", "{", ["#;", ["insert#", "insert", {$"fresh"}], ";"], ["#;", ["#=#", ["#.#", {$"existing"}, ".", {"status"}], "=", {"'Working'"}], ";"], ["#;", ["update#", "update", {$"existing"}], ";"], "}"]
+features:
+  "fresh" ["#VAR","insert#2>#VAR","#;1>#VAR","#VAR>>#VAR"]
+  "existing" ["#VAR","#.#1>#VAR","#=#1>#VAR","#;1>#VAR","#VAR>>#VAR","#VAR>>status","status>>>update#2"]
+  "status" ["status","#.#3>status","#=#1>status","#;1>status","#VAR>>status","status>>'Working'"]
+  "'Working'" ["'Working'","#=#3>'Working'","#;1>'Working'","status>>'Working'","'Working'>>#VAR"]
+  "existing" ["#VAR","update#2>#VAR","#;1>#VAR","status>>>update#2","'Working'>>#VAR"]

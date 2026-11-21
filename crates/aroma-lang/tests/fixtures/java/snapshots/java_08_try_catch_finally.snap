@@ -1,0 +1,16 @@
+---
+source: crates/aroma-lang/tests/java_adapter.rs
+---
+unit 0
+compat:  ["{#}", "{", ["try###", "try", ["{#}", "{", ["#;", ["#.#", {$"store"}, ".", ["#()", {"open"}, "(", ")"]], ";"], "}"], ["catch(##)#", "catch", "(", ["#|#", {"IOException"}, "|", {"IllegalStateException"}], {$"e"}, ")", ["{#}", "{", ["#;", ["#(#)", {"log"}, "(", {$"e"}, ")"], ";"], "}"]], ["finally#", "finally", ["{#}", "{", ["#;", ["#.#", {$"store"}, ".", ["#()", {"close"}, "(", ")"]], ";"], "}"]]], "}"]
+default: ["{#}", "{", ["try###", "try", ["{#}", "{", ["#;", ["#.#", {$"store"}, ".", ["#()", {"open"}, "(", ")"]], ";"], "}"], ["catch(##)#", "catch", "(", ["#|#", {"IOException"}, "|", {"IllegalStateException"}], {$"e"#0}, ")", ["{#}", "{", ["#;", ["#(#)", {"log"}, "(", {$"e"#0}, ")"], ";"], "}"]], ["finally#", "finally", ["{#}", "{", ["#;", ["#.#", {$"store"}, ".", ["#()", {"close"}, "(", ")"]], ";"], "}"]]], "}"]
+features:
+  "store" ["#VAR","#.#1>#VAR","#;1>#VAR","try###2>#VAR","#VAR>>open","open>>>close"]
+  "open" ["open","#()1>open","#.#3>open","#;1>open","#VAR>>open","open>>IOException"]
+  "IOException" ["IOException","#|#1>IOException","catch(##)#3>IOException","try###3>IOException","open>>IOException","IOException>>IllegalStateException"]
+  "IllegalStateException" ["IllegalStateException","#|#3>IllegalStateException","catch(##)#3>IllegalStateException","try###3>IllegalStateException","IOException>>IllegalStateException","IllegalStateException>>#VAR"]
+  "e" ["#VAR","catch(##)#4>#VAR","try###3>#VAR","IllegalStateException>>#VAR","#VAR>>log","catch(##)#4>>>#(#)3"]
+  "log" ["log","#(#)1>log","#;1>log","catch(##)#6>log","#VAR>>log","log>>#VAR"]
+  "e" ["#VAR","#(#)3>#VAR","#;1>#VAR","catch(##)#6>#VAR","catch(##)#4>>>#(#)3","log>>#VAR","#VAR>>#VAR"]
+  "store" ["#VAR","#.#1>#VAR","#;1>#VAR","finally#2>#VAR","open>>>close","#VAR>>#VAR","#VAR>>close"]
+  "close" ["close","#()1>close","#.#3>close","#;1>close","#VAR>>close"]

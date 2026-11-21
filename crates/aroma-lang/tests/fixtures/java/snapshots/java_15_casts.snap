@@ -1,0 +1,16 @@
+---
+source: crates/aroma-lang/tests/java_adapter.rs
+---
+unit 0
+compat:  ["{###}", "{", ["#;", ["##", {"String"}, ["#=#", {$"s"}, "=", ["(#)#", "(", {"String"}, ")", {$"value"}]]], ";"], ["#;", ["int#", "int", ["#=#", {$"i"}, "=", ["(int)#", "(", "int", ")", {$"d"}]]], ";"], ["return#;", "return", ["#+#", ["(long)#", "(", "long", ")", {$"i"}], "+", ["#.#", {$"s"}, ".", ["#()", {"length"}, "(", ")"]]], ";"], "}"]
+default: ["{###}", "{", ["#;", ["##", {"String"}, ["#=#", {$"s"#0}, "=", ["(#)#", "(", {"String"}, ")", {$"value"}]]], ";"], ["#;", ["int#", "int", ["#=#", {$"i"#1}, "=", ["(int)#", "(", "int", ")", {$"d"}]]], ";"], ["return#;", "return", ["#+#", ["(long)#", "(", "long", ")", {$"i"#1}], "+", ["#.#", {$"s"#0}, ".", ["#()", {"length"}, "(", ")"]]], ";"], "}"]
+features:
+  "String" ["String","##1>String","#;1>String","String>>#VAR"]
+  "s" ["#VAR","#=#1>#VAR","##2>#VAR","#;1>#VAR","String>>#VAR","#VAR>>String","#=#1>>>length"]
+  "String" ["String","(#)#2>String","#=#3>String","##2>String","#VAR>>String","String>>#VAR"]
+  "value" ["#VAR","(#)#4>#VAR","#=#3>#VAR","##2>#VAR","String>>#VAR","#VAR>>#VAR"]
+  "i" ["#VAR","#=#1>#VAR","int#2>#VAR","#;1>#VAR","#VAR>>#VAR","#VAR>>#VAR","#=#1>>>(long)#4"]
+  "d" ["#VAR","(int)#4>#VAR","#=#3>#VAR","int#2>#VAR","#VAR>>#VAR","#VAR>>#VAR"]
+  "i" ["#VAR","(long)#4>#VAR","#+#1>#VAR","return#;2>#VAR","#=#1>>>(long)#4","#VAR>>#VAR","#VAR>>#VAR"]
+  "s" ["#VAR","#.#1>#VAR","#+#3>#VAR","return#;2>#VAR","#=#1>>>length","#VAR>>#VAR","#VAR>>length"]
+  "length" ["length","#()1>length","#.#3>length","#+#3>length","#VAR>>length"]

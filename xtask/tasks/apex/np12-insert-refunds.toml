@@ -1,0 +1,14 @@
+id = "np12-insert-refunds"
+category = "saveresult"
+repo = "https://github.com/SalesforceFoundation/NPSP"
+commit = "f5072b44781e7f31cb396c6919cfa7d0ead0ec6a"
+source_file = "force-app/main/default/classes/PMT_RefundService.cls"
+source_lines = [253, 263]
+query = """
+List<Database.SaveResult> saveResults = Database.insert(this.refundRecords, false);
+"""
+required = [
+    "isSuccess()",
+    "getErrors()[0].getMessage()",
+]
+notes = "After a partial-success insert, walk SaveResults by index and record the first error of each failure."

@@ -1,0 +1,16 @@
+---
+source: crates/aroma-lang/tests/java_adapter.rs
+---
+unit 0
+compat:  ["{###}", "{", ["if##", "if", ["(#)", "(", ["#instanceof#", {$"shape"}, "instanceof", {"Square"}], ")"], ["{#}", "{", ["return#;", "return", {"4"}, ";"], "}"]], ["if##", "if", ["(#)", "(", ["#instanceof##", {$"shape"}, "instanceof", {"Polygon"}, {$"p"}], ")"], ["{#}", "{", ["return#;", "return", ["#.#", {$"p"}, ".", ["#()", {"sides"}, "(", ")"]], ";"], "}"]], ["return#;", "return", {"0"}, ";"], "}"]
+default: ["{###}", "{", ["if##", "if", ["(#)", "(", ["#instanceof#", {$"shape"}, "instanceof", {"Square"}], ")"], ["{#}", "{", ["return#;", "return", {"4"}, ";"], "}"]], ["if##", "if", ["(#)", "(", ["#instanceof##", {$"shape"}, "instanceof", {"Polygon"}, {$"p"#0}], ")"], ["{#}", "{", ["return#;", "return", ["#.#", {$"p"#0}, ".", ["#()", {"sides"}, "(", ")"]], ";"], "}"]], ["return#;", "return", {"0"}, ";"], "}"]
+features:
+  "shape" ["#VAR","#instanceof#1>#VAR","if##2>#VAR","#VAR>>Square","#instanceof#1>>>#instanceof##1"]
+  "Square" ["Square","#instanceof#3>Square","if##2>Square","#VAR>>Square","Square>>4"]
+  "4" ["4","return#;2>4","if##3>4","Square>>4","4>>#VAR"]
+  "shape" ["#VAR","#instanceof##1>#VAR","if##2>#VAR","#instanceof#1>>>#instanceof##1","4>>#VAR","#VAR>>Polygon"]
+  "Polygon" ["Polygon","#instanceof##3>Polygon","if##2>Polygon","#VAR>>Polygon","Polygon>>#VAR"]
+  "p" ["#VAR","#instanceof##4>#VAR","if##2>#VAR","Polygon>>#VAR","#instanceof##4>>>sides","#VAR>>#VAR"]
+  "p" ["#VAR","#.#1>#VAR","return#;2>#VAR","if##3>#VAR","#instanceof##4>>>sides","#VAR>>#VAR","#VAR>>sides"]
+  "sides" ["sides","#()1>sides","#.#3>sides","return#;2>sides","#VAR>>sides","sides>>0"]
+  "0" ["0","return#;2>0","sides>>0"]

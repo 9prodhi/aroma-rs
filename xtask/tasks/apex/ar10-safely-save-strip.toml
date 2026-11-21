@@ -1,0 +1,18 @@
+id = "ar10-safely-save-strip"
+category = "error-handling"
+repo = "https://github.com/trailheadapps/apex-recipes"
+commit = "eda6167c5126a34daf66d9e1371ff6957ae223bd"
+source_file = "force-app/main/default/classes/Shared Code/AccountServiceLayer.cls"
+source_lines = [122, 140]
+query = """
+System.SObjectAccessDecision decision = Security.stripInaccessible(
+    AccessType.UPDATABLE,
+    accounts
+);
+update as user decision.getRecords();
+"""
+required = [
+    "catch (DmlException",
+    "dmle.getMessage()",
+]
+notes = "Security-stripped user-mode update wrapped in a DmlException handler that logs and rethrows the DML message."

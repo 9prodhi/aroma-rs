@@ -1,0 +1,14 @@
+id = "np01-pause-schedule-savepoint"
+category = "error-handling"
+repo = "https://github.com/SalesforceFoundation/NPSP"
+commit = "f5072b44781e7f31cb396c6919cfa7d0ead0ec6a"
+source_file = "force-app/main/default/classes/RD2_ScheduleService.cls"
+source_lines = [1201, 1214]
+query = """
+Savepoint sp = Database.setSavepoint();
+"""
+required = [
+    "Database.rollback(sp)",
+    "catch (Exception e)",
+]
+notes = "Savepoint before multi-step DML; roll back and rethrow a domain exception on failure."

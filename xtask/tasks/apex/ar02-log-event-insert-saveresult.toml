@@ -1,0 +1,26 @@
+id = "ar02-log-event-insert-saveresult"
+category = "saveresult"
+repo = "https://github.com/trailheadapps/apex-recipes"
+commit = "eda6167c5126a34daf66d9e1371ff6957ae223bd"
+source_file = "force-app/main/default/classes/Trigger Recipes/LogTriggerHandler.cls"
+source_lines = [21, 44]
+query = """
+List<LogEvent__c> events = new List<LogEvent__c>();
+
+for (Log__e event : this.incomingRecords) {
+    events.add(
+        new LogEvent__c(
+            Log_Data__c = event.Log_Message__c,
+            Quiddity__c = event.Quiddity__c,
+            Request_Id__c = event.Request_Id__c,
+            Severity__c = event.Severity__c
+        )
+    );
+}
+"""
+required = [
+    "Database.insert(",
+    "Database.SaveResult",
+    "isSuccess()",
+]
+notes = "Platform-event trigger handler: build records from events, partial-success insert, report failed SaveResults."

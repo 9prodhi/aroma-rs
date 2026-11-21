@@ -1,0 +1,19 @@
+---
+source: crates/aroma-lang/tests/apex_adapter.rs
+---
+unit 0
+tree: ["{#}", "{", ["try###", "try", ["{##}", "{", ["#;", ["update#", "update", {$"acc"}], ";"], ["return#;", "return", {"true"}, ";"], "}"], ["catch(#)#", "catch", "(", ["##", {"dmlexception"}, {$"e"#0}], ")", ["{##}", "{", ["#;", ["#.##", {"system"}, ".", {"debug"}, ["(#,#)", "(", ["#.#", {"logginglevel"}, ".", {"error"}], ",", ["#.#()", {$"e"#0}, ".", {"getmessage"}, "(", ")"], ")"]], ";"], ["return#;", "return", {"false"}, ";"], "}"]], ["finally#", "finally", ["{#}", "{", ["#;", ["#.#()", {$"logger"}, ".", {"flush"}, "(", ")"], ";"], "}"]]], "}"]
+features:
+  "acc" ["#VAR","update#2>#VAR","#;1>#VAR","try###2>#VAR","#VAR>>true"]
+  "true" ["true","return#;2>true","try###2>true","#VAR>>true","true>>dmlexception"]
+  "dmlexception" ["dmlexception","##1>dmlexception","catch(#)#3>dmlexception","try###3>dmlexception","true>>dmlexception","dmlexception>>#VAR"]
+  "e" ["#VAR","##2>#VAR","catch(#)#3>#VAR","try###3>#VAR","dmlexception>>#VAR","#VAR>>system","##2>>>#.#()1"]
+  "system" ["system","#.##1>system","#;1>system","catch(#)#5>system","#VAR>>system","system>>debug"]
+  "debug" ["debug","#.##3>debug","#;1>debug","catch(#)#5>debug","system>>debug","debug>>logginglevel"]
+  "logginglevel" ["logginglevel","#.#1>logginglevel","(#,#)2>logginglevel","#.##4>logginglevel","debug>>logginglevel","logginglevel>>error"]
+  "error" ["error","#.#3>error","(#,#)2>error","#.##4>error","logginglevel>>error","error>>#VAR"]
+  "e" ["#VAR","#.#()1>#VAR","(#,#)4>#VAR","#.##4>#VAR","##2>>>#.#()1","error>>#VAR","#VAR>>getmessage"]
+  "getmessage" ["getmessage","#.#()3>getmessage","(#,#)4>getmessage","#.##4>getmessage","#VAR>>getmessage","getmessage>>false"]
+  "false" ["false","return#;2>false","catch(#)#5>false","try###3>false","getmessage>>false","false>>#VAR"]
+  "logger" ["#VAR","#.#()1>#VAR","#;1>#VAR","finally#2>#VAR","false>>#VAR","#VAR>>flush"]
+  "flush" ["flush","#.#()3>flush","#;1>flush","finally#2>flush","#VAR>>flush"]

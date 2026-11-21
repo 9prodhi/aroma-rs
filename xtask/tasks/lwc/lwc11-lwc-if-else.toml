@@ -1,0 +1,23 @@
+id = "lwc11-lwc-if-else"
+category = "template"
+lang = "lwchtml"
+repo = "https://github.com/trailheadapps/lwc-recipes"
+commit = "b5af6ecb2f8d5d75d161b2a702d899f6e4ffc878"
+source_file = "force-app/main/default/lwc/helloConditionalRendering/helloConditionalRendering.html"
+source_lines = [1, 25]
+query = """
+            <lightning-input
+                type="checkbox"
+                label="Show details"
+                onchange={handleChange}
+            ></lightning-input>
+"""
+required = [
+    "lwc:if={",
+    "lwc:else",
+]
+notes = "Conditional template rendering using modern lwc:if and lwc:else directives."
+answer_witness = [
+    "trailheadapps/lwc-recipes:force-app/main/default/lwc/apexImperativeMethod/apexImperativeMethod.html:1",
+    "trailheadapps/lwc-recipes:force-app/main/default/lwc/apexImperativeMethodWithComplexParams/apexImperativeMethodWithComplexParams.html:1",
+]

@@ -1,0 +1,49 @@
+id = "lwc19-record-view-form"
+category = "forms"
+lang = "component"
+repo = "https://github.com/alexed1/LightningFlowComponents"
+commit = "5de6df2c7ce5d23d50e45887c48920b1bfa4f511"
+required = [
+    "<lightning-record-view-form",
+    "record-id={",
+    "@api",
+]
+notes = "Display read-only record details with lightning-record-view-form, a record-id binding, and public component inputs."
+answer_witness = [
+    "alexed1/LightningFlowComponents:flow_screen_components/FlowScreenComponentsBasePack/force-app/main/default/lwc/fsc_flexcardFlow/fsc_flexcardFlow.html:36",
+    "alexed1/LightningFlowComponents:flow_screen_components/flowLookupCPE/force-app/main/default/lwc/recordDetailFlowScreenComponent/recordDetailFlowScreenComponent.html:30",
+]
+
+[[parts]]
+lang = "lwchtml"
+source_file = "flow_screen_components/recordDetailFSC/force-app/main/default/lwc/recordDetailFlowScreenComponent/recordDetailFlowScreenComponent.html"
+source_lines = [56, 78]
+query = """
+                            <lightning-layout multiple-rows="true">
+                                <template for:each={fieldData} for:item="field">
+                                    <lightning-layout-item key={field.fieldName} size={elementSize}>
+                                        <div if:false={suppressUnderline} class="underline">
+                                            <lightning-output-field if:false={field.isError} field-name={field.fieldName}>
+                                            </lightning-output-field>
+                                        </div>
+                                        <div if:true={suppressUnderline}>
+                                            <lightning-output-field if:false={field.isError} field-name={field.fieldName}>
+                                            </lightning-output-field>
+                                        </div>
+                                        <div if:true={field.isError} class="slds-text-color_destructive">
+                                            {field.errorMessage}
+                                        </div>
+                                    </lightning-layout-item>
+                                </template>
+                            </lightning-layout>
+"""
+
+[[parts]]
+lang = "lwcjs"
+source_file = "flow_screen_components/recordDetailFSC/force-app/main/default/lwc/recordDetailFlowScreenComponent/recordDetailFlowScreenComponent.js"
+source_lines = [136, 138]
+query = """
+    get isViewMode() {
+        return this.mode.toLowerCase() === 'view';
+    }
+"""

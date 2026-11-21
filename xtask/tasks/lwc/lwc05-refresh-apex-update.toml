@@ -1,0 +1,25 @@
+id = "lwc05-refresh-apex-update"
+category = "wire"
+lang = "lwcjs"
+repo = "https://github.com/trailheadapps/lwc-recipes"
+commit = "b5af6ecb2f8d5d75d161b2a702d899f6e4ffc878"
+source_file = "force-app/main/default/lwc/ldsDeleteRecord/ldsDeleteRecord.js"
+source_lines = [27, 48]
+query = """
+            this.dispatchEvent(
+                new ShowToastEvent({
+                    title: 'Success',
+                    message: 'Account deleted',
+                    variant: 'success'
+                })
+            );
+"""
+required = [
+    "await refreshApex(",
+    "catch (error)",
+]
+notes = "Refresh cached wire data after an imperative record mutation, awaiting refreshApex and handling failures in catch."
+answer_witness = [
+    "trailheadapps/lwc-recipes:force-app/main/default/lwc/datatableInlineEditWithApex/datatableInlineEditWithApex.js:42",
+    "trailheadapps/lwc-recipes:force-app/main/default/lwc/datatableInlineEditWithUiApi/datatableInlineEditWithUiApi.js:73",
+]

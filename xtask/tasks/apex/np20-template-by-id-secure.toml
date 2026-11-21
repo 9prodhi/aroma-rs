@@ -1,0 +1,23 @@
+id = "np20-template-by-id-secure"
+category = "soql-security"
+repo = "https://github.com/SalesforceFoundation/NPSP"
+commit = "f5072b44781e7f31cb396c6919cfa7d0ead0ec6a"
+source_file = "force-app/main/default/classes/GE_GiftEntryController.cls"
+source_lines = [1090, 1110]
+query = """
+GE_Template.Template template;
+
+Form_Template__c templateObj = [
+        SELECT Id, Name, Format_Version__c, Template_JSON__c
+        FROM Form_Template__c
+        WHERE Id =: templateId
+        LIMIT 1
+];
+"""
+required = [
+    "WITH SECURITY_ENFORCED",
+    "deserializeFormTemplateFromObj(",
+    "checkPermissions(",
+    "GE_Template.AccessLevel.VALIDATE_READ",
+]
+notes = "Template lookup: the SOQL needs WITH SECURITY_ENFORCED, then the template is deserialized and checked for read/create/update permissions."

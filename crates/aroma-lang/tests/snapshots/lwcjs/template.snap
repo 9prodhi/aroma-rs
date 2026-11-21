@@ -1,0 +1,4 @@
+---
+source: crates/aroma-lang/tests/lwc_js_adapter.rs
+---
+["{#}", "{", ["return#;", "return", ["`#####`", "`", {"Hello "}, ["${#}", "${", ["this.#", "this", ".", {"name"}], "}"], {", "}, ["${#}", "${", {$"count"}, "}"], {" records"}, "`"], ";"], "}"]

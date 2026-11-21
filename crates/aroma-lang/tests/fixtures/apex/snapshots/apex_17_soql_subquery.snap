@@ -1,0 +1,12 @@
+---
+source: crates/aroma-lang/tests/apex_adapter.rs
+---
+unit 0
+tree: ["{#}", "{", ["return#;", "return", ["[#]", "[", ["##", ["select#,#,#", "select", ["(#)", "(", ["##", ["select#,#", "select", {"id"}, ",", {"lastname"}], ["from#", "from", {"contacts"}]], ")"], ",", {"id"}, ",", {"name"}], ["from#", "from", {"account"}]], "]"], ";"], "}"]
+features:
+  "id" ["id","select#,#2>id","##1>id","select#,#,#2>id","id>>lastname"]
+  "lastname" ["lastname","select#,#4>lastname","##1>lastname","select#,#,#2>lastname","id>>lastname","lastname>>contacts"]
+  "contacts" ["contacts","from#2>contacts","##2>contacts","select#,#,#2>contacts","lastname>>contacts","contacts>>id"]
+  "id" ["id","select#,#,#4>id","##1>id","[#]2>id","contacts>>id","id>>name"]
+  "name" ["name","select#,#,#6>name","##1>name","[#]2>name","id>>name","name>>account"]
+  "account" ["account","from#2>account","##2>account","[#]2>account","name>>account"]

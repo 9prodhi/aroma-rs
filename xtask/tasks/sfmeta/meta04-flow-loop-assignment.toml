@@ -1,0 +1,26 @@
+id = "meta04-flow-loop-assignment"
+category = "flow-loop"
+lang = "sfmeta"
+repo = "https://github.com/SalesforceLabs/revenue-cloud-foundations"
+commit = "c8506522ba45bb2c0015d41fa5eace51eed1ff91"
+source_file = "unpackaged/post_utils/flows/RLM_ARC_Assets.flow-meta.xml"
+source_lines = [1814, 1827]
+query = """
+    <loops>
+        <name>Create_Transfer_Records</name>
+        <label>Create Transfer Records</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+"""
+required = [
+    "<collectionReference>",
+    "<iterationOrder>",
+    "<nextValueConnector>",
+    "<noMoreValuesConnector>",
+]
+notes = "Flow loop iterating over a collection reference with next and end connectors."
+answer_witness = [
+    "navikt/crm-ips:force-app/main/default/flows/IPS_Create_archive_entries.flow-meta.xml:168",
+    "navikt/crm-ips:force-app/main/default/flows/IPS_Admin_GiveUserAccess.flow-meta.xml:573",
+    "navikt/crm-ips:force-app/main/default/flows/IPS_Archive_worktrail.flow-meta.xml:1756",
+]

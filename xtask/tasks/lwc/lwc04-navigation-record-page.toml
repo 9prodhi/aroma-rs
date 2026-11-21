@@ -1,0 +1,24 @@
+id = "lwc04-navigation-record-page"
+category = "navigation"
+lang = "lwcjs"
+repo = "https://github.com/trailheadapps/lwc-recipes"
+commit = "b5af6ecb2f8d5d75d161b2a702d899f6e4ffc878"
+source_file = "force-app/main/default/lwc/navToRelatedList/navToRelatedList.js"
+source_lines = [10, 20]
+query = """
+            type: 'standard__recordRelationshipPage',
+            attributes: {
+                recordId: this.account.data.Id,
+                objectApiName: 'Account',
+                relationshipApiName: 'Contacts',
+            }
+"""
+required = [
+    "this[NavigationMixin.Navigate]({",
+    "actionName: 'view'",
+]
+notes = "Navigate to a record or related record list via NavigationMixin with a view action."
+answer_witness = [
+    "trailheadapps/lwc-recipes:force-app/main/default/lwc/lds/lds.js:8",
+    "trailheadapps/lwc-recipes:force-app/main/default/lwc/navToRecord/navToRecord.js:8",
+]

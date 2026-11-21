@@ -1,0 +1,16 @@
+id = "ar06-update-accounts-user-mode"
+category = "bulk-dml"
+repo = "https://github.com/trailheadapps/apex-recipes"
+commit = "eda6167c5126a34daf66d9e1371ff6957ae223bd"
+source_file = "force-app/main/default/classes/Data Recipes/DMLRecipes.cls"
+source_lines = [200, 212]
+query = """
+for (Account acct : accts) {
+    acct.Name += ' Updated via Keyword';
+}
+"""
+required = [
+    "update as user",
+    "catch (DmlException",
+]
+notes = "Mutate records in a loop, then a single user-mode update guarded by a DmlException handler."

@@ -1,0 +1,47 @@
+id = "lwc17-wire-picklist-values"
+category = "wire"
+lang = "component"
+repo = "https://github.com/SalesforceLabs/Imhotep-App-Builder"
+commit = "f2e3f770c2393fe54a8059d812fa19caa39a9a1a"
+required = [
+    "@wire(getPicklistValues,",
+    "recordTypeId:",
+]
+notes = "Fetch record-type picklist values with getPicklistValues and render their translated labels as project status tabs."
+answer_witness = [
+    "SalesforceLabs/Imhotep-App-Builder:force-app/main/default/lwc/imhotepMetadataComponentList/imhotepMetadataComponentList.js:168",
+    "SalesforceLabs/Imhotep-App-Builder:force-app/main/default/lwc/imhotepProjectMembers/imhotepProjectMembers.js:179",
+]
+
+[[parts]]
+lang = "lwchtml"
+source_file = "force-app/main/default/lwc/imhotepMyProjects/imhotepMyProjects.html"
+source_lines = [39, 44]
+query = """
+                <lightning-tabset class="slds-tabs_medium" active-tab-value={activeTabValue}>
+                    <template for:each={statusTabs} for:item="tab">
+
+                        <!-- Project Tab -->
+                        <lightning-tab label={tab.label} value={tab.value} key={tab.value} class="slds-var-p-horizontal_small">
+                            <template if:true={tab.projects.length}>
+"""
+
+[[parts]]
+lang = "lwcjs"
+source_file = "force-app/main/default/lwc/imhotepMyProjects/imhotepMyProjects.js"
+source_lines = [139, 155]
+query = """
+    projectStatusPicklistValues({ data, error }) {
+        if (data) {
+            this.statusTabs = data.values.map(val => ({
+                label: val.label,
+                value: val.value,
+                projects: []
+            }));
+
+            this.splitProjectsByStatus();
+        } else if (error) {
+            console.error('Error loading picklist values:', error);
+        }
+    }
+"""

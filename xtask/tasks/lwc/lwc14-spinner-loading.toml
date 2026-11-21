@@ -1,0 +1,23 @@
+id = "lwc14-spinner-loading"
+category = "ui"
+lang = "lwchtml"
+repo = "https://github.com/SalesforceFoundation/PMM"
+commit = "4c5f3c79b930485f1fafb65b5acd6e1becf8a071"
+source_file = "force-app/main/default/lwc/attendance/attendance.html"
+source_lines = [103, 110]
+query = """
+                <template if:true={showSpinner}>
+                    <div class="slds-align_absolute-center">
+                    </div>
+                </template>
+"""
+required = [
+    "<lightning-spinner",
+    "alternative-text=",
+    "size=",
+]
+notes = "Display a lightning-spinner loading indicator conditionally when background operations run."
+answer_witness = [
+    "SalesforceFoundation/PMM:force-app/main/default/lwc/loadingStencil/loadingStencil.html:1",
+    "SalesforceFoundation/PMM:force-app/main/default/lwc/newProgramEngagement/newProgramEngagement.html:10",
+]

@@ -1,0 +1,22 @@
+---
+source: crates/aroma-lang/tests/java_adapter.rs
+---
+unit 0
+compat:  ["{#######}", "{", ["#;", ["int#", "int", ["#=#", {$"dec"}, "=", {"42"}]], ";"], ["#;", ["int#", "int", ["#=#", {$"hex"}, "=", {"0xFF"}]], ";"], ["#;", ["double#", "double", ["#=#", {$"ratio"}, "=", {"1.5e3"}]], ";"], ["#;", ["char#", "char", ["#=#", {$"quote"}, "=", {"'\\''"}]], ";"], ["#;", ["##", {"String"}, ["#=#", {$"text"}, "=", {"\"a \\\"b\\\"\""}]], ";"], ["#;", ["boolean#", "boolean", ["#=#", {$"ok"}, "=", {"true"}]], ";"], ["#;", ["##", {"Object"}, ["#=null", {$"nothing"}, "=", "null"]], ";"], "}"]
+default: ["{#######}", "{", ["#;", ["int#", "int", ["#=#", {$"dec"#0}, "=", {"42"}]], ";"], ["#;", ["int#", "int", ["#=#", {$"hex"#1}, "=", {"0xFF"}]], ";"], ["#;", ["double#", "double", ["#=#", {$"ratio"#2}, "=", {"1.5e3"}]], ";"], ["#;", ["char#", "char", ["#=#", {$"quote"#3}, "=", {"'\\''"}]], ";"], ["#;", ["##", {"String"}, ["#=#", {$"text"#4}, "=", {"\"a \\\"b\\\"\""}]], ";"], ["#;", ["boolean#", "boolean", ["#=#", {$"ok"#5}, "=", {"true"}]], ";"], ["#;", ["##", {"Object"}, ["#=null", {$"nothing"#6}, "=", "null"]], ";"], "}"]
+features:
+  "dec" ["#VAR","#=#1>#VAR","int#2>#VAR","#;1>#VAR","#VAR>>42"]
+  "42" ["42","#=#3>42","int#2>42","#;1>42","#VAR>>42","42>>#VAR"]
+  "hex" ["#VAR","#=#1>#VAR","int#2>#VAR","#;1>#VAR","42>>#VAR","#VAR>>0xFF"]
+  "0xFF" ["0xFF","#=#3>0xFF","int#2>0xFF","#;1>0xFF","#VAR>>0xFF","0xFF>>#VAR"]
+  "ratio" ["#VAR","#=#1>#VAR","double#2>#VAR","#;1>#VAR","0xFF>>#VAR","#VAR>>1.5e3"]
+  "1.5e3" ["1.5e3","#=#3>1.5e3","double#2>1.5e3","#;1>1.5e3","#VAR>>1.5e3","1.5e3>>#VAR"]
+  "quote" ["#VAR","#=#1>#VAR","char#2>#VAR","#;1>#VAR","1.5e3>>#VAR","#VAR>>'\\''"]
+  "'\\''" ["'\\''","#=#3>'\\''","char#2>'\\''","#;1>'\\''","#VAR>>'\\''","'\\''>>String"]
+  "String" ["String","##1>String","#;1>String","'\\''>>String","String>>#VAR"]
+  "text" ["#VAR","#=#1>#VAR","##2>#VAR","#;1>#VAR","String>>#VAR","#VAR>>\"a \\\"b\\\"\""]
+  "\"a \\\"b\\\"\"" ["\"a \\\"b\\\"\"","#=#3>\"a \\\"b\\\"\"","##2>\"a \\\"b\\\"\"","#;1>\"a \\\"b\\\"\"","#VAR>>\"a \\\"b\\\"\"","\"a \\\"b\\\"\">>#VAR"]
+  "ok" ["#VAR","#=#1>#VAR","boolean#2>#VAR","#;1>#VAR","\"a \\\"b\\\"\">>#VAR","#VAR>>true"]
+  "true" ["true","#=#3>true","boolean#2>true","#;1>true","#VAR>>true","true>>Object"]
+  "Object" ["Object","##1>Object","#;1>Object","true>>Object","Object>>#VAR"]
+  "nothing" ["#VAR","#=null1>#VAR","##2>#VAR","#;1>#VAR","Object>>#VAR"]

@@ -1,0 +1,11 @@
+---
+source: crates/aroma-lang/tests/java_adapter.rs
+---
+unit 0
+compat:  ["{##}", "{", ["#;", ["#=#", ["this.#", "this", ".", {"width"}], "=", ["#.#", {$"other"}, ".", {"width"}]], ";"], ["#;", ["super.#", "super", ".", ["#()", {"toString"}, "(", ")"]], ";"], "}"]
+default: ["{##}", "{", ["#;", ["#=#", ["this.#", "this", ".", {"width"}], "=", ["#.#", {$"other"}, ".", {"width"}]], ";"], ["#;", ["super.#", "super", ".", ["#()", {"toString"}, "(", ")"]], ";"], "}"]
+features:
+  "width" ["width","this.#3>width","#=#1>width","#;1>width","width>>#VAR"]
+  "other" ["#VAR","#.#1>#VAR","#=#3>#VAR","#;1>#VAR","width>>#VAR","#VAR>>width"]
+  "width" ["width","#.#3>width","#=#3>width","#;1>width","#VAR>>width","width>>toString"]
+  "toString" ["toString","#()1>toString","super.#3>toString","#;1>toString","width>>toString"]

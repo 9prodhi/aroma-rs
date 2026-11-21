@@ -1,0 +1,23 @@
+id = "meta08-vr-ischanged-priorvalue"
+category = "validation-rule"
+lang = "sfmeta"
+repo = "https://github.com/SalesforceLabs/ActionPlansV4"
+commit = "ef5a417a3fd243ee9c0e2dead1b9e4a7dcbd6fe8"
+source_file = "sfdx-source/LabsActionPlans/main/default/objects/ActionPlan__c/validationRules/Cannot_clear_Template_field.validationRule-meta.xml"
+source_lines = [1, 10]
+query = """
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_clear_Template_field</fullName>
+    <active>true</active>
+    <errorMessage>Cannot change Template value once it is set</errorMessage>
+</ValidationRule>
+"""
+required = [
+    "ISCHANGED(",
+    "PRIORVALUE(",
+]
+notes = "Validation rule guarding field immutability using ISCHANGED and PRIORVALUE."
+answer_witness = [
+    "navikt/crm-ips:force-app/main/default/objects/Work_Trail__c/validationRules/Worktrail_Prevent_Status_Change_If_Ended.validationRule-meta.xml:7",
+    "navikt/crm-arbeidsgiver-base:force-app/main/default/objects/EmployerInquiry__c/validationRules/LockForUpdate.validationRule-meta.xml:7",
+]

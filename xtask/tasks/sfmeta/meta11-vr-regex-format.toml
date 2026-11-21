@@ -1,0 +1,25 @@
+id = "meta11-vr-regex-format"
+category = "validation-rule"
+lang = "sfmeta"
+repo = "https://github.com/SalesforceFoundation/Volunteers-for-Salesforce"
+commit = "332a6756de3654d8f1f669230a193acfe3a4ad59"
+source_file = "src/objects/Volunteer_Job__c.object"
+source_lines = [765, 772]
+query = """
+    <validationRules>
+        <fullName>ValidateExternalSignupUrl</fullName>
+        <active>true</active>
+        <description>Validates that the External Signup URL field begins with an expected URI Scheme.</description>
+        <errorDisplayField>External_Signup_Url__c</errorDisplayField>
+        <errorMessage>The External Signup Url value must begin with http, https, or mailto.</errorMessage>
+    </validationRules>
+"""
+required = [
+    "REGEX(",
+    "NOT(",
+]
+notes = "Validation rule validating URL string pattern using regular expression syntax."
+answer_witness = [
+    "navikt/crm-arbeidsgiver-base:force-app/main/default/objects/Contact/validationRules/Only_accept_number_in_mobile_fields.validationRule-meta.xml:5",
+    "navikt/crm-arbeidsgiver-base:force-app/main/default/objects/Contact/validationRules/Only_accept_number_in_phone_fields.validationRule-meta.xml:5",
+]

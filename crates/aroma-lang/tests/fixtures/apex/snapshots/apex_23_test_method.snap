@@ -1,0 +1,21 @@
+---
+source: crates/aroma-lang/tests/apex_adapter.rs
+---
+unit 0
+tree: ["{#####}", "{", ["##;", {"account"}, ["#=#", {$"acc"#0}, "=", ["new##", "new", {"account"}, ["(#)", "(", ["#=#", {"name"}, "=", {"'Acme'"}], ")"]]], ";"], ["#;", ["#.#()", {"test"}, ".", {"starttest"}, "(", ")"], ";"], ["#;", ["insert#", "insert", {$"acc"#0}], ";"], ["#;", ["#.#()", {"test"}, ".", {"stoptest"}, "(", ")"], ";"], ["#;", ["#.##", {"system"}, ".", {"assertequals"}, ["(#,#)", "(", {"1"}, ",", ["[#]", "[", ["##", ["select#", "select", ["#()", {"count"}, "(", ")"]], ["from#", "from", {"account"}]], "]"], ")"]], ";"], "}"]
+features:
+  "account" ["account","##;1>account","account>>#VAR"]
+  "acc" ["#VAR","#=#1>#VAR","##;2>#VAR","account>>#VAR","#VAR>>account","#=#1>>>insert#2"]
+  "account" ["account","new##2>account","#=#3>account","##;2>account","#VAR>>account","account>>name"]
+  "name" ["name","#=#1>name","new##3>name","#=#3>name","account>>name","name>>'Acme'"]
+  "'Acme'" ["'Acme'","#=#3>'Acme'","new##3>'Acme'","#=#3>'Acme'","name>>'Acme'","'Acme'>>test"]
+  "test" ["test","#.#()1>test","#;1>test","'Acme'>>test","test>>starttest"]
+  "starttest" ["starttest","#.#()3>starttest","#;1>starttest","test>>starttest","starttest>>#VAR"]
+  "acc" ["#VAR","insert#2>#VAR","#;1>#VAR","#=#1>>>insert#2","starttest>>#VAR","#VAR>>test"]
+  "test" ["test","#.#()1>test","#;1>test","#VAR>>test","test>>stoptest"]
+  "stoptest" ["stoptest","#.#()3>stoptest","#;1>stoptest","test>>stoptest","stoptest>>system"]
+  "system" ["system","#.##1>system","#;1>system","stoptest>>system","system>>assertequals"]
+  "assertequals" ["assertequals","#.##3>assertequals","#;1>assertequals","system>>assertequals","assertequals>>1"]
+  "1" ["1","(#,#)2>1","#.##4>1","#;1>1","assertequals>>1","1>>count"]
+  "count" ["count","#()1>count","select#2>count","##1>count","1>>count","count>>account"]
+  "account" ["account","from#2>account","##2>account","[#]2>account","count>>account"]

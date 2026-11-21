@@ -1,0 +1,11 @@
+---
+source: crates/aroma-lang/tests/java_adapter.rs
+---
+unit 0
+compat:  ["{#}", "{", ["do#while#;", "do", ["{#}", "{", ["#;", ["#.#", {$"lock"}, ".", ["#()", {"tryAcquire"}, "(", ")"]], ";"], "}"], "while", ["(#)", "(", ["!#", "!", ["#.#", {$"lock"}, ".", ["#()", {"isHeld"}, "(", ")"]]], ")"], ";"], "}"]
+default: ["{#}", "{", ["do#while#;", "do", ["{#}", "{", ["#;", ["#.#", {$"lock"}, ".", ["#()", {"tryAcquire"}, "(", ")"]], ";"], "}"], "while", ["(#)", "(", ["!#", "!", ["#.#", {$"lock"}, ".", ["#()", {"isHeld"}, "(", ")"]]], ")"], ";"], "}"]
+features:
+  "lock" ["#VAR","#.#1>#VAR","#;1>#VAR","do#while#;2>#VAR","#VAR>>tryAcquire","tryAcquire>>>isHeld"]
+  "tryAcquire" ["tryAcquire","#()1>tryAcquire","#.#3>tryAcquire","#;1>tryAcquire","#VAR>>tryAcquire","tryAcquire>>#VAR"]
+  "lock" ["#VAR","#.#1>#VAR","!#2>#VAR","do#while#;4>#VAR","tryAcquire>>>isHeld","tryAcquire>>#VAR","#VAR>>isHeld"]
+  "isHeld" ["isHeld","#()1>isHeld","#.#3>isHeld","!#2>isHeld","#VAR>>isHeld"]

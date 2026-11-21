@@ -1,0 +1,25 @@
+---
+source: crates/aroma-lang/tests/java_adapter.rs
+---
+unit 0
+compat:  ["{###}", "{", ["#;", ["#.#", {$"items"}, ".", ["#(#)", {"forEach"}, "(", ["#::#", ["#.#", {$"System"}, ".", {"out"}], "::", {"println"}], ")"]], ";"], ["#;", ["#.#", {$"items"}, ".", ["#(#)", {"removeIf"}, "(", ["#::#", {$"seen"}, "::", {"contains"}], ")"]], ";"], ["#;", ["#.#", ["#.#", ["#.#", {$"items"}, ".", ["#()", {"stream"}, "(", ")"]], ".", ["#(#)", {"map"}, "(", ["#::#", {$"String"}, "::", {"valueOf"}], ")"]], ".", ["#(#)", {"collect"}, "(", ["#.#", {$"Collectors"}, ".", ["#(#)", {"toCollection"}, "(", ["#::new", {$"ArrayList"}, "::", "new"], ")"]], ")"]], ";"], "}"]
+default: ["{###}", "{", ["#;", ["#.#", {$"items"}, ".", ["#(#)", {"forEach"}, "(", ["#::#", ["#.#", {"System"}, ".", {"out"}], "::", {"println"}], ")"]], ";"], ["#;", ["#.#", {$"items"}, ".", ["#(#)", {"removeIf"}, "(", ["#::#", {$"seen"}, "::", {"contains"}], ")"]], ";"], ["#;", ["#.#", ["#.#", ["#.#", {$"items"}, ".", ["#()", {"stream"}, "(", ")"]], ".", ["#(#)", {"map"}, "(", ["#::#", {"String"}, "::", {"valueOf"}], ")"]], ".", ["#(#)", {"collect"}, "(", ["#.#", {"Collectors"}, ".", ["#(#)", {"toCollection"}, "(", ["#::new", {"ArrayList"}, "::", "new"], ")"]], ")"]], ";"], "}"]
+features:
+  "items" ["#VAR","#.#1>#VAR","#;1>#VAR","#VAR>>forEach","forEach>>>removeIf","forEach>>>stream"]
+  "forEach" ["forEach","#(#)1>forEach","#.#3>forEach","#;1>forEach","#VAR>>forEach","forEach>>System"]
+  "System" ["System","#.#1>System","#::#1>System","#(#)3>System","forEach>>System","System>>out"]
+  "out" ["out","#.#3>out","#::#1>out","#(#)3>out","System>>out","out>>println"]
+  "println" ["println","#::#3>println","#(#)3>println","#.#3>println","out>>println","println>>#VAR"]
+  "items" ["#VAR","#.#1>#VAR","#;1>#VAR","forEach>>>removeIf","println>>#VAR","#VAR>>removeIf","removeIf>>>stream"]
+  "removeIf" ["removeIf","#(#)1>removeIf","#.#3>removeIf","#;1>removeIf","#VAR>>removeIf","removeIf>>#VAR"]
+  "seen" ["#VAR","#::#1>#VAR","#(#)3>#VAR","#.#3>#VAR","removeIf>>#VAR","#VAR>>contains"]
+  "contains" ["contains","#::#3>contains","#(#)3>contains","#.#3>contains","#VAR>>contains","contains>>#VAR"]
+  "items" ["#VAR","#.#1>#VAR","#.#1>#VAR","#.#1>#VAR","removeIf>>>stream","forEach>>>stream","contains>>#VAR","#VAR>>stream"]
+  "stream" ["stream","#()1>stream","#.#3>stream","#.#1>stream","#VAR>>stream","stream>>map"]
+  "map" ["map","#(#)1>map","#.#3>map","#.#1>map","stream>>map","map>>String"]
+  "String" ["String","#::#1>String","#(#)3>String","#.#3>String","map>>String","String>>valueOf"]
+  "valueOf" ["valueOf","#::#3>valueOf","#(#)3>valueOf","#.#3>valueOf","String>>valueOf","valueOf>>collect"]
+  "collect" ["collect","#(#)1>collect","#.#3>collect","#;1>collect","valueOf>>collect","collect>>Collectors"]
+  "Collectors" ["Collectors","#.#1>Collectors","#(#)3>Collectors","#.#3>Collectors","collect>>Collectors","Collectors>>toCollection"]
+  "toCollection" ["toCollection","#(#)1>toCollection","#.#3>toCollection","#(#)3>toCollection","Collectors>>toCollection","toCollection>>ArrayList"]
+  "ArrayList" ["ArrayList","#::new1>ArrayList","#(#)3>ArrayList","#.#3>ArrayList","toCollection>>ArrayList"]

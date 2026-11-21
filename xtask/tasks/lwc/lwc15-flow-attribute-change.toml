@@ -1,0 +1,41 @@
+id = "lwc15-flow-attribute-change"
+category = "flow"
+lang = "component"
+repo = "https://github.com/alexed1/LightningFlowComponents"
+commit = "5de6df2c7ce5d23d50e45887c48920b1bfa4f511"
+required = [
+    "FlowAttributeChangeEvent",
+    "this.dispatchEvent(",
+]
+notes = "Notify flow engine of changed output attributes via FlowAttributeChangeEvent."
+answer_witness = [
+    "alexed1/LightningFlowComponents:flow_action_components/ExecuteSOQLQuery/force-app/main/default/lwc/soqlQueryBuilder/soqlQueryBuilder.js:188",
+    "alexed1/LightningFlowComponents:flow_action_components/MapDataAction/force-app/main/default/lwc/pickObjectAndFieldFSC/pickObjectAndFieldFSC.js:166",
+]
+
+[[parts]]
+lang = "lwchtml"
+source_file = "flow_screen_components/flowPickerFSC/force-app/main/default/lwc/flowPickerFSC/flowPickerFSC.html"
+source_lines = [29, 40]
+query = """
+            <lightning-combobox
+                    name={label}
+                    label={label}
+                    placeholder={placeholder}
+                    value={selectedFlowApiName}
+                    options={options}
+                    required={required}
+                    onchange={handleChange} ></lightning-combobox>
+"""
+
+[[parts]]
+lang = "lwcjs"
+source_file = "flow_screen_components/flowPickerFSC/force-app/main/default/lwc/flowPickerFSC/flowPickerFSC.js"
+source_lines = [61, 71]
+query = """
+    // This is added to make the selected Flow API Name available to a calling Aura component
+    @api
+    flowApiName() {
+        return this.selectedFlowApiName;
+    }
+"""

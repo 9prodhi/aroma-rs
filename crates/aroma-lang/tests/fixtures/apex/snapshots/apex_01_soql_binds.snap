@@ -1,0 +1,13 @@
+---
+source: crates/aroma-lang/tests/apex_adapter.rs
+---
+unit 0
+tree: ["{#}", "{", ["return#;", "return", ["[#]", "[", ["###", ["select#,#", "select", {"id"}, ",", {"lastname"}], ["from#", "from", {"contact"}], ["where#", "where", ["#and#", ["#=#", {"accountid"}, "=", [":#", ":", {$"accountid"}]], "and", ["#in#", {"title"}, "in", [":#", ":", {$"titles"}]]]]], "]"], ";"], "}"]
+features:
+  "id" ["id","select#,#2>id","###1>id","[#]2>id","id>>lastname"]
+  "lastname" ["lastname","select#,#4>lastname","###1>lastname","[#]2>lastname","id>>lastname","lastname>>contact"]
+  "contact" ["contact","from#2>contact","###2>contact","[#]2>contact","lastname>>contact","contact>>accountid"]
+  "accountid" ["accountid","#=#1>accountid","#and#1>accountid","where#2>accountid","contact>>accountid","accountid>>#VAR"]
+  "accountid" ["#VAR",":#2>#VAR","#=#3>#VAR","#and#1>#VAR","accountid>>#VAR","#VAR>>title"]
+  "title" ["title","#in#1>title","#and#3>title","where#2>title","#VAR>>title","title>>#VAR"]
+  "titles" ["#VAR",":#2>#VAR","#in#3>#VAR","#and#3>#VAR","title>>#VAR"]

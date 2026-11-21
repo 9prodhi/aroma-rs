@@ -1,0 +1,19 @@
+id = "nl14-slack-enqueue-notifications"
+category = "async"
+repo = "https://github.com/jongpie/NebulaLogger"
+commit = "b792ac8d8b4eb31b14a164a24951c3cb4125a616"
+source_file = "nebula-logger/plugins/slack/plugin/slack/classes/SlackLoggerPlugin.cls"
+source_lines = [135, 147]
+query = """
+List<Log__c> logsToSend = new List<Log__c>();
+for (Log__c log : this.logs) {
+  if (log.SendSlackNotification__c) {
+    logsToSend.add(log);
+  }
+}
+"""
+required = [
+    "isEmpty()",
+    "System.enqueueJob(new SlackLoggerPlugin(",
+]
+notes = "Trigger-time plugin collects the records that need a callout and hands them to a queueable (triggers cannot call out)."

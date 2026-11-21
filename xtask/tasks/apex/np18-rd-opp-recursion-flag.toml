@@ -1,0 +1,18 @@
+id = "np18-rd-opp-recursion-flag"
+category = "trigger-guard"
+repo = "https://github.com/SalesforceFoundation/NPSP"
+commit = "f5072b44781e7f31cb396c6919cfa7d0ead0ec6a"
+source_file = "force-app/main/default/classes/RD2_RecurringDonationsOpp_TDTM.cls"
+source_lines = [47, 64]
+query = """
+if (!RD2_EnablementService.isRecurringDonations2Enabled
+    || TDTM_ProcessControl.isRecursive(TDTM_ProcessControl.flag.RD)
+) {
+    return null;
+}
+"""
+required = [
+    "TDTM_ProcessControl.setRecursionFlag(TDTM_ProcessControl.flag.RD, true)",
+    "TDTM_ProcessControl.setRecursionFlag(TDTM_ProcessControl.flag.RD, false)",
+]
+notes = "TDTM run(): return early while the recursion flag is set, otherwise set the flag around the work and clear it before returning."

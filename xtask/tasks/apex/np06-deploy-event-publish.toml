@@ -1,0 +1,21 @@
+id = "np06-deploy-event-publish"
+category = "saveresult"
+repo = "https://github.com/SalesforceFoundation/NPSP"
+commit = "f5072b44781e7f31cb396c6919cfa7d0ead0ec6a"
+source_file = "force-app/main/default/classes/BDI_ManageAdvancedMappingCtrl.cls"
+source_lines = [659, 679]
+query = """
+DeploymentEvent__e de = new DeploymentEvent__e(
+        DeploymentId__c = deployResult.id,
+        Status__c = deployResult.status.name(),
+        CompletedDate__c = deployResult.completedDate
+);
+
+deploymentEvents.add(de);
+"""
+required = [
+    "Database.SaveResult",
+    "isSuccess()",
+    "getErrors()",
+]
+notes = "Publish a platform event and surface every error of a failed SaveResult."

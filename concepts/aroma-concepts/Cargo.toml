@@ -1,0 +1,12 @@
+[package]
+name = "aroma-concepts"
+version = "0.0.0"
+edition = "2021"
+publish = false
+license = "Apache-2.0"
+description = "Aroma (arXiv 1812.01158) concepts expressed as Rust; seed for code search and the real implementation"
+
+[dependencies]
+tree-sitter = "0.25"
+tree-sitter-java = "0.23"
+tree-sitter-sfapex = "3"

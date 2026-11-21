@@ -1,0 +1,25 @@
+---
+source: crates/aroma-lang/tests/apex_adapter.rs
+---
+unit 0
+tree: ["{###}", "{", ["##;", ["##", {"list"}, ["<#>", "<", {"task"}, ">"]], ["#=#", {$"done"#0}, "=", ["new#()", "new", ["##", {"list"}, ["<#>", "<", {"task"}, ">"]], "(", ")"]], ";"], ["for(##:#)#", "for", "(", {"task"}, {$"t"#1}, ":", ["[#]", "[", ["###", ["select#,#", "select", {"id"}, ",", {"status"}], ["from#", "from", {"task"}], ["where#", "where", ["#=#", {"ownerid"}, "=", [":#", ":", {$"ownerid"}]]]], "]"], ")", ["{##}", "{", ["#;", ["#=#", ["#.#", {$"t"#1}, ".", {"status"}], "=", {"'Completed'"}], ";"], ["#;", ["#.##", {$"done"#0}, ".", {"add"}, ["(#)", "(", {$"t"#1}, ")"]], ";"], "}"]], ["#;", ["update#", "update", {$"done"#0}], ";"], "}"]
+features:
+  "list" ["list","##1>list","##;1>list","list>>task"]
+  "task" ["task","<#>2>task","##2>task","##;1>task","list>>task","task>>#VAR"]
+  "done" ["#VAR","#=#1>#VAR","##;2>#VAR","task>>#VAR","#VAR>>list","#=#1>>>#.##1","#=#1>>>update#2"]
+  "list" ["list","##1>list","new#()2>list","#=#3>list","#VAR>>list","list>>task"]
+  "task" ["task","<#>2>task","##2>task","new#()2>task","list>>task","task>>task"]
+  "task" ["task","for(##:#)#3>task","task>>task","task>>#VAR"]
+  "t" ["#VAR","for(##:#)#4>#VAR","task>>#VAR","#VAR>>id","for(##:#)#4>>>status","for(##:#)#4>>>(#)2"]
+  "id" ["id","select#,#2>id","###1>id","[#]2>id","#VAR>>id","id>>status"]
+  "status" ["status","select#,#4>status","###1>status","[#]2>status","id>>status","status>>task"]
+  "task" ["task","from#2>task","###2>task","[#]2>task","status>>task","task>>ownerid"]
+  "ownerid" ["ownerid","#=#1>ownerid","where#2>ownerid","###3>ownerid","task>>ownerid","ownerid>>#VAR"]
+  "ownerid" ["#VAR",":#2>#VAR","#=#3>#VAR","where#2>#VAR","ownerid>>#VAR","#VAR>>#VAR"]
+  "t" ["#VAR","#.#1>#VAR","#=#1>#VAR","#;1>#VAR","for(##:#)#4>>>status","#VAR>>#VAR","#VAR>>status","status>>>(#)2"]
+  "status" ["status","#.#3>status","#=#1>status","#;1>status","#VAR>>status","status>>'Completed'"]
+  "'Completed'" ["'Completed'","#=#3>'Completed'","#;1>'Completed'","for(##:#)#8>'Completed'","status>>'Completed'","'Completed'>>#VAR"]
+  "done" ["#VAR","#.##1>#VAR","#;1>#VAR","for(##:#)#8>#VAR","#=#1>>>#.##1","'Completed'>>#VAR","#VAR>>add","#.##1>>>update#2"]
+  "add" ["add","#.##3>add","#;1>add","for(##:#)#8>add","#VAR>>add","add>>#VAR"]
+  "t" ["#VAR","#.##4>#VAR","#;1>#VAR","for(##:#)#8>#VAR","status>>>(#)2","for(##:#)#4>>>(#)2","add>>#VAR","#VAR>>#VAR"]
+  "done" ["#VAR","update#2>#VAR","#;1>#VAR","#.##1>>>update#2","#=#1>>>update#2","#VAR>>#VAR"]

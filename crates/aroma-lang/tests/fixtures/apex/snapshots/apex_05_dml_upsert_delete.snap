@@ -1,0 +1,12 @@
+---
+source: crates/aroma-lang/tests/apex_adapter.rs
+---
+unit 0
+tree: ["{####}", "{", ["#;", ["upsert##", "upsert", {$"incoming"}, ["#.#", {"account"}, ".", {"external_id__c"}]], ";"], ["#;", ["delete#", "delete", {$"stale"}], ";"], ["#;", ["undelete#", "undelete", {$"stale"}], ";"], ["#;", ["insertasuser#", "insert", "as", "user", {$"incoming"}], ";"], "}"]
+features:
+  "incoming" ["#VAR","upsert##2>#VAR","#;1>#VAR","#VAR>>account","upsert##2>>>insertasuser#4"]
+  "account" ["account","#.#1>account","upsert##3>account","#;1>account","#VAR>>account","account>>external_id__c"]
+  "external_id__c" ["external_id__c","#.#3>external_id__c","upsert##3>external_id__c","#;1>external_id__c","account>>external_id__c","external_id__c>>#VAR"]
+  "stale" ["#VAR","delete#2>#VAR","#;1>#VAR","external_id__c>>#VAR","delete#2>>>undelete#2","#VAR>>#VAR"]
+  "stale" ["#VAR","undelete#2>#VAR","#;1>#VAR","delete#2>>>undelete#2","#VAR>>#VAR","#VAR>>#VAR"]
+  "incoming" ["#VAR","insertasuser#4>#VAR","#;1>#VAR","upsert##2>>>insertasuser#4","#VAR>>#VAR"]

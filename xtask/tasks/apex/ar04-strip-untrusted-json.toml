@@ -1,0 +1,18 @@
+id = "ar04-strip-untrusted-json"
+category = "soql-security"
+repo = "https://github.com/trailheadapps/apex-recipes"
+commit = "eda6167c5126a34daf66d9e1371ff6957ae223bd"
+source_file = "force-app/main/default/classes/Security Recipes/StripInaccessibleRecipes.cls"
+source_lines = [97, 108]
+query = """
+List<Account> accounts = (List<Account>) JSON.deserialize(
+    jsonText,
+    List<Account>.class
+);
+"""
+required = [
+    "Security.stripInaccessible(",
+    "AccessType.UPDATABLE",
+    "update as user",
+]
+notes = "Records deserialized from untrusted JSON are passed through stripInaccessible before a user-mode update."

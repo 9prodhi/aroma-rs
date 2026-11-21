@@ -1,0 +1,155 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: read
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  check:
+    name: version tag and gates
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Tag matches the workspace version
+        run: |
+          version=$(sed -n 's/^version = "\(.*\)"$/\1/p' Cargo.toml | head -n 1)
+          if [ "v${version}" != "${GITHUB_REF_NAME}" ]; then
+            echo "tag ${GITHUB_REF_NAME} does not match workspace version v${version}"
+            exit 1
+          fi
+
+      - name: Install Rust 1.90.0 (same as rust-toolchain.toml)
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: "1.90.0"
+          components: rustfmt, clippy
+
+      - name: C compiler for grammar build scripts
+        run: cc --version
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Fetch reference artifacts (CC BY-NC-SA 4.0, never vendored)
+        run: cargo run --locked -p xtask -- fetch-reference
+
+      - name: rustfmt
+        run: cargo fmt --all -- --check
+
+      - name: clippy
+        run: cargo clippy --locked --workspace --all-targets -- -D warnings
+
+      - name: test
+        run: cargo test --locked --workspace
+
+  build:
+    name: build ${{ matrix.target }}
+    needs: check
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - target: x86_64-unknown-linux-gnu
+            os: ubuntu-latest
+            tool: cargo
+            smoke: true
+          - target: aarch64-unknown-linux-gnu
+            os: ubuntu-latest
+            tool: zigbuild
+            smoke: false
+          - target: x86_64-apple-darwin
+            os: macos-latest
+            tool: cargo
+            smoke: false
+          - target: aarch64-apple-darwin
+            os: macos-latest
+            tool: cargo
+            smoke: true
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust 1.90.0 with the target
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: "1.90.0"
+          targets: ${{ matrix.target }}
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          key: ${{ matrix.target }}
+
+      - name: Install zig and cargo-zigbuild
+        if: matrix.tool == 'zigbuild'
+        run: python3 -m pip install --user ziglang==0.13.0
+
+      - name: cargo-zigbuild
+        if: matrix.tool == 'zigbuild'
+        uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-zigbuild
+
+      - name: Build
+        shell: bash
+        run: |
+          if [ "${{ matrix.tool }}" = "zigbuild" ]; then
+            cargo zigbuild --locked --release -p aroma-cli --bin aroma --target "${{ matrix.target }}.2.17"
+          else
+            cargo build --locked --release -p aroma-cli --bin aroma --target "${{ matrix.target }}"
+          fi
+
+      - name: Smoke test (native target)
+        if: matrix.smoke
+        run: target/${{ matrix.target }}/release/aroma --version
+
+      - name: Package
+        shell: bash
+        run: |
+          name="aroma-${GITHUB_REF_NAME}-${{ matrix.target }}"
+          mkdir -p "dist/${name}"
+          cp "target/${{ matrix.target }}/release/aroma" README.md LICENSE CHANGELOG.md "dist/${name}/"
+          cp docs/usage.md "dist/${name}/USAGE.md"
+          tar -C dist -czf "dist/${name}.tar.gz" "${name}"
+          (cd dist && shasum -a 256 "${name}.tar.gz" > "${name}.tar.gz.sha256")
+          cat "dist/${name}.tar.gz.sha256"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: aroma-${{ matrix.target }}
+          path: |
+            dist/*.tar.gz
+            dist/*.sha256
+          if-no-files-found: error
+
+  release:
+    name: publish GitHub Release
+    permissions:
+      contents: write
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+
+      - name: Combined checksums
+        run: |
+          cd dist
+          cat ./*.tar.gz.sha256 > SHA256SUMS
+          shasum -a 256 -c SHA256SUMS
+
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/*.tar.gz
+            dist/*.sha256
+            dist/SHA256SUMS
+          generate_release_notes: true
+          fail_on_unmatched_files: true

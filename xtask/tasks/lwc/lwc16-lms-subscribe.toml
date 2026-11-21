@@ -1,0 +1,36 @@
+id = "lwc16-lms-subscribe"
+category = "lms"
+lang = "component"
+repo = "https://github.com/trailheadapps/dreamhouse-lwc"
+commit = "a01e7c0d7393ba5b26087e44d76af33cd88e275f"
+required = [
+    "subscribe(",
+    "this.messageContext",
+]
+notes = "Subscribe to Lightning Message Service and update the property details displayed by the component."
+answer_witness = [
+    "trailheadapps/dreamhouse-lwc:force-app/main/default/lwc/propertyListMap/propertyListMap.js:64",
+    "trailheadapps/dreamhouse-lwc:force-app/main/default/lwc/propertyTileList/propertyTileList.js:36",
+]
+
+[[parts]]
+lang = "lwchtml"
+source_file = "force-app/main/default/lwc/propertySummary/propertySummary.html"
+source_lines = [1, 39]
+query = """
+                <img
+                    src={pictureURL}
+                    alt="Property picture"
+                    class="slds-var-m-bottom_x-small"
+                />
+"""
+
+[[parts]]
+lang = "lwcjs"
+source_file = "force-app/main/default/lwc/propertySummary/propertySummary.js"
+source_lines = [52, 69]
+query = """
+    handlePropertySelected(message) {
+        this.propertyId = message.propertyId;
+    }
+"""

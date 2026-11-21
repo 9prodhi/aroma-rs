@@ -1,0 +1,14 @@
+---
+source: crates/aroma-lang/tests/java_adapter.rs
+---
+unit 0
+compat:  ["{#}", "{", ["for(#)#", "for", "(", ["final##:#", "final", {"String"}, {$"name"}, ":", {$"names"}], ")", ["{#}", "{", ["#;", ["#.#", ["#.#", {$"System"}, ".", {"out"}], ".", ["#(#)", {"println"}, "(", {$"name"}, ")"]], ";"], "}"]], "}"]
+default: ["{#}", "{", ["for(#)#", "for", "(", ["final##:#", "final", {"String"}, {$"name"#0}, ":", {$"names"}], ")", ["{#}", "{", ["#;", ["#.#", ["#.#", {"System"}, ".", {"out"}], ".", ["#(#)", {"println"}, "(", {$"name"#0}, ")"]], ";"], "}"]], "}"]
+features:
+  "String" ["String","final##:#2>String","for(#)#3>String","String>>#VAR"]
+  "name" ["#VAR","final##:#3>#VAR","for(#)#3>#VAR","String>>#VAR","#VAR>>#VAR","final##:#3>>>#(#)3"]
+  "names" ["#VAR","final##:#5>#VAR","for(#)#3>#VAR","#VAR>>#VAR","#VAR>>System"]
+  "System" ["System","#.#1>System","#.#1>System","#;1>System","#VAR>>System","System>>out"]
+  "out" ["out","#.#3>out","#.#1>out","#;1>out","System>>out","out>>println"]
+  "println" ["println","#(#)1>println","#.#3>println","#;1>println","out>>println","println>>#VAR"]
+  "name" ["#VAR","#(#)3>#VAR","#.#3>#VAR","#;1>#VAR","final##:#3>>>#(#)3","println>>#VAR"]

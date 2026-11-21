@@ -1,0 +1,137 @@
+<title>aroma-rs Project Summary</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a single reading column with the project summary, a results ledger and a source map below it. */
+:root {
+  --bg: #f7f8f7;
+  --paper: #ffffff;
+  --ink: #1b2422;
+  --muted: #56625f;
+  --rule: #d5dcda;
+  --accent: #1f6b5c;
+  --short: #9a4a12;
+  --short-bg: #fbefe5;
+  --pass-bg: #e6f2ee;
+  --serif: "Newsreader", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --sans: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121816; --paper: #18201e; --ink: #e3ebe8; --muted: #9aaba6; --rule: #2e3a37;
+    --accent: #6cc3ad; --short: #f0a56b; --short-bg: #33241a; --pass-bg: #1c302a; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121816; --paper: #18201e; --ink: #e3ebe8; --muted: #9aaba6; --rule: #2e3a37;
+  --accent: #6cc3ad; --short: #f0a56b; --short-bg: #33241a; --pass-bg: #1c302a; color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.55; }
+.wrap { max-width: 760px; margin: 0 auto; padding-block: 40px 64px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.sheet { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: clamp(20px, 5vw, 48px); display: grid; gap: 28px; }
+h1 { font-family: var(--serif); font-weight: 500; font-size: clamp(28px, 4.6vw, 40px); line-height: 1.15; margin: 0; text-wrap: balance; }
+h2 { font-family: var(--sans); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin: 0 0 10px; }
+.summary-text p { font-family: var(--serif); font-size: 19px; line-height: 1.6; margin: 0; max-width: 65ch; hyphens: auto; }
+.num { font-family: var(--mono); font-size: 0.86em; font-variant-numeric: tabular-nums; }
+.tablewrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; min-width: 560px; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; }
+td.v { font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.rel { font-family: var(--mono); font-size: 12px; color: var(--muted); white-space: nowrap; }
+.pill { font-size: 12px; font-weight: 600; padding: 1px 8px; border-radius: 10px; white-space: nowrap; }
+.pill.pass { background: var(--pass-bg); color: var(--accent); }
+.pill.short { background: var(--short-bg); color: var(--short); }
+ul.limits { margin: 0; padding-left: 20px; display: grid; gap: 6px; max-width: 65ch; }
+details { border-top: 1px solid var(--rule); padding-top: 14px; }
+summary { cursor: pointer; font-weight: 600; color: var(--ink); }
+summary:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.claims { list-style: none; padding: 0; margin: 12px 0 0; display: grid; gap: 8px; font-size: 14px; }
+.claims li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; }
+.claims .ids { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.note { font-size: 14px; color: var(--muted); max-width: 65ch; margin: 0; }
+.refs { font-size: 14px; margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+a { color: var(--accent); }
+@media (max-width: 480px) { .summary-text p { font-size: 17px; } }
+</style>
+
+<div class="wrap">
+<article class="sheet">
+  <header>
+    <h1>aroma-rs: structural code search for Java, Apex and Salesforce</h1>
+  </header>
+
+  <section class="summary-text" aria-labelledby="sum-h">
+    <h2 id="sum-h">Summary</h2>
+    <p>Structural code search retrieves code whose parse-tree structure resembles a partial snippet, but enterprise platforms mix general-purpose languages, markup, and declarative metadata. aroma-rs is a Rust and tree-sitter re-implementation of the retrieval pipeline of Aroma (Luan et al., OOPSLA 2019) that indexes a single repository and returns structurally similar code with the matching region highlighted. Eight language adapters (Java, Apex, Lightning Web Components JavaScript and HTML, Salesforce XML metadata, Aura markup and JavaScript, and Visualforce) feed one language-agnostic core. In reference-compatibility mode, the implementation matched the authors' reference implementation on <span class="num">520/520</span> golden cases at every pipeline stage. The project evaluated self-retrieval recall on five-line query slices with a default and a held-out sampling seed, and hand-written idiom suites that hold out the source and its exact clones. On a 15-task metadata suite, structural retrieval placed the target idiom in the top five for <span class="num">7/15</span> tasks (<span class="num">46.7%</span>) versus <span class="num">3/15</span> (<span class="num">20.0%</span>) for a BM25-only baseline. Predefined recall@100 gates passed for every language (<span class="num">0.9823–1.0000</span>), but LWC JavaScript recall@1 was <span class="num">0.9489</span> and <span class="num">0.9477</span> on the two seeds, below its <span class="num">0.95</span> gate. Aroma's clustered recommendations remain experimental: at the Aroma paper's thresholds, clusters formed for only <span class="num">7–19%</span> of queries on three Apex repositories. One-shot command-line queries took a median of <span class="num">90.4 ms</span> on <span class="num">233,318</span> Java units. Self-retrieval measures findability, not usefulness, and the idiom suites are small and developer-written. These results suggest that one structural core can serve heterogeneous Salesforce artifacts; shortfalls are reported rather than tuned away.</p>
+  </section>
+
+  <section aria-labelledby="res-h">
+    <h2 id="res-h">Release gates as measured</h2>
+    <div class="tablewrap">
+    <table>
+      <thead><tr><th>Release</th><th>Measure</th><th>Gate</th><th>Result</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td class="rel">v1.0</td><td>Java recall@1 / @100 (1,000 queries)</td><td class="v">≥ 0.95 / 0.99</td><td class="v">0.950 / 0.999</td><td><span class="pill pass">Pass</span></td></tr>
+        <tr><td class="rel">v1.0</td><td>Apex pooled recall@100 (1,347 queries)</td><td class="v">≥ 0.98</td><td class="v">0.997</td><td><span class="pill pass">Pass</span></td></tr>
+        <tr><td class="rel">v1.0</td><td>Java/Apex idiom suite, hit@5 (40 tasks)</td><td class="v">≥ 60%</td><td class="v">62.5%</td><td><span class="pill pass">Pass</span></td></tr>
+        <tr><td class="rel">v1.1</td><td>LWC JS recall@1, seeds 119 / 4242 (6,141 queries)</td><td class="v">≥ 0.95</td><td class="v">0.9489 / 0.9477</td><td><span class="pill short">Short</span></td></tr>
+        <tr><td class="rel">v1.1</td><td>LWC JS / HTML recall@100</td><td class="v">≥ 0.99 / 0.98</td><td class="v">0.9990 / 0.9973</td><td><span class="pill pass">Pass</span></td></tr>
+        <tr><td class="rel">v1.1</td><td>LWC idiom suite, hit@5 (20 tasks)</td><td class="v">≥ 60%</td><td class="v">70.0%</td><td><span class="pill pass">Pass</span></td></tr>
+        <tr><td class="rel">v1.2</td><td>Metadata recall@100: flow element, validation rule, field</td><td class="v">≥ 0.95</td><td class="v">1.0000 each</td><td><span class="pill pass">Pass</span></td></tr>
+        <tr><td class="rel">v1.2</td><td>Structural vs BM25-only, metadata hit@5 (15 tasks)</td><td class="v">≥ +5 pts</td><td class="v">+26.7 pts</td><td><span class="pill pass">Pass</span></td></tr>
+        <tr><td class="rel">v1.3</td><td>Recall@100: Aura markup / Aura JS / Visualforce</td><td class="v">≥ 0.98</td><td class="v">0.9823 / 1.0000 / 0.9887</td><td><span class="pill pass">Pass</span></td></tr>
+        <tr><td class="rel">v1.3</td><td>Corpus floors: Aura bundles / VF pages</td><td class="v">≥ 300 each</td><td class="v">402 / 444</td><td><span class="pill pass">Pass</span></td></tr>
+        <tr><td class="rel">all</td><td>Query latency p50 / p95, 233,318 Java units</td><td class="v">≤ 100 / 500 ms</td><td class="v">90.4 / 194.1 ms</td><td><span class="pill pass">Pass</span></td></tr>
+        <tr><td class="rel">all</td><td>Whole-component query p50 · query RSS</td><td class="v">≤ 200 ms · 1 GiB</td><td class="v">28.8 ms · 260 MiB</td><td><span class="pill pass">Pass</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="note" style="margin-top:10px">One 4-CPU, 11 GB Linux machine, Rust 1.90, release builds. Every gate was fixed before it was measured. Some ranking choices were selected on the evaluation corpus; the held-out seed only partly mitigates this.</p>
+  </section>
+
+  <section aria-labelledby="lim-h">
+    <h2 id="lim-h">Limitations</h2>
+    <ul class="limits">
+      <li>Self-retrieval recall measures whether an existing unit can be found again, not whether results help a developer.</li>
+      <li>The idiom suites are small (40, 20 and 15 tasks) and were written by the developers; there was no user study.</li>
+      <li>Single repository per index; all measurements on one machine; CI had not run when these results were recorded.</li>
+      <li>The Java recall@1 gate passed with no headroom, using a display rule chosen on the release corpus.</li>
+      <li>Aroma's clustered recommendations recorded 0 wins, 4 ties and 1 loss against the top-5 similar results, so they stay experimental.</li>
+    </ul>
+  </section>
+
+  <details>
+    <summary>Sources: summary sentence → source IDs</summary>
+    <ul class="claims">
+      <li><span>Structural code search retrieves code whose…</span><span class="ids">E01, E02</span></li>
+      <li><span>aroma-rs is a Rust and tree-sitter…</span><span class="ids">E01, E03</span></li>
+      <li><span>Eight language adapters (Java, Apex…</span><span class="ids">E02, E03</span></li>
+      <li><span>In reference-compatibility mode, the implementation matched…</span><span class="ids">E04</span></li>
+      <li><span>The project evaluated self-retrieval recall on five-line…</span><span class="ids">E09, E10, E11</span></li>
+      <li><span>On a 15-task metadata suite, structural…</span><span class="ids">E10, E19</span></li>
+      <li><span>Predefined recall@100 gates passed for every…</span><span class="ids">E12, E14, E20, E21</span></li>
+      <li><span>Aroma's clustered recommendations remain experimental…</span><span class="ids">E07, E08</span></li>
+      <li><span>One-shot command-line queries took a median…</span><span class="ids">E23</span></li>
+      <li><span>Self-retrieval measures findability, not usefulness…</span><span class="ids">E25</span></li>
+      <li><span>These results suggest that one structural core…</span><span class="ids">E02, E14, E24</span></li>
+    </ul>
+    <p class="note" style="margin-top:12px">IDs refer to <a href="sources.md">docs/summary/sources.md</a>, which cites the release records in <a href="../results/README.md">docs/results/</a>.</p>
+  </details>
+
+  <section aria-labelledby="ref-h">
+    <h2 id="ref-h">References</h2>
+    <ol class="refs">
+      <li>S. Luan, D. Yang, C. Barnaby, K. Sen, S. Chandra. Aroma: Code Recommendation via Structural Code Search. Proc. ACM Program. Lang. (OOPSLA), 2019. <a href="https://arxiv.org/abs/1812.01158" target="_blank" rel="noopener">arXiv:1812.01158</a></li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="ai-h">
+    <h2 id="ai-h">AI assistance</h2>
+    <p class="note">This summary was drafted with AI assistance. GPT-6.1-sol (via Pi) brainstormed the framing, Gemini 3.8 (via Antigravity) wrote the first version, and Claude orchestrated the work, edited the text and checked every number against the release records in docs/results/.</p>
+  </section>
+</article>
+</div>

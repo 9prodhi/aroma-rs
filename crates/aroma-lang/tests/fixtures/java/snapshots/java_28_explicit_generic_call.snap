@@ -1,0 +1,10 @@
+---
+source: crates/aroma-lang/tests/java_adapter.rs
+---
+unit 0
+compat:  ["{#}", "{", ["return#;", "return", ["#.#", {$"Collections"}, ".", ["##", ["<#>", "<", {"String"}, ">"], ["#()", {"emptyList"}, "(", ")"]]], ";"], "}"]
+default: ["{#}", "{", ["return#;", "return", ["#.#", {"Collections"}, ".", ["##", ["<#>", "<", {"String"}, ">"], ["#()", {"emptyList"}, "(", ")"]]], ";"], "}"]
+features:
+  "Collections" ["Collections","#.#1>Collections","return#;2>Collections","Collections>>String"]
+  "String" ["String","<#>2>String","##1>String","#.#3>String","Collections>>String","String>>emptyList"]
+  "emptyList" ["emptyList","#()1>emptyList","##2>emptyList","#.#3>emptyList","String>>emptyList"]

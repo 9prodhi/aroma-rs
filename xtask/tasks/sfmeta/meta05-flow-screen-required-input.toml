@@ -1,0 +1,28 @@
+id = "meta05-flow-screen-required-input"
+category = "flow-screen"
+lang = "sfmeta"
+repo = "https://github.com/alexed1/LightningFlowComponents"
+commit = "5de6df2c7ce5d23d50e45887c48920b1bfa4f511"
+source_file = "flow_screen_components/transferMetadata/force-app/main/default/flows/Retrieve_Flow_Metadata.flow-meta.xml"
+source_lines = [54, 92]
+query = """
+    <screens>
+        <name>Download_Flow</name>
+        <label>Download Flow</label>
+        <locationX>382</locationX>
+        <locationY>210</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+"""
+required = [
+    "<isRequired>true</isRequired>",
+    "<fields>",
+    "<fieldType>",
+]
+notes = "Flow screen containing required input fields and standard navigation controls."
+answer_witness = [
+    "navikt/crm-ips:force-app/main/default/flows/IPS_worktrailSetParticipantPassive.flow-meta.xml:462",
+    "navikt/crm-ips:force-app/main/default/flows/IPS_User_And_Profile_Information.flow-meta.xml:161",
+    "alexed1/LightningFlowComponents:flow_screen_components/FlowFormFactorHelper/force-app/main/default/flows/Summer_20_Issue_Sub_Flow.flow-meta.xml:44",
+]

@@ -1,0 +1,15 @@
+id = "nl01-email-saveresult-errors"
+category = "saveresult"
+repo = "https://github.com/jongpie/NebulaLogger"
+commit = "b792ac8d8b4eb31b14a164a24951c3cb4125a616"
+source_file = "nebula-logger/core/main/log-management/classes/LoggerEmailSender.cls"
+source_lines = [127, 137]
+query = """
+List<String> errorMessages = new List<String>();
+"""
+required = [
+    "isSuccess() == false",
+    "result.getErrors()",
+    "Database.Error",
+]
+notes = "Collect error messages from failed SaveResults by iterating getErrors()."

@@ -1,0 +1,15 @@
+id = "ar08-callout-deserialize"
+category = "json"
+repo = "https://github.com/trailheadapps/apex-recipes"
+commit = "eda6167c5126a34daf66d9e1371ff6957ae223bd"
+source_file = "force-app/main/default/classes/Integration Recipes/CalloutRecipes.cls"
+source_lines = [77, 101]
+query = """
+HttpResponse response = get('services/apexrest/integration-service');
+String responseBody = response.getBody();
+"""
+required = [
+    "JSON.deserialize(",
+    "catch (JSONException",
+]
+notes = "Callout response body deserialized into typed records inside a JSONException handler."

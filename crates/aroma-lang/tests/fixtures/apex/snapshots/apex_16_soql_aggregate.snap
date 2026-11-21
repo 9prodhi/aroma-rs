@@ -1,0 +1,32 @@
+---
+source: crates/aroma-lang/tests/apex_adapter.rs
+---
+unit 0
+tree: ["{###}", "{", ["##;", ["##", {"map"}, ["<#,#>", "<", {"string"}, ",", {"integer"}, ">"]], ["#=#", {$"out"#0}, "=", ["new#()", "new", ["##", {"map"}, ["<#,#>", "<", {"string"}, ",", {"integer"}, ">"]], "(", ")"]], ";"], ["for(##:#)#", "for", "(", {"aggregateresult"}, {$"ar"#1}, ":", ["[#]", "[", ["###", ["select#,#", "select", ["##", ["#(#)", {"count"}, "(", {"id"}, ")"], {"total"}], ",", {"stagename"}], ["from#", "from", {"opportunity"}], ["group by#", "group by", {"stagename"}]], "]"], ")", ["{#}", "{", ["#;", ["#.##", {$"out"#0}, ".", {"put"}, ["(#,#)", "(", ["(#)#", "(", {"string"}, ")", ["#.##", {$"ar"#1}, ".", {"get"}, ["(#)", "(", {"'StageName'"}, ")"]]], ",", ["(#)#", "(", {"integer"}, ")", ["#.##", {$"ar"#1}, ".", {"get"}, ["(#)", "(", {"'total'"}, ")"]]], ")"]], ";"], "}"]], ["return#;", "return", {$"out"#0}, ";"], "}"]
+features:
+  "map" ["map","##1>map","##;1>map","map>>string"]
+  "string" ["string","<#,#>2>string","##2>string","##;1>string","map>>string","string>>integer"]
+  "integer" ["integer","<#,#>4>integer","##2>integer","##;1>integer","string>>integer","integer>>#VAR"]
+  "out" ["#VAR","#=#1>#VAR","##;2>#VAR","integer>>#VAR","#VAR>>map","#=#1>>>#.##1","#=#1>>>return#;2"]
+  "map" ["map","##1>map","new#()2>map","#=#3>map","#VAR>>map","map>>string"]
+  "string" ["string","<#,#>2>string","##2>string","new#()2>string","map>>string","string>>integer"]
+  "integer" ["integer","<#,#>4>integer","##2>integer","new#()2>integer","string>>integer","integer>>aggregateresult"]
+  "aggregateresult" ["aggregateresult","for(##:#)#3>aggregateresult","integer>>aggregateresult","aggregateresult>>#VAR"]
+  "ar" ["#VAR","for(##:#)#4>#VAR","aggregateresult>>#VAR","#VAR>>count","for(##:#)#4>>>#.##1","for(##:#)#4>>>#.##1"]
+  "count" ["count","#(#)1>count","##1>count","select#,#2>count","#VAR>>count","count>>id"]
+  "id" ["id","#(#)3>id","##1>id","select#,#2>id","count>>id","id>>total"]
+  "total" ["total","##2>total","select#,#2>total","###1>total","id>>total","total>>stagename"]
+  "stagename" ["stagename","select#,#4>stagename","###1>stagename","[#]2>stagename","total>>stagename","stagename>>opportunity"]
+  "opportunity" ["opportunity","from#2>opportunity","###2>opportunity","[#]2>opportunity","stagename>>opportunity","opportunity>>stagename"]
+  "stagename" ["stagename","group by#2>stagename","###3>stagename","[#]2>stagename","opportunity>>stagename","stagename>>#VAR"]
+  "out" ["#VAR","#.##1>#VAR","#;1>#VAR","for(##:#)#8>#VAR","#=#1>>>#.##1","stagename>>#VAR","#VAR>>put","#.##1>>>return#;2"]
+  "put" ["put","#.##3>put","#;1>put","for(##:#)#8>put","#VAR>>put","put>>string"]
+  "string" ["string","(#)#2>string","(#,#)2>string","#.##4>string","put>>string","string>>#VAR"]
+  "ar" ["#VAR","#.##1>#VAR","(#)#4>#VAR","(#,#)2>#VAR","for(##:#)#4>>>#.##1","string>>#VAR","#VAR>>get","#.##1>>>#.##1"]
+  "get" ["get","#.##3>get","(#)#4>get","(#,#)2>get","#VAR>>get","get>>'StageName'"]
+  "'StageName'" ["'StageName'","#.##4>'StageName'","(#)#4>'StageName'","(#,#)2>'StageName'","get>>'StageName'","'StageName'>>integer"]
+  "integer" ["integer","(#)#2>integer","(#,#)4>integer","#.##4>integer","'StageName'>>integer","integer>>#VAR"]
+  "ar" ["#VAR","#.##1>#VAR","(#)#4>#VAR","(#,#)4>#VAR","#.##1>>>#.##1","for(##:#)#4>>>#.##1","integer>>#VAR","#VAR>>get"]
+  "get" ["get","#.##3>get","(#)#4>get","(#,#)4>get","#VAR>>get","get>>'total'"]
+  "'total'" ["'total'","#.##4>'total'","(#)#4>'total'","(#,#)4>'total'","get>>'total'","'total'>>#VAR"]
+  "out" ["#VAR","return#;2>#VAR","#.##1>>>return#;2","#=#1>>>return#;2","'total'>>#VAR"]

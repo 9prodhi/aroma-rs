@@ -1,0 +1,29 @@
+id = "meta02-flow-lookup-first-record"
+category = "flow-lookup"
+lang = "sfmeta"
+repo = "https://github.com/SalesforceLabs/AnimalShelterStarter"
+commit = "c6eec92002eedde52ed332469b37f5552912ab86"
+source_file = "force-app/main/default/flows/Adopter_Profile_Create_new_Adopter_Profile.flow-meta.xml"
+source_lines = [263, 293]
+query = """
+    <recordLookups>
+        <name>Get_Adopter_Profiles_for_this_Contact</name>
+        <label>Get Adopter Profiles for this Contact</label>
+        <locationX>578</locationX>
+        <locationY>350</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Existing_Adopter_Profiles</targetReference>
+        </connector>
+"""
+required = [
+    "<getFirstRecordOnly>true</getFirstRecordOnly>",
+    "<storeOutputAutomatically>true</storeOutputAutomatically>",
+    "<filterLogic>and</filterLogic>",
+]
+notes = "Flow recordLookups querying records with filters and getFirstRecordOnly enabled."
+answer_witness = [
+    "navikt/crm-ips:force-app/main/default/flows/IPS_worktrailSetParticipantPassive.flow-meta.xml:416",
+    "navikt/crm-ips:force-app/main/default/flows/IPS_Update_worktrail_status.flow-meta.xml:107",
+    "SalesforceLabs/AnimalShelterStarter:force-app/main/default/flows/Assessment_Create_new_assessment.flow-meta.xml:315",
+]

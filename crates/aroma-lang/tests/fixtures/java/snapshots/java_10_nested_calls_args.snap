@@ -1,0 +1,16 @@
+---
+source: crates/aroma-lang/tests/java_adapter.rs
+---
+unit 0
+compat:  ["{##}", "{", ["#;", ["#.#", {$"writer"}, ".", ["#(#)", {"write"}, "(", ["#,#", ["#.#", {$"model"}, ".", ["#()", {"title"}, "(", ")"]], ",", ["#(#)", {"format"}, "(", ["#,#", ["#.#", {$"model"}, ".", ["#()", {"body"}, "(", ")"]], ",", {"80"}], ")"]], ")"]], ";"], ["#;", ["#()", {"flush"}, "(", ")"], ";"], "}"]
+default: ["{##}", "{", ["#;", ["#.#", {$"writer"}, ".", ["#(#)", {"write"}, "(", ["#,#", ["#.#", {$"model"}, ".", ["#()", {"title"}, "(", ")"]], ",", ["#(#)", {"format"}, "(", ["#,#", ["#.#", {$"model"}, ".", ["#()", {"body"}, "(", ")"]], ",", {"80"}], ")"]], ")"]], ";"], ["#;", ["#()", {"flush"}, "(", ")"], ";"], "}"]
+features:
+  "writer" ["#VAR","#.#1>#VAR","#;1>#VAR","#VAR>>write"]
+  "write" ["write","#(#)1>write","#.#3>write","#;1>write","#VAR>>write","write>>#VAR"]
+  "model" ["#VAR","#.#1>#VAR","#,#1>#VAR","#(#)3>#VAR","write>>#VAR","#VAR>>title","title>>>body"]
+  "title" ["title","#()1>title","#.#3>title","#,#1>title","#VAR>>title","title>>format"]
+  "format" ["format","#(#)1>format","#,#3>format","#(#)3>format","title>>format","format>>#VAR"]
+  "model" ["#VAR","#.#1>#VAR","#,#1>#VAR","#(#)3>#VAR","title>>>body","format>>#VAR","#VAR>>body"]
+  "body" ["body","#()1>body","#.#3>body","#,#1>body","#VAR>>body","body>>80"]
+  "80" ["80","#,#3>80","#(#)3>80","#,#3>80","body>>80","80>>flush"]
+  "flush" ["flush","#()1>flush","#;1>flush","80>>flush"]

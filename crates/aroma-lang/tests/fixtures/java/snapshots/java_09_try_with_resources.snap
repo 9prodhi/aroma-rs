@@ -1,0 +1,20 @@
+---
+source: crates/aroma-lang/tests/java_adapter.rs
+---
+unit 0
+compat:  ["{#}", "{", ["try##", "try", ["(#)", "(", ["#;#", ["##=#", {"InputStream"}, {$"in"}, "=", ["#.#", {$"Files"}, ".", ["#(#)", {"newInputStream"}, "(", {$"from"}, ")"]]], ";", ["##=#", {"OutputStream"}, {$"out"}, "=", ["#.#", {$"Files"}, ".", ["#(#)", {"newOutputStream"}, "(", {$"to"}, ")"]]]], ")"], ["{#}", "{", ["#;", ["#.#", {$"in"}, ".", ["#(#)", {"transferTo"}, "(", {$"out"}, ")"]], ";"], "}"]], "}"]
+default: ["{#}", "{", ["try##", "try", ["(#)", "(", ["#;#", ["##=#", {"InputStream"}, {$"in"#0}, "=", ["#.#", {"Files"}, ".", ["#(#)", {"newInputStream"}, "(", {$"from"}, ")"]]], ";", ["##=#", {"OutputStream"}, {$"out"#1}, "=", ["#.#", {"Files"}, ".", ["#(#)", {"newOutputStream"}, "(", {$"to"}, ")"]]]], ")"], ["{#}", "{", ["#;", ["#.#", {$"in"#0}, ".", ["#(#)", {"transferTo"}, "(", {$"out"#1}, ")"]], ";"], "}"]], "}"]
+features:
+  "InputStream" ["InputStream","##=#1>InputStream","#;#1>InputStream","try##2>InputStream","InputStream>>#VAR"]
+  "in" ["#VAR","##=#2>#VAR","#;#1>#VAR","try##2>#VAR","InputStream>>#VAR","#VAR>>Files","##=#2>>>transferTo"]
+  "Files" ["Files","#.#1>Files","##=#4>Files","#;#1>Files","#VAR>>Files","Files>>newInputStream"]
+  "newInputStream" ["newInputStream","#(#)1>newInputStream","#.#3>newInputStream","##=#4>newInputStream","Files>>newInputStream","newInputStream>>#VAR"]
+  "from" ["#VAR","#(#)3>#VAR","#.#3>#VAR","##=#4>#VAR","newInputStream>>#VAR","#VAR>>OutputStream"]
+  "OutputStream" ["OutputStream","##=#1>OutputStream","#;#3>OutputStream","try##2>OutputStream","#VAR>>OutputStream","OutputStream>>#VAR"]
+  "out" ["#VAR","##=#2>#VAR","#;#3>#VAR","try##2>#VAR","OutputStream>>#VAR","#VAR>>Files","##=#2>>>#(#)3"]
+  "Files" ["Files","#.#1>Files","##=#4>Files","#;#3>Files","#VAR>>Files","Files>>newOutputStream"]
+  "newOutputStream" ["newOutputStream","#(#)1>newOutputStream","#.#3>newOutputStream","##=#4>newOutputStream","Files>>newOutputStream","newOutputStream>>#VAR"]
+  "to" ["#VAR","#(#)3>#VAR","#.#3>#VAR","##=#4>#VAR","newOutputStream>>#VAR","#VAR>>#VAR"]
+  "in" ["#VAR","#.#1>#VAR","#;1>#VAR","try##3>#VAR","##=#2>>>transferTo","#VAR>>#VAR","#VAR>>transferTo"]
+  "transferTo" ["transferTo","#(#)1>transferTo","#.#3>transferTo","#;1>transferTo","#VAR>>transferTo","transferTo>>#VAR"]
+  "out" ["#VAR","#(#)3>#VAR","#.#3>#VAR","#;1>#VAR","##=#2>>>#(#)3","transferTo>>#VAR"]

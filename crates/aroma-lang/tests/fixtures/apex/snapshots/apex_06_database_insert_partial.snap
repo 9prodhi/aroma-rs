@@ -1,0 +1,24 @@
+---
+source: crates/aroma-lang/tests/apex_adapter.rs
+---
+unit 0
+tree: ["{####}", "{", ["##;", {"integer"}, ["#=#", {$"failures"#0}, "=", {"0"}], ";"], ["##;", ["#[]", ["#.#", {"database"}, ".", {"saveresult"}], "[", "]"], ["#=#", {$"results"#1}, "=", ["#.##", {"database"}, ".", {"insert"}, ["(#,#)", "(", {$"rows"}, ",", {"false"}, ")"]]], ";"], ["for(##:#)#", "for", "(", ["#.#", {"database"}, ".", {"saveresult"}], {$"result"#2}, ":", {$"results"#1}, ")", ["{#}", "{", ["if##", "if", ["(#)", "(", ["!#", "!", ["#.#()", {$"result"#2}, ".", {"issuccess"}, "(", ")"]], ")"], ["{#}", "{", ["#;", ["#++", {$"failures"#0}, "++"], ";"], "}"]], "}"]], ["return#;", "return", {$"failures"#0}, ";"], "}"]
+features:
+  "integer" ["integer","##;1>integer","integer>>#VAR"]
+  "failures" ["#VAR","#=#1>#VAR","##;2>#VAR","integer>>#VAR","#VAR>>0","#=#1>>>#++1","#=#1>>>return#;2"]
+  "0" ["0","#=#3>0","##;2>0","#VAR>>0","0>>database"]
+  "database" ["database","#.#1>database","#[]1>database","##;1>database","0>>database","database>>saveresult"]
+  "saveresult" ["saveresult","#.#3>saveresult","#[]1>saveresult","##;1>saveresult","database>>saveresult","saveresult>>#VAR"]
+  "results" ["#VAR","#=#1>#VAR","##;2>#VAR","saveresult>>#VAR","#VAR>>database","#=#1>>>for(##:#)#6"]
+  "database" ["database","#.##1>database","#=#3>database","##;2>database","#VAR>>database","database>>insert"]
+  "insert" ["insert","#.##3>insert","#=#3>insert","##;2>insert","database>>insert","insert>>#VAR"]
+  "rows" ["#VAR","(#,#)2>#VAR","#.##4>#VAR","#=#3>#VAR","insert>>#VAR","#VAR>>false"]
+  "false" ["false","(#,#)4>false","#.##4>false","#=#3>false","#VAR>>false","false>>database"]
+  "database" ["database","#.#1>database","for(##:#)#3>database","false>>database","database>>saveresult"]
+  "saveresult" ["saveresult","#.#3>saveresult","for(##:#)#3>saveresult","database>>saveresult","saveresult>>#VAR"]
+  "result" ["#VAR","for(##:#)#4>#VAR","saveresult>>#VAR","#VAR>>#VAR","for(##:#)#4>>>#.#()1"]
+  "results" ["#VAR","for(##:#)#6>#VAR","#=#1>>>for(##:#)#6","#VAR>>#VAR","#VAR>>#VAR"]
+  "result" ["#VAR","#.#()1>#VAR","!#2>#VAR","if##2>#VAR","for(##:#)#4>>>#.#()1","#VAR>>#VAR","#VAR>>issuccess"]
+  "issuccess" ["issuccess","#.#()3>issuccess","!#2>issuccess","if##2>issuccess","#VAR>>issuccess","issuccess>>#VAR"]
+  "failures" ["#VAR","#++1>#VAR","#;1>#VAR","if##3>#VAR","#=#1>>>#++1","issuccess>>#VAR","#++1>>>return#;2","#VAR>>#VAR"]
+  "failures" ["#VAR","return#;2>#VAR","#++1>>>return#;2","#=#1>>>return#;2","#VAR>>#VAR"]

@@ -1,0 +1,30 @@
+{
+  "config": {
+    "MIN_PRUNED_SCORE": 0.65,
+    "MIN_SIMILARITY_SCORE": 0.4,
+    "NUM_SIMILARS": 100,
+    "N_PARENTS": 3,
+    "N_SIBLINGS": 1,
+    "N_VAR_SIBLINGS": 2,
+    "THRESHOLD1": 0.9,
+    "THRESHOLD2": 1.5,
+    "TOP_N": 5
+  },
+  "deviations": [
+    "Phase I hits ordered by (overlap desc, unit asc); numpy argsort tie order is unspecified",
+    "D7: features unknown to the corpus vocabulary keep distinct ids (reference: all collapse to id 10)"
+  ],
+  "generator": "cargo run -p xtask -- gen-goldens",
+  "n_cases": 520,
+  "n_cases_with_clusters": 97,
+  "n_corpus": 40,
+  "packages": {
+    "numpy": "2.1.3",
+    "scikit-learn": "1.5.2",
+    "scipy": "1.14.1"
+  },
+  "python": "3.10.12",
+  "reference_commit": "e8d8beeb99255d8929874c156fd65aac74d21508",
+  "similar_py_sha256": "7203c86b1fca6cf21373cca2d9fc2f0a23a1685cc559887b02dbc52b9f411065",
+  "skipped": []
+}

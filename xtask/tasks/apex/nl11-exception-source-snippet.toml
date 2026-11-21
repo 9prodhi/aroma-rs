@@ -1,0 +1,25 @@
+id = "nl11-exception-source-snippet"
+category = "json"
+repo = "https://github.com/jongpie/NebulaLogger"
+commit = "b792ac8d8b4eb31b14a164a24951c3cb4125a616"
+source_file = "nebula-logger/core/main/log-management/classes/LogEntryHandler.cls"
+source_lines = [533, 549]
+query = """
+if (apexClass == null) {
+  return;
+}
+
+logEntry.ExceptionSourceApiVersion__c = 'v' + apexClass.ApiVersion;
+logEntry.ExceptionSourceCreatedById__c = apexClass.CreatedById;
+logEntry.ExceptionSourceCreatedByUsername__c = apexClass.CreatedBy.Username;
+logEntry.ExceptionSourceCreatedDate__c = apexClass.CreatedDate;
+logEntry.ExceptionSourceId__c = apexClass.Id;
+logEntry.ExceptionSourceLastModifiedById__c = apexClass.LastModifiedById;
+logEntry.ExceptionSourceLastModifiedByUsername__c = apexClass.LastModifiedBy.Username;
+logEntry.ExceptionSourceLastModifiedDate__c = apexClass.LastModifiedDate;
+"""
+required = [
+    "System.JSON.serializePretty(",
+    "new LoggerStackTrace(",
+]
+notes = "Copy source metadata onto a record and store a pretty-printed JSON snippet built from the stack trace."

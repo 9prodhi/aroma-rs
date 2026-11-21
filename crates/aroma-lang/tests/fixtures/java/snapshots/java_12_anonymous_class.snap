@@ -1,0 +1,18 @@
+---
+source: crates/aroma-lang/tests/java_adapter.rs
+---
+unit 0
+compat:  ["{#}", "{", ["return#;", "return", ["new#", "new", ["##", {"Runnable"}, ["()#", "(", ")", ["{#}", "{", ["#public#", ["@#", "@", {"Override"}], "public", ["void#()#", "void", {"run"}, "(", ")", ["{#}", "{", ["#;", ["#.#", {$"job"}, ".", ["#()", {"execute"}, "(", ")"]], ";"], "}"]]], "}"]]]], ";"], "}"]
+default: ["{#}", "{", ["return#;", "return", ["new#", "new", ["##", {"Runnable"}, ["()#", "(", ")", ["{#}", "{", ["#public#", ["@#", "@", {"Override"}], "public", ["void#()#", "void", {"run"}, "(", ")", ["{#}", "{", ["#;", ["#.#", {$"job"}, ".", ["#()", {"execute"}, "(", ")"]], ";"], "}"]]], "}"]]]], ";"], "}"]
+features:
+  "Runnable" ["Runnable","##1>Runnable","new#2>Runnable","return#;2>Runnable","Runnable>>Override"]
+  "Override" ["Override","@#2>Override","#public#1>Override","()#3>Override","Runnable>>Override","Override>>run"]
+  "run" ["run","void#()#2>run","#public#3>run","()#3>run","Override>>run","run>>#VAR"]
+  "job" ["#VAR","#.#1>#VAR","#;1>#VAR","void#()#5>#VAR","run>>#VAR","#VAR>>execute"]
+  "execute" ["execute","#()1>execute","#.#3>execute","#;1>execute","#VAR>>execute"]
+unit 1
+compat:  ["{#}", "{", ["#;", ["#.#", {$"job"}, ".", ["#()", {"execute"}, "(", ")"]], ";"], "}"]
+default: ["{#}", "{", ["#;", ["#.#", {$"job"}, ".", ["#()", {"execute"}, "(", ")"]], ";"], "}"]
+features:
+  "job" ["#VAR","#.#1>#VAR","#;1>#VAR","#VAR>>execute"]
+  "execute" ["execute","#()1>execute","#.#3>execute","#;1>execute","#VAR>>execute"]

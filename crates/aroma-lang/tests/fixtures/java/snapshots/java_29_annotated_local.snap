@@ -1,0 +1,16 @@
+---
+source: crates/aroma-lang/tests/java_adapter.rs
+---
+unit 0
+compat:  ["{##}", "{", ["#;", ["#final##", ["@#(#)", "@", {"SuppressWarnings"}, "(", ["#=#", {"value"}, "=", {"\"unchecked\""}], ")"], "final", ["##", {"List"}, ["<#>", "<", {"String"}, ">"]], ["#=#", {$"typed"}, "=", {$"list"}]], ";"], ["#;", ["#.#", {$"typed"}, ".", ["#()", {"clear"}, "(", ")"]], ";"], "}"]
+default: ["{##}", "{", ["#;", ["#final##", ["@#(#)", "@", {"SuppressWarnings"}, "(", ["#=#", {"value"}, "=", {"\"unchecked\""}], ")"], "final", ["##", {"List"}, ["<#>", "<", {"String"}, ">"]], ["#=#", {$"typed"#0}, "=", {$"list"}]], ";"], ["#;", ["#.#", {$"typed"#0}, ".", ["#()", {"clear"}, "(", ")"]], ";"], "}"]
+features:
+  "SuppressWarnings" ["SuppressWarnings","@#(#)2>SuppressWarnings","#final##1>SuppressWarnings","#;1>SuppressWarnings","SuppressWarnings>>value"]
+  "value" ["value","#=#1>value","@#(#)4>value","#final##1>value","SuppressWarnings>>value","value>>\"unchecked\""]
+  "\"unchecked\"" ["\"unchecked\"","#=#3>\"unchecked\"","@#(#)4>\"unchecked\"","#final##1>\"unchecked\"","value>>\"unchecked\"","\"unchecked\">>List"]
+  "List" ["List","##1>List","#final##3>List","#;1>List","\"unchecked\">>List","List>>String"]
+  "String" ["String","<#>2>String","##2>String","#final##3>String","List>>String","String>>#VAR"]
+  "typed" ["#VAR","#=#1>#VAR","#final##4>#VAR","#;1>#VAR","String>>#VAR","#VAR>>#VAR","#=#1>>>clear"]
+  "list" ["#VAR","#=#3>#VAR","#final##4>#VAR","#;1>#VAR","#VAR>>#VAR","#VAR>>#VAR"]
+  "typed" ["#VAR","#.#1>#VAR","#;1>#VAR","#=#1>>>clear","#VAR>>#VAR","#VAR>>clear"]
+  "clear" ["clear","#()1>clear","#.#3>clear","#;1>clear","#VAR>>clear"]

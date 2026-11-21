@@ -1,0 +1,14 @@
+---
+source: crates/aroma-lang/tests/lwc_js_adapter.rs
+expression: fingerprints
+---
+[
+    "9aaff19c756a4a7d286086300cb7c53fa20a79b70b3e7b8a9162f517fcc8ffe1",
+    "491c57c0263a5dee8596aacf118a2b7ac635bfd86a26e3b12b999c55bfba4072",
+    "f428376ed43ad1efb42206965a04924304591b581b74248f45c9a65dd2cd3aac",
+    "f428376ed43ad1efb42206965a04924304591b581b74248f45c9a65dd2cd3aac",
+    "a03c04f1ad3db31af2986b9b2982f1dbf486971e87be8adfc4a34da19a014af3",
+    "a03c04f1ad3db31af2986b9b2982f1dbf486971e87be8adfc4a34da19a014af3",
+    "f536ddc2fb63a8a9fc8ba17599ceddaa60e4caf59b08d80f58de1e401ec9522a",
+    "f536ddc2fb63a8a9fc8ba17599ceddaa60e4caf59b08d80f58de1e401ec9522a",
+]

@@ -1,0 +1,23 @@
+id = "ar03-aura-update-user-mode"
+category = "soql-security"
+repo = "https://github.com/trailheadapps/apex-recipes"
+commit = "eda6167c5126a34daf66d9e1371ff6957ae223bd"
+source_file = "force-app/main/default/classes/Integration Recipes/AuraEnabledRecipes.cls"
+source_lines = [29, 58]
+query = """
+Account acct = [
+    SELECT Id
+    FROM Account
+    WHERE Id = :accountId
+    WITH USER_MODE
+    LIMIT 1
+];
+acct.Name = newValue;
+"""
+required = [
+    "Security.stripInaccessible(",
+    "AccessType.UPDATABLE",
+    "update as user",
+    "catch (DmlException",
+]
+notes = "AuraEnabled update: strip non-updatable fields, update in user mode, convert DmlException for the UI."

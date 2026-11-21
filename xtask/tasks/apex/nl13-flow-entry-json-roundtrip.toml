@@ -1,0 +1,15 @@
+id = "nl13-flow-entry-json-roundtrip"
+category = "json"
+repo = "https://github.com/jongpie/NebulaLogger"
+commit = "b792ac8d8b4eb31b14a164a24951c3cb4125a616"
+source_file = "nebula-logger/core/main/logger-engine/classes/FlowLogEntry.cls"
+source_lines = [95, 105]
+query = """
+List<FlowLogger.LogEntry> shadowLogEntries = new List<FlowLogger.LogEntry>();
+"""
+required = [
+    "System.JSON.deserialize(System.JSON.serialize(",
+    "FlowLogger.LogEntry.class",
+    "FlowLogger.addEntries(",
+]
+notes = "Invocable entry point: convert each input into the shared LogEntry shape with a JSON serialize/deserialize round trip, then add them in bulk."

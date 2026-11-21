@@ -1,0 +1,14 @@
+---
+source: crates/aroma-lang/tests/apex_adapter.rs
+---
+unit 0
+tree: ["{##}", "{", ["##;", {"string"}, ["#=#", {$"name"#0}, "=", ["#?.#", ["#?.#", {$"acc"}, "?.", {"owner"}], "?.", {"name"}]], ";"], ["return#;", "return", ["#?#:#", ["#==null", {$"name"#0}, "==", "null"], "?", {"'unknown'"}, ":", {$"name"#0}], ";"], "}"]
+features:
+  "string" ["string","##;1>string","string>>#VAR"]
+  "name" ["#VAR","#=#1>#VAR","##;2>#VAR","string>>#VAR","#VAR>>#VAR","#=#1>>>#==null1","#=#1>>>#?#:#5"]
+  "acc" ["#VAR","#?.#1>#VAR","#?.#1>#VAR","#=#3>#VAR","#VAR>>#VAR","#VAR>>owner"]
+  "owner" ["owner","#?.#3>owner","#?.#1>owner","#=#3>owner","#VAR>>owner","owner>>name"]
+  "name" ["name","#?.#3>name","#=#3>name","##;2>name","owner>>name","name>>#VAR"]
+  "name" ["#VAR","#==null1>#VAR","#?#:#1>#VAR","return#;2>#VAR","#=#1>>>#==null1","name>>#VAR","#VAR>>'unknown'","#==null1>>>#?#:#5"]
+  "'unknown'" ["'unknown'","#?#:#3>'unknown'","return#;2>'unknown'","#VAR>>'unknown'","'unknown'>>#VAR"]
+  "name" ["#VAR","#?#:#5>#VAR","return#;2>#VAR","#==null1>>>#?#:#5","#=#1>>>#?#:#5","'unknown'>>#VAR"]

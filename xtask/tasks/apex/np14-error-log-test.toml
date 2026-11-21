@@ -1,0 +1,21 @@
+id = "np14-error-log-test"
+category = "test-setup"
+repo = "https://github.com/SalesforceFoundation/NPSP"
+commit = "f5072b44781e7f31cb396c6919cfa7d0ead0ec6a"
+source_file = "force-app/main/default/classes/ERR_Log_TEST.cls"
+source_lines = [54, 70]
+query = """
+Contact contact = getContact();
+
+Error__c error = new Error__c(
+    Datetime__c = System.now(),
+    Related_Record_ID__c = contact.Id,
+    Full_Message__c = 'test error message'
+);
+insert error;
+"""
+required = [
+    "System.assertEquals(",
+]
+include_tests = true
+notes = "Test: insert a related record, call the controller, assert on the returned data."

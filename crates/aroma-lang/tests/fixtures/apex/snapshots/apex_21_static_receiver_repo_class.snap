@@ -1,0 +1,19 @@
+---
+source: crates/aroma-lang/tests/apex_adapter.rs
+---
+unit 0
+tree: ["{##}", "{", ["#;", ["#.##", {"orderservice"}, ".", {"validate"}, ["(#)", "(", {$"orders"}, ")"]], ";"], ["#;", ["#.##", {$"paymentgateway"}, ".", {"charge"}, ["(#)", "(", {$"orders"}, ")"]], ";"], "}"]
+features:
+  "orderservice" ["orderservice","#.##1>orderservice","#;1>orderservice","orderservice>>validate"]
+  "validate" ["validate","#.##3>validate","#;1>validate","orderservice>>validate","validate>>#VAR"]
+  "orders" ["#VAR","#.##4>#VAR","#;1>#VAR","validate>>#VAR","#VAR>>#VAR","(#)2>>>(#)2"]
+  "paymentgateway" ["#VAR","#.##1>#VAR","#;1>#VAR","#VAR>>#VAR","#VAR>>charge"]
+  "charge" ["charge","#.##3>charge","#;1>charge","#VAR>>charge","charge>>#VAR"]
+  "orders" ["#VAR","#.##4>#VAR","#;1>#VAR","(#)2>>>(#)2","charge>>#VAR"]
+unit 1
+tree: ["{#}", "{", ["#;", ["#.##", {"system"}, ".", {"assert"}, ["(#)", "(", ["!#", "!", ["#.#()", {$"orders"}, ".", {"isempty"}, "(", ")"]], ")"]], ";"], "}"]
+features:
+  "system" ["system","#.##1>system","#;1>system","system>>assert"]
+  "assert" ["assert","#.##3>assert","#;1>assert","system>>assert","assert>>#VAR"]
+  "orders" ["#VAR","#.#()1>#VAR","!#2>#VAR","#.##4>#VAR","assert>>#VAR","#VAR>>isempty"]
+  "isempty" ["isempty","#.#()3>isempty","!#2>isempty","#.##4>isempty","#VAR>>isempty"]

@@ -1,0 +1,9 @@
+target/
+target-lanes/
+.worktrees/
+.claude/
+/ref/pilot
+/ref/aroma-paper-artifacts
+ref/paper/
+concepts/aroma-concepts/target/
+.aroma/

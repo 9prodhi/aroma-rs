@@ -1,0 +1,25 @@
+id = "ar13-files-bulk-insert-saveresult"
+category = "saveresult"
+repo = "https://github.com/trailheadapps/apex-recipes"
+commit = "eda6167c5126a34daf66d9e1371ff6957ae223bd"
+source_file = "force-app/main/default/classes/Files Recipes/FilesRecipes.cls"
+source_lines = [123, 147]
+query = """
+List<ContentVersion> filesToCreate = new List<ContentVersion>();
+for (FilesRecipes.FileAndLinkObject files : toCreate) {
+    ContentVersion fileToUpload = new ContentVersion();
+    fileToUpload.ContentLocation = 'S';
+    fileToUpload.PathOnClient = files.fileName;
+    fileToUpload.Title = files.fileName;
+    fileToUpload.VersionData = files.fileContents;
+    fileToUpload.FirstPublishLocationId = files.attachedTo;
+    filesToCreate.add(fileToUpload);
+}
+"""
+required = [
+    "Database.SaveResult",
+    "Database.insert(",
+    "AccessLevel.USER_MODE",
+    "catch (DmlException",
+]
+notes = "Build records in a loop, then one user-mode Database.insert whose SaveResults are returned, guarded by a DmlException handler."

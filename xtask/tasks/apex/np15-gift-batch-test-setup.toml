@@ -1,0 +1,21 @@
+id = "np15-gift-batch-test-setup"
+category = "test-setup"
+repo = "https://github.com/SalesforceFoundation/NPSP"
+commit = "f5072b44781e7f31cb396c6919cfa7d0ead0ec6a"
+source_file = "force-app/main/default/classes/GiftBatchService_TEST.cls"
+source_lines = [39, 58]
+query = """
+DataImportBatch__c dataImportBatch = UTIL_UnitTestData_TEST.createGiftBatches(10,2,1)[0];
+Form_Template__c defaultTemplate = new Form_Template__c( Format_Version__c = '1.0' );
+
+GE_Template.Template template = UTIL_UnitTestData_TEST.createSampleTemplate();
+String templateJSON = JSON.serialize(template);
+defaultTemplate.Template_JSON__c = templateJSON;
+insert defaultTemplate;
+"""
+required = [
+    "BDI_DataImport_TEST.newDI(",
+    "NPSP_Data_Import_Batch__c",
+]
+include_tests = true
+notes = "TestSetup that creates a batch and template, then bulk-inserts child data import rows linked to the batch."

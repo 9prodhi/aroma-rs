@@ -1,0 +1,1390 @@
+# Public Salesforce repositories pinned for the v1.1-v1.3 release gates (D38, D39, D46).
+# Shallow clones at `commit` live under target/corpus/sf/<owner>__<repo> and are never committed.
+# Counts are text-scan estimates from an internal corpus scout (not published).
+
+[[repo]]
+name = "SFDC-Assets/Get-Geolocation"
+url = "https://github.com/SFDC-Assets/Get-Geolocation"
+commit = "5a2004ea3349542d21dc5b5bda414b279f337eb1"
+license = "CC0-1.0"
+stages = ["v1.1", "v1.2"]
+[repo.counts]
+lwc_components = 2
+lwc_js = 2
+lwc_html = 2
+flows = 1
+flow_elements = 2
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 0
+vf_pages = 0
+size_mb = 2
+
+[[repo]]
+name = "SalesforceFoundation/Affiliations"
+url = "https://github.com/SalesforceFoundation/Affiliations"
+commit = "10f0aa8d25c8346853265b9a8e9056fba29d9eba"
+license = "BSD-3-Clause"
+stages = ["v1.3"]
+[repo.counts]
+lwc_components = 0
+lwc_js = 0
+lwc_html = 0
+flows = 0
+flow_elements = 0
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 0
+vf_pages = 1
+size_mb = 1
+
+[[repo]]
+name = "SalesforceFoundation/Contacts_and_Organizations"
+url = "https://github.com/SalesforceFoundation/Contacts_and_Organizations"
+commit = "29d25275ce2fc3e988cfd0709f247e3fae9d8afa"
+license = "BSD-3-Clause"
+stages = ["v1.2", "v1.3"]
+[repo.counts]
+lwc_components = 0
+lwc_js = 0
+lwc_html = 0
+flows = 0
+flow_elements = 0
+validation_rules = 0
+formula_fields = 7
+cmdt_records = 0
+aura_bundles = 0
+vf_pages = 10
+size_mb = 2
+
+[[repo]]
+name = "SalesforceFoundation/EDA"
+url = "https://github.com/SalesforceFoundation/EDA"
+commit = "b311845eb082fc6b8fafdbcebdbe03cc570df3a6"
+license = "BSD-3-Clause"
+stages = ["v1.1", "v1.2", "v1.3"]
+[repo.counts]
+lwc_components = 46
+lwc_js = 46
+lwc_html = 46
+flows = 0
+flow_elements = 0
+validation_rules = 2
+formula_fields = 11
+cmdt_records = 4
+aura_bundles = 45
+vf_pages = 1
+size_mb = 46
+
+[[repo]]
+name = "SalesforceFoundation/Households"
+url = "https://github.com/SalesforceFoundation/Households"
+commit = "8e93b971373c76641449cbbef2288bcd0e3a0b12"
+license = "BSD-3-Clause"
+stages = ["v1.2", "v1.3"]
+[repo.counts]
+lwc_components = 0
+lwc_js = 0
+lwc_html = 0
+flows = 0
+flow_elements = 0
+validation_rules = 0
+formula_fields = 10
+cmdt_records = 0
+aura_bundles = 0
+vf_pages = 9
+size_mb = 2
+
+[[repo]]
+name = "SalesforceFoundation/OutboundFundsModule"
+url = "https://github.com/SalesforceFoundation/OutboundFundsModule"
+commit = "8acc96b477ee6978c90123b96408737068946b35"
+license = "BSD-3-Clause"
+stages = ["v1.1", "v1.2", "v1.3"]
+[repo.counts]
+lwc_components = 1
+lwc_js = 1
+lwc_html = 1
+flows = 0
+flow_elements = 0
+validation_rules = 0
+formula_fields = 1
+cmdt_records = 0
+aura_bundles = 1
+vf_pages = 0
+size_mb = 11
+
+[[repo]]
+name = "SalesforceFoundation/PMM"
+url = "https://github.com/SalesforceFoundation/PMM"
+commit = "4c5f3c79b930485f1fafb65b5acd6e1becf8a071"
+license = "BSD-3-Clause"
+stages = ["v1.1", "v1.2", "v1.3"]
+[repo.counts]
+lwc_components = 37
+lwc_js = 39
+lwc_html = 33
+flows = 2
+flow_elements = 17
+validation_rules = 13
+formula_fields = 15
+cmdt_records = 31
+aura_bundles = 6
+vf_pages = 0
+size_mb = 14
+
+[[repo]]
+name = "SalesforceFoundation/Recurring_Donations"
+url = "https://github.com/SalesforceFoundation/Recurring_Donations"
+commit = "ec61b308fed747538b9c0b49f1625626c908f3e2"
+license = "BSD-3-Clause"
+stages = ["v1.2"]
+[repo.counts]
+lwc_components = 0
+lwc_js = 0
+lwc_html = 0
+flows = 0
+flow_elements = 0
+validation_rules = 0
+formula_fields = 3
+cmdt_records = 0
+aura_bundles = 0
+vf_pages = 0
+size_mb = 1
+
+[[repo]]
+name = "SalesforceFoundation/Relationships"
+url = "https://github.com/SalesforceFoundation/Relationships"
+commit = "e1f2efe87e5394bd6c1db11f27ca1309e955bf19"
+license = "BSD-3-Clause"
+stages = ["v1.2", "v1.3"]
+[repo.counts]
+lwc_components = 0
+lwc_js = 0
+lwc_html = 0
+flows = 0
+flow_elements = 0
+validation_rules = 1
+formula_fields = 1
+cmdt_records = 0
+aura_bundles = 0
+vf_pages = 2
+size_mb = 1
+
+[[repo]]
+name = "SalesforceFoundation/Volunteers-for-Salesforce"
+url = "https://github.com/SalesforceFoundation/Volunteers-for-Salesforce"
+commit = "332a6756de3654d8f1f669230a193acfe3a4ad59"
+license = "BSD-3-Clause"
+stages = ["v1.2", "v1.3"]
+[repo.counts]
+lwc_components = 0
+lwc_js = 0
+lwc_html = 0
+flows = 0
+flow_elements = 0
+validation_rules = 7
+formula_fields = 11
+cmdt_records = 0
+aura_bundles = 0
+vf_pages = 27
+size_mb = 13
+
+[[repo]]
+name = "SalesforceFoundation/k12-architecture-kit"
+url = "https://github.com/SalesforceFoundation/k12-architecture-kit"
+commit = "c1bd8169cf05c38949f2ca5369faebf2ead4f333"
+license = "BSD-3-Clause"
+stages = ["v1.2"]
+[repo.counts]
+lwc_components = 0
+lwc_js = 0
+lwc_html = 0
+flows = 0
+flow_elements = 0
+validation_rules = 0
+formula_fields = 2
+cmdt_records = 0
+aura_bundles = 0
+vf_pages = 0
+size_mb = 4
+
+[[repo]]
+name = "SalesforceLabs/ActionPlansV4"
+url = "https://github.com/SalesforceLabs/ActionPlansV4"
+commit = "ef5a417a3fd243ee9c0e2dead1b9e4a7dcbd6fe8"
+license = "BSD-3-Clause"
+stages = ["v1.2", "v1.3"]
+[repo.counts]
+lwc_components = 0
+lwc_js = 0
+lwc_html = 0
+flows = 2
+flow_elements = 4
+validation_rules = 8
+formula_fields = 5
+cmdt_records = 7
+aura_bundles = 0
+vf_pages = 22
+size_mb = 11
+
+[[repo]]
+name = "SalesforceLabs/AnimalShelterStarter"
+url = "https://github.com/SalesforceLabs/AnimalShelterStarter"
+commit = "c6eec92002eedde52ed332469b37f5552912ab86"
+license = "Apache-2.0"
+stages = ["v1.1", "v1.2", "v1.3"]
+[repo.counts]
+lwc_components = 11
+lwc_js = 11
+lwc_html = 11
+flows = 61
+flow_elements = 534
+validation_rules = 9
+formula_fields = 37
+cmdt_records = 4
+aura_bundles = 10
+vf_pages = 1
+size_mb = 14
+
+[[repo]]
+name = "SalesforceLabs/ApexPulse"
+url = "https://github.com/SalesforceLabs/ApexPulse"
+commit = "329b4a1666734ab55e5f5e1518883b3fe75be949"
+license = "BSD-3-Clause"
+stages = ["v1.1", "v1.2"]
+[repo.counts]
+lwc_components = 2
+lwc_js = 2
+lwc_html = 2
+flows = 1
+flow_elements = 8
+validation_rules = 0
+formula_fields = 1
+cmdt_records = 0
+aura_bundles = 0
+vf_pages = 0
+size_mb = 2
+
+[[repo]]
+name = "SalesforceLabs/Clone-Related-Lists"
+url = "https://github.com/SalesforceLabs/Clone-Related-Lists"
+commit = "5a6351fcb5fce2a3626c3f1a3dde2fdf906122b2"
+license = "BSD-3-Clause"
+stages = ["v1.3"]
+[repo.counts]
+lwc_components = 0
+lwc_js = 0
+lwc_html = 0
+flows = 0
+flow_elements = 0
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 0
+vf_pages = 1
+size_mb = 1
+
+[[repo]]
+name = "SalesforceLabs/Configurable-Self-Registration-for-Experience-Cloud"
+url = "https://github.com/SalesforceLabs/Configurable-Self-Registration-for-Experience-Cloud"
+commit = "9712e7ddcaf35e6b4de40be0cc5e12cdf6439044"
+license = "BSD-3-Clause"
+stages = ["v1.1", "v1.2"]
+[repo.counts]
+lwc_components = 11
+lwc_js = 11
+lwc_html = 11
+flows = 1
+flow_elements = 1
+validation_rules = 18
+formula_fields = 2
+cmdt_records = 18
+aura_bundles = 0
+vf_pages = 0
+size_mb = 6
+
+[[repo]]
+name = "SalesforceLabs/Data-Fetcher"
+url = "https://github.com/SalesforceLabs/Data-Fetcher"
+commit = "34f956e190e8cc0a56fa41085b7cd9bd06860acb"
+license = "BSD-3-Clause"
+stages = ["v1.1"]
+[repo.counts]
+lwc_components = 23
+lwc_js = 23
+lwc_html = 12
+flows = 0
+flow_elements = 0
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 0
+vf_pages = 0
+size_mb = 2
+
+[[repo]]
+name = "SalesforceLabs/Deadline-Manager-for-Orchestrator"
+url = "https://github.com/SalesforceLabs/Deadline-Manager-for-Orchestrator"
+commit = "2b970f5c644f4e31a0a32992ee7c969af201e530"
+license = "BSD-3-Clause"
+stages = ["v1.2"]
+[repo.counts]
+lwc_components = 0
+lwc_js = 0
+lwc_html = 0
+flows = 7
+flow_elements = 36
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 0
+vf_pages = 0
+size_mb = 1
+
+[[repo]]
+name = "SalesforceLabs/EnhancedLightningGrid"
+url = "https://github.com/SalesforceLabs/EnhancedLightningGrid"
+commit = "dedec53c99b22305b33eb287bd03c6697d299a11"
+license = "BSD-3-Clause"
+stages = ["v1.2", "v1.3"]
+[repo.counts]
+lwc_components = 0
+lwc_js = 0
+lwc_html = 0
+flows = 0
+flow_elements = 0
+validation_rules = 3
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 17
+vf_pages = 0
+size_mb = 18
+
+[[repo]]
+name = "SalesforceLabs/Flow-Agentforce-Chat"
+url = "https://github.com/SalesforceLabs/Flow-Agentforce-Chat"
+commit = "123bf48c31e8e06b58b93c5f793c94e4e949edaa"
+license = "Apache-2.0"
+stages = ["v1.1"]
+[repo.counts]
+lwc_components = 4
+lwc_js = 4
+lwc_html = 4
+flows = 0
+flow_elements = 0
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 0
+vf_pages = 0
+size_mb = 1
+
+[[repo]]
+name = "SalesforceLabs/Flow-Datagrid-Pack"
+url = "https://github.com/SalesforceLabs/Flow-Datagrid-Pack"
+commit = "47b3fb5f06016ca1f1fc2fef0332965c63bcd799"
+license = "BSD-3-Clause"
+stages = ["v1.3"]
+[repo.counts]
+lwc_components = 0
+lwc_js = 0
+lwc_html = 0
+flows = 0
+flow_elements = 0
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 7
+vf_pages = 0
+size_mb = 2
+
+[[repo]]
+name = "SalesforceLabs/Flow-Document-Scanner"
+url = "https://github.com/SalesforceLabs/Flow-Document-Scanner"
+commit = "66779a083ff610dad64f3ed89815a9e5535e4fa1"
+license = "BSD-3-Clause"
+stages = ["v1.1"]
+[repo.counts]
+lwc_components = 1
+lwc_js = 1
+lwc_html = 1
+flows = 0
+flow_elements = 0
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 0
+vf_pages = 0
+size_mb = 1
+
+[[repo]]
+name = "SalesforceLabs/IT-Manager"
+url = "https://github.com/SalesforceLabs/IT-Manager"
+commit = "6a55719727b911f92f330d3dc5262f6dd7577d77"
+license = "BSD-3-Clause"
+stages = ["v1.1", "v1.2"]
+[repo.counts]
+lwc_components = 2
+lwc_js = 2
+lwc_html = 2
+flows = 3
+flow_elements = 6
+validation_rules = 0
+formula_fields = 1
+cmdt_records = 0
+aura_bundles = 0
+vf_pages = 0
+size_mb = 1
+
+[[repo]]
+name = "SalesforceLabs/Imhotep-App-Builder"
+url = "https://github.com/SalesforceLabs/Imhotep-App-Builder"
+commit = "f2e3f770c2393fe54a8059d812fa19caa39a9a1a"
+license = "Apache-2.0"
+stages = ["v1.1", "v1.2", "v1.3"]
+[repo.counts]
+lwc_components = 14
+lwc_js = 14
+lwc_html = 14
+flows = 44
+flow_elements = 509
+validation_rules = 1
+formula_fields = 11
+cmdt_records = 0
+aura_bundles = 15
+vf_pages = 0
+size_mb = 7
+
+[[repo]]
+name = "SalesforceLabs/InsuranceCloudCodeSamples"
+url = "https://github.com/SalesforceLabs/InsuranceCloudCodeSamples"
+commit = "21d1eb5d988430ae906f17948814cb2558700bb3"
+license = "Apache-2.0"
+stages = ["v1.1"]
+[repo.counts]
+lwc_components = 6
+lwc_js = 11
+lwc_html = 6
+flows = 0
+flow_elements = 0
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 0
+vf_pages = 0
+size_mb = 1
+
+[[repo]]
+name = "SalesforceLabs/LSStarterConfig"
+url = "https://github.com/SalesforceLabs/LSStarterConfig"
+commit = "7c385d54f52389b48e1ffcae1e9236fb083e85b8"
+license = "Apache-2.0"
+stages = ["v1.1", "v1.2"]
+[repo.counts]
+lwc_components = 7
+lwc_js = 7
+lwc_html = 6
+flows = 2
+flow_elements = 4
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 0
+vf_pages = 0
+size_mb = 11
+
+[[repo]]
+name = "SalesforceLabs/LightningDataLoader"
+url = "https://github.com/SalesforceLabs/LightningDataLoader"
+commit = "4b291eda6c47b7cfa98abc8091ee038c593e45a9"
+license = "Apache-2.0"
+stages = ["v1.1"]
+[repo.counts]
+lwc_components = 1
+lwc_js = 1
+lwc_html = 1
+flows = 0
+flow_elements = 0
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 0
+vf_pages = 0
+size_mb = 1
+
+[[repo]]
+name = "SalesforceLabs/Mass-Transfer-and-Reassign-Opportunities"
+url = "https://github.com/SalesforceLabs/Mass-Transfer-and-Reassign-Opportunities"
+commit = "36dccea8707b386dcc4e17881509db26e7cc8a01"
+license = "BSD-3-Clause"
+stages = ["v1.3"]
+[repo.counts]
+lwc_components = 0
+lwc_js = 0
+lwc_html = 0
+flows = 0
+flow_elements = 0
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 0
+vf_pages = 1
+size_mb = 9
+
+[[repo]]
+name = "SalesforceLabs/OrgCheck"
+url = "https://github.com/SalesforceLabs/OrgCheck"
+commit = "2ccd271a70ccf3d1cfa82c4cb93b1df9a7bd984a"
+license = "MIT"
+stages = ["v1.1", "v1.3"]
+[repo.counts]
+lwc_components = 10
+lwc_js = 10
+lwc_html = 10
+flows = 0
+flow_elements = 0
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 1
+vf_pages = 1
+size_mb = 21
+
+[[repo]]
+name = "SalesforceLabs/Product-Data-Management"
+url = "https://github.com/SalesforceLabs/Product-Data-Management"
+commit = "09e6bb1ac4780e525d901fd42b61c4d3f5b2f22a"
+license = "BSD-3-Clause"
+stages = ["v1.2"]
+[repo.counts]
+lwc_components = 0
+lwc_js = 0
+lwc_html = 0
+flows = 10
+flow_elements = 29
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 0
+vf_pages = 0
+size_mb = 1
+
+[[repo]]
+name = "SalesforceLabs/Quicker-Quotes"
+url = "https://github.com/SalesforceLabs/Quicker-Quotes"
+commit = "d1c406ea12a29b2c47f8c09ee135841cd1fd71b5"
+license = "BSD-3-Clause"
+stages = ["v1.1", "v1.2", "v1.3"]
+[repo.counts]
+lwc_components = 2
+lwc_js = 2
+lwc_html = 2
+flows = 6
+flow_elements = 158
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 4
+vf_pages = 0
+size_mb = 2
+
+[[repo]]
+name = "SalesforceLabs/SDGStarterPack"
+url = "https://github.com/SalesforceLabs/SDGStarterPack"
+commit = "27b333804837028f316d5ac293ad51a94582cf1e"
+license = "Apache-2.0"
+stages = ["v1.2"]
+[repo.counts]
+lwc_components = 0
+lwc_js = 0
+lwc_html = 0
+flows = 5
+flow_elements = 13
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 0
+vf_pages = 0
+size_mb = 3
+
+[[repo]]
+name = "SalesforceLabs/UnsubscribeLink"
+url = "https://github.com/SalesforceLabs/UnsubscribeLink"
+commit = "1386290d944f9d18016c8f67b4a827b030365837"
+license = "BSD-3-Clause"
+stages = ["v1.2", "v1.3"]
+[repo.counts]
+lwc_components = 0
+lwc_js = 0
+lwc_html = 0
+flows = 4
+flow_elements = 38
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 0
+vf_pages = 1
+size_mb = 1
+
+[[repo]]
+name = "SalesforceLabs/Work-Order-Utility-Flow"
+url = "https://github.com/SalesforceLabs/Work-Order-Utility-Flow"
+commit = "2b281d6775518d678f43bf250a173ea1fe3658c4"
+license = "BSD-3-Clause"
+stages = ["v1.2"]
+[repo.counts]
+lwc_components = 0
+lwc_js = 0
+lwc_html = 0
+flows = 3
+flow_elements = 16
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 0
+vf_pages = 0
+size_mb = 1
+
+[[repo]]
+name = "SalesforceLabs/lwc-ui-orchestrator"
+url = "https://github.com/SalesforceLabs/lwc-ui-orchestrator"
+commit = "6572f3e2f6efe99825f8b69a5d9af568ae889154"
+license = "BSD-3-Clause"
+stages = ["v1.1", "v1.2", "v1.3"]
+[repo.counts]
+lwc_components = 2
+lwc_js = 2
+lwc_html = 2
+flows = 4
+flow_elements = 36
+validation_rules = 1
+formula_fields = 0
+cmdt_records = 30
+aura_bundles = 2
+vf_pages = 0
+size_mb = 2
+
+[[repo]]
+name = "SalesforceLabs/revenue-cloud-foundations"
+url = "https://github.com/SalesforceLabs/revenue-cloud-foundations"
+commit = "c8506522ba45bb2c0015d41fa5eace51eed1ff91"
+license = "Apache-2.0"
+stages = ["v1.1", "v1.2", "v1.3"]
+[repo.counts]
+lwc_components = 51
+lwc_js = 52
+lwc_html = 50
+flows = 73
+flow_elements = 757
+validation_rules = 0
+formula_fields = 29
+cmdt_records = 5
+aura_bundles = 1
+vf_pages = 2
+size_mb = 194
+
+[[repo]]
+name = "afawcett/declarative-lookup-rollup-summaries"
+url = "https://github.com/afawcett/declarative-lookup-rollup-summaries"
+commit = "3b8bac1d400205d289c0b5aafd7dafbff0e3ac31"
+license = "BSD-3-Clause"
+stages = ["v1.1", "v1.2", "v1.3"]
+[repo.counts]
+lwc_components = 15
+lwc_js = 17
+lwc_html = 13
+flows = 0
+flow_elements = 0
+validation_rules = 2
+formula_fields = 3
+cmdt_records = 6
+aura_bundles = 2
+vf_pages = 16
+size_mb = 12
+
+[[repo]]
+name = "alexed1/LightningFlowComponents"
+url = "https://github.com/alexed1/LightningFlowComponents"
+commit = "5de6df2c7ce5d23d50e45887c48920b1bfa4f511"
+license = "BSD-3-Clause"
+stages = ["v1.1", "v1.2", "v1.3"]
+[repo.counts]
+lwc_components = 253
+lwc_js = 257
+lwc_html = 227
+flows = 288
+flow_elements = 1631
+validation_rules = 1
+formula_fields = 1
+cmdt_records = 2
+aura_bundles = 108
+vf_pages = 31
+size_mb = 143
+
+[[repo]]
+name = "alexed1/approvalsOnFlow"
+url = "https://github.com/alexed1/approvalsOnFlow"
+commit = "6579d8f9374851398d60abe068b7b1510a1433f0"
+license = "BSD-3-Clause"
+stages = ["v1.1", "v1.2", "v1.3"]
+[repo.counts]
+lwc_components = 20
+lwc_js = 20
+lwc_html = 18
+flows = 22
+flow_elements = 242
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 1
+vf_pages = 2
+size_mb = 4
+
+[[repo]]
+name = "appiphony/strike-components"
+url = "https://github.com/appiphony/strike-components"
+commit = "90171a6f7ff473386a005316216c3ba79739e421"
+license = "BSD-3-Clause"
+stages = ["v1.3"]
+[repo.counts]
+lwc_components = 0
+lwc_js = 0
+lwc_html = 0
+flows = 0
+flow_elements = 0
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 30
+vf_pages = 0
+size_mb = 2
+
+[[repo]]
+name = "certinia/alexa-salesforce-flow-skill-examples"
+url = "https://github.com/certinia/alexa-salesforce-flow-skill-examples"
+commit = "90cd624d29f9e9c39e688675939b26cadc00ca46"
+license = "BSD-3-Clause"
+stages = ["v1.2"]
+[repo.counts]
+lwc_components = 0
+lwc_js = 0
+lwc_html = 0
+flows = 12
+flow_elements = 49
+validation_rules = 0
+formula_fields = 7
+cmdt_records = 0
+aura_bundles = 0
+vf_pages = 0
+size_mb = 31
+
+[[repo]]
+name = "navikt/crm-arbeidsforhold"
+url = "https://github.com/navikt/crm-arbeidsforhold"
+commit = "82380f883aed7602544785f0d48a6c9c4eb64de3"
+license = "MIT"
+stages = ["v1.1", "v1.2", "v1.3"]
+[repo.counts]
+lwc_components = 27
+lwc_js = 28
+lwc_html = 26
+flows = 37
+flow_elements = 406
+validation_rules = 1
+formula_fields = 20
+cmdt_records = 29
+aura_bundles = 1
+vf_pages = 4
+size_mb = 35
+
+[[repo]]
+name = "navikt/crm-arbeidsgiver-base"
+url = "https://github.com/navikt/crm-arbeidsgiver-base"
+commit = "c0636283547e6c95c95a7fe0adc7f6faf48989a3"
+license = "MIT"
+stages = ["v1.1", "v1.2", "v1.3"]
+[repo.counts]
+lwc_components = 34
+lwc_js = 37
+lwc_html = 34
+flows = 62
+flow_elements = 476
+validation_rules = 38
+formula_fields = 172
+cmdt_records = 123
+aura_bundles = 3
+vf_pages = 2
+size_mb = 17
+
+[[repo]]
+name = "navikt/crm-ips"
+url = "https://github.com/navikt/crm-ips"
+commit = "ce5e5445c23126bdae9597fbf9c4692f1b013d7f"
+license = "MIT"
+stages = ["v1.1", "v1.2", "v1.3"]
+[repo.counts]
+lwc_components = 36
+lwc_js = 36
+lwc_html = 42
+flows = 83
+flow_elements = 946
+validation_rules = 32
+formula_fields = 30
+cmdt_records = 128
+aura_bundles = 2
+vf_pages = 5
+size_mb = 21
+
+[[repo]]
+name = "navikt/crm-nks-base"
+url = "https://github.com/navikt/crm-nks-base"
+commit = "fb62eb106169ce70e00ea015566ffbc7ac5eceab"
+license = "MIT"
+stages = ["v1.1", "v1.2", "v1.3"]
+[repo.counts]
+lwc_components = 53
+lwc_js = 54
+lwc_html = 51
+flows = 27
+flow_elements = 361
+validation_rules = 3
+formula_fields = 22
+cmdt_records = 134
+aura_bundles = 9
+vf_pages = 4
+size_mb = 10
+
+[[repo]]
+name = "navikt/crm-sto"
+url = "https://github.com/navikt/crm-sto"
+commit = "4dd7b9d3e198cd8049740623c37d991a3ac2e7b5"
+license = "MIT"
+stages = ["v1.1", "v1.2", "v1.3"]
+[repo.counts]
+lwc_components = 49
+lwc_js = 49
+lwc_html = 47
+flows = 34
+flow_elements = 258
+validation_rules = 0
+formula_fields = 2
+cmdt_records = 11
+aura_bundles = 5
+vf_pages = 22
+size_mb = 9
+
+[[repo]]
+name = "trailheadapps/agent-script-recipes"
+url = "https://github.com/trailheadapps/agent-script-recipes"
+commit = "80b2eb37bb81f23143001425a618bc8416efec3d"
+license = "Apache-2.0"
+stages = ["v1.1", "v1.2"]
+[repo.counts]
+lwc_components = 2
+lwc_js = 2
+lwc_html = 2
+flows = 61
+flow_elements = 125
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 0
+vf_pages = 0
+size_mb = 5
+
+[[repo]]
+name = "trailheadapps/automation-components"
+url = "https://github.com/trailheadapps/automation-components"
+commit = "70d9103202480f3ba90f9dec279ab7dc15ec0806"
+license = "CC0-1.0"
+stages = ["v1.1", "v1.3"]
+[repo.counts]
+lwc_components = 5
+lwc_js = 5
+lwc_html = 6
+flows = 0
+flow_elements = 0
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 2
+vf_pages = 0
+size_mb = 3
+
+[[repo]]
+name = "trailheadapps/az-insurance"
+url = "https://github.com/trailheadapps/az-insurance"
+commit = "f2bd28a3a74e247134bc3bdb889c1e24655e32de"
+license = "CC0-1.0"
+stages = ["v1.1", "v1.2", "v1.3"]
+[repo.counts]
+lwc_components = 25
+lwc_js = 25
+lwc_html = 23
+flows = 1
+flow_elements = 1
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 0
+vf_pages = 1
+size_mb = 5
+
+[[repo]]
+name = "trailheadapps/coral-cloud"
+url = "https://github.com/trailheadapps/coral-cloud"
+commit = "854216765da8565b6410297443e071f8fec7a769"
+license = "CC0-1.0"
+stages = ["v1.1", "v1.2", "v1.3"]
+[repo.counts]
+lwc_components = 15
+lwc_js = 15
+lwc_html = 13
+flows = 10
+flow_elements = 34
+validation_rules = 0
+formula_fields = 16
+cmdt_records = 0
+aura_bundles = 0
+vf_pages = 1
+size_mb = 17
+
+[[repo]]
+name = "trailheadapps/dreamhouse-lwc"
+url = "https://github.com/trailheadapps/dreamhouse-lwc"
+commit = "a01e7c0d7393ba5b26087e44d76af33cd88e275f"
+license = "Apache-2.0"
+stages = ["v1.1", "v1.2", "v1.3"]
+[repo.counts]
+lwc_components = 17
+lwc_js = 17
+lwc_html = 15
+flows = 1
+flow_elements = 18
+validation_rules = 0
+formula_fields = 3
+cmdt_records = 0
+aura_bundles = 1
+vf_pages = 0
+size_mb = 3
+
+[[repo]]
+name = "trailheadapps/dreamhouse-sfdx"
+url = "https://github.com/trailheadapps/dreamhouse-sfdx"
+commit = "80dde25a37555b4e102beca7eeb077bf213174e9"
+license = "CC0-1.0"
+stages = ["v1.2", "v1.3"]
+[repo.counts]
+lwc_components = 0
+lwc_js = 0
+lwc_html = 0
+flows = 4
+flow_elements = 16
+validation_rules = 0
+formula_fields = 3
+cmdt_records = 0
+aura_bundles = 41
+vf_pages = 0
+size_mb = 4
+
+[[repo]]
+name = "trailheadapps/dreaminvest"
+url = "https://github.com/trailheadapps/dreaminvest"
+commit = "6045df983dbc15c6945965ff02454270ceec9353"
+license = "CC0-1.0"
+stages = ["v1.3"]
+[repo.counts]
+lwc_components = 0
+lwc_js = 0
+lwc_html = 0
+flows = 0
+flow_elements = 0
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 24
+vf_pages = 0
+size_mb = 24
+
+[[repo]]
+name = "trailheadapps/dreaminvest-lwc"
+url = "https://github.com/trailheadapps/dreaminvest-lwc"
+commit = "ddde6515cc5fe580814245c3ada4407762ce2512"
+license = "CC0-1.0"
+stages = ["v1.1", "v1.3"]
+[repo.counts]
+lwc_components = 18
+lwc_js = 18
+lwc_html = 14
+flows = 0
+flow_elements = 0
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 1
+vf_pages = 0
+size_mb = 24
+
+[[repo]]
+name = "trailheadapps/easy-spaces"
+url = "https://github.com/trailheadapps/easy-spaces"
+commit = "f9039a3aec04b85a151910b130d72d443f09dfe2"
+license = "CC0-1.0"
+stages = ["v1.2", "v1.3"]
+[repo.counts]
+lwc_components = 0
+lwc_js = 0
+lwc_html = 0
+flows = 2
+flow_elements = 12
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 2
+aura_bundles = 23
+vf_pages = 0
+size_mb = 10
+
+[[repo]]
+name = "trailheadapps/easy-spaces-lwc"
+url = "https://github.com/trailheadapps/easy-spaces-lwc"
+commit = "d68a09ff7d17469a24a2f2825d906314ae787181"
+license = "CC0-1.0"
+stages = ["v1.1", "v1.2", "v1.3"]
+[repo.counts]
+lwc_components = 16
+lwc_js = 16
+lwc_html = 12
+flows = 2
+flow_elements = 13
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 2
+aura_bundles = 8
+vf_pages = 0
+size_mb = 9
+
+[[repo]]
+name = "trailheadapps/ebikes-lwc"
+url = "https://github.com/trailheadapps/ebikes-lwc"
+commit = "ab1a3235365eb3a779589f5b971503ee6d62fe55"
+license = "CC0-1.0"
+stages = ["v1.1", "v1.3"]
+[repo.counts]
+lwc_components = 22
+lwc_js = 22
+lwc_html = 20
+flows = 0
+flow_elements = 0
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 1
+vf_pages = 1
+size_mb = 5
+
+[[repo]]
+name = "trailheadapps/ecars"
+url = "https://github.com/trailheadapps/ecars"
+commit = "a5e9cc01c2b0fac91e752011c318fb0d2e258e9f"
+license = "CC0-1.0"
+stages = ["v1.1", "v1.2"]
+[repo.counts]
+lwc_components = 13
+lwc_js = 15
+lwc_html = 11
+flows = 2
+flow_elements = 7
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 0
+vf_pages = 0
+size_mb = 16
+
+[[repo]]
+name = "trailheadapps/lwc-recipes"
+url = "https://github.com/trailheadapps/lwc-recipes"
+commit = "b5af6ecb2f8d5d75d161b2a702d899f6e4ffc878"
+license = "CC0-1.0"
+stages = ["v1.1", "v1.2", "v1.3"]
+[repo.counts]
+lwc_components = 132
+lwc_js = 133
+lwc_html = 129
+flows = 1
+flow_elements = 3
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 3
+vf_pages = 4
+size_mb = 9
+
+[[repo]]
+name = "trailheadapps/multiframework-recipes"
+url = "https://github.com/trailheadapps/multiframework-recipes"
+commit = "2ec6e22ff6d2500169193a7ab379b1c14226354e"
+license = "Apache-2.0"
+stages = ["v1.1"]
+[repo.counts]
+lwc_components = 11
+lwc_js = 11
+lwc_html = 11
+flows = 0
+flow_elements = 0
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 0
+vf_pages = 0
+size_mb = 9
+
+[[repo]]
+name = "trailheadapps/pronto"
+url = "https://github.com/trailheadapps/pronto"
+commit = "220badaa00e0746b56839abab61bf2eaa5f03805"
+license = "Apache-2.0"
+stages = ["v1.1", "v1.2", "v1.3"]
+[repo.counts]
+lwc_components = 12
+lwc_js = 12
+lwc_html = 11
+flows = 5
+flow_elements = 11
+validation_rules = 0
+formula_fields = 4
+cmdt_records = 0
+aura_bundles = 1
+vf_pages = 2
+size_mb = 26
+
+[[repo]]
+name = "trailheadapps/purealoe"
+url = "https://github.com/trailheadapps/purealoe"
+commit = "ccf46d94a7101c114e1a7a45a403cc9c378a1c31"
+license = "CC0-1.0"
+stages = ["v1.2", "v1.3"]
+[repo.counts]
+lwc_components = 0
+lwc_js = 0
+lwc_html = 0
+flows = 4
+flow_elements = 31
+validation_rules = 0
+formula_fields = 1
+cmdt_records = 0
+aura_bundles = 26
+vf_pages = 0
+size_mb = 6
+
+[[repo]]
+name = "trailheadapps/purealoe-lwc"
+url = "https://github.com/trailheadapps/purealoe-lwc"
+commit = "1b7dcaa3633ac3462cfe526aa580dff4d8696740"
+license = "CC0-1.0"
+stages = ["v1.1", "v1.2", "v1.3"]
+[repo.counts]
+lwc_components = 18
+lwc_js = 18
+lwc_html = 16
+flows = 4
+flow_elements = 31
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 3
+vf_pages = 0
+size_mb = 6
+
+[[repo]]
+name = "trailheadapps/redwoods-insurance"
+url = "https://github.com/trailheadapps/redwoods-insurance"
+commit = "88787d7d7fa760216c781f5e2112bc94a6039339"
+license = "CC0-1.0"
+stages = ["v1.1", "v1.3"]
+[repo.counts]
+lwc_components = 3
+lwc_js = 3
+lwc_html = 3
+flows = 0
+flow_elements = 0
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 0
+vf_pages = 26
+size_mb = 3
+
+[[repo]]
+name = "trailheadapps/visualforce-to-lwc"
+url = "https://github.com/trailheadapps/visualforce-to-lwc"
+commit = "81001b70214843d1c10546b1a4c26a30c0412d1f"
+license = "CC0-1.0"
+stages = ["v1.1", "v1.3"]
+[repo.counts]
+lwc_components = 55
+lwc_js = 55
+lwc_html = 53
+flows = 0
+flow_elements = 0
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 1
+vf_pages = 24
+size_mb = 4
+
+[[repo]]
+name = "britishboyindc/GrantLifecycleApp"
+url = "https://github.com/britishboyindc/GrantLifecycleApp"
+commit = "655e644610d76b91d74c933a9e971c8843a099b9"
+license = "BSD-3-Clause"
+stages = ["v1.3"]
+[repo.counts]
+lwc_components = 0
+lwc_js = 0
+lwc_html = 0
+flows = 0
+flow_elements = 0
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 0
+vf_pages = 35
+size_mb = 1
+
+[[repo]]
+name = "cabinetoffice/has-nomination-form"
+url = "https://github.com/cabinetoffice/has-nomination-form"
+commit = "604fcbf0888691853a211785b6b233726285e975"
+license = "MIT"
+stages = ["v1.3"]
+[repo.counts]
+lwc_components = 0
+lwc_js = 0
+lwc_html = 0
+flows = 0
+flow_elements = 0
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 0
+vf_pages = 73
+size_mb = 3
+
+[[repo]]
+name = "EcumenicalHungerProgram/FoodBank"
+url = "https://github.com/EcumenicalHungerProgram/FoodBank"
+commit = "5d561a84413316e3cbe71f8be0450bed6cbacd52"
+license = "BSD-3-Clause"
+stages = ["v1.3"]
+[repo.counts]
+lwc_components = 0
+lwc_js = 0
+lwc_html = 0
+flows = 0
+flow_elements = 0
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 0
+vf_pages = 13
+size_mb = 1
+
+[[repo]]
+name = "afawcett/forcedotcom-enterprise-architecture"
+url = "https://github.com/afawcett/forcedotcom-enterprise-architecture"
+commit = "e972503d68b58f8f609445a4d755dbee6d1c3af4"
+license = "BSD-2-Clause"
+stages = ["v1.3"]
+[repo.counts]
+lwc_components = 0
+lwc_js = 0
+lwc_html = 0
+flows = 0
+flow_elements = 0
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 0
+vf_pages = 8
+size_mb = 4
+
+[[repo]]
+name = "SalesforceLabs/esri-maps"
+url = "https://github.com/SalesforceLabs/esri-maps"
+commit = "1307a2f7987d642c0d184ea4ccb2050de28dbf3f"
+license = "BSD-3-Clause"
+stages = ["v1.3"]
+[repo.counts]
+lwc_components = 0
+lwc_js = 0
+lwc_html = 0
+flows = 0
+flow_elements = 0
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 0
+vf_pages = 7
+size_mb = 36
+
+[[repo]]
+name = "SalesforceLabs/Magic-Mover"
+url = "https://github.com/SalesforceLabs/Magic-Mover"
+commit = "382852ba33dccb2f01cd2009980e4b2ee524ee05"
+license = "BSD-3-Clause"
+stages = ["v1.3"]
+[repo.counts]
+lwc_components = 0
+lwc_js = 0
+lwc_html = 0
+flows = 0
+flow_elements = 0
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 0
+vf_pages = 6
+size_mb = 1
+
+[[repo]]
+name = "SalesforceLabs/ContentStandardChecklist"
+url = "https://github.com/SalesforceLabs/ContentStandardChecklist"
+commit = "a6565e5d7184f350fa921bd4e66c65276845ade7"
+license = "BSD-3-Clause"
+stages = ["v1.3"]
+[repo.counts]
+lwc_components = 0
+lwc_js = 0
+lwc_html = 0
+flows = 0
+flow_elements = 0
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 0
+vf_pages = 5
+size_mb = 1
+
+[[repo]]
+name = "SalesforceLabs/chatter-game"
+url = "https://github.com/SalesforceLabs/chatter-game"
+commit = "df1746c917e9fa8cffac7a6e4f7cd91417b2d58b"
+license = "BSD-3-Clause"
+stages = ["v1.3"]
+[repo.counts]
+lwc_components = 0
+lwc_js = 0
+lwc_html = 0
+flows = 0
+flow_elements = 0
+validation_rules = 0
+formula_fields = 0
+cmdt_records = 0
+aura_bundles = 0
+vf_pages = 5
+size_mb = 2

@@ -1,0 +1,21 @@
+id = "ar14-trigger-tasks-bulk-insert"
+category = "bulk-dml"
+repo = "https://github.com/trailheadapps/apex-recipes"
+commit = "eda6167c5126a34daf66d9e1371ff6957ae223bd"
+source_file = "force-app/main/default/classes/Trigger Recipes/AccountTriggerHandler.cls"
+source_lines = [220, 240]
+query = """
+System.debug(LoggingLevel.INFO, 'After Delete Action');
+List<Task> newTasks = new List<Task>();
+for (Account acct : this.triggerOld) {
+    Task tsk = new Task(Subject = 'Account was deleted, please verify');
+    newTasks.add(tsk);
+}
+"""
+required = [
+    "insert newTasks",
+    "catch (DmlException",
+    "dmle.getMessage()",
+    "throw new AccountTriggerHandlerException(",
+]
+notes = "Trigger handler: collect Tasks in a loop, insert them in one DML call and translate a DmlException into the handler's exception."

@@ -1,0 +1,16 @@
+id = "ar09-batch-test-start-stop"
+category = "test-setup"
+repo = "https://github.com/trailheadapps/apex-recipes"
+commit = "eda6167c5126a34daf66d9e1371ff6957ae223bd"
+source_file = "force-app/tests/Async Apex Recipes/BatchApexRecipes_Tests.cls"
+source_lines = [9, 38]
+query = """
+Test.startTest();
+Database.executeBatch(new BatchApexRecipes());
+"""
+required = [
+    "Test.stopTest()",
+    "System.Assert.areEqual(",
+]
+include_tests = true
+notes = "Batch test: Test.startTest/executeBatch/Test.stopTest followed by assertions on the processed records."

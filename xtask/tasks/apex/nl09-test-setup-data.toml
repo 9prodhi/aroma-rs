@@ -1,0 +1,19 @@
+id = "nl09-test-setup-data"
+category = "test-setup"
+repo = "https://github.com/jongpie/NebulaLogger"
+commit = "b792ac8d8b4eb31b14a164a24951c3cb4125a616"
+source_file = "nebula-logger/core/tests/log-management/classes/LogBatchPurger_Tests.cls"
+source_lines = [24, 54]
+query = """
+LoggerSObjectHandler.shouldExecute(false);
+LoggerSettings__c settings = Logger.getUserSettings();
+settings.IsEnabled__c = false;
+settings.LoggingLevel__c = System.LoggingLevel.FINEST.name();
+insert settings;
+"""
+required = [
+    "LoggerMockDataCreator.createDataBuilder(",
+    ".populateRequiredFields()",
+]
+include_tests = true
+notes = "TestSetup that disables handlers, then builds parent and child records with the mock data builder."

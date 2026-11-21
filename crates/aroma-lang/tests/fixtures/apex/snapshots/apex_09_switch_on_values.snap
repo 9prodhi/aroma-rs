@@ -1,0 +1,13 @@
+---
+source: crates/aroma-lang/tests/apex_adapter.rs
+---
+unit 0
+tree: ["{#}", "{", ["switchon##", "switch", "on", {$"priority"}, ["{###}", "{", ["##", ["when#,#", "when", {"'High'"}, ",", {"'Urgent'"}], ["{#}", "{", ["return#;", "return", {"1"}, ";"], "}"]], ["##", ["when#", "when", {"'Low'"}], ["{#}", "{", ["return#;", "return", {"3"}, ";"], "}"]], ["whenelse#", "when", "else", ["{#}", "{", ["return#;", "return", {"2"}, ";"], "}"]], "}"]], "}"]
+features:
+  "priority" ["#VAR","switchon##3>#VAR","#VAR>>'High'"]
+  "'High'" ["'High'","when#,#2>'High'","##1>'High'","switchon##4>'High'","#VAR>>'High'","'High'>>'Urgent'"]
+  "'Urgent'" ["'Urgent'","when#,#4>'Urgent'","##1>'Urgent'","switchon##4>'Urgent'","'High'>>'Urgent'","'Urgent'>>1"]
+  "1" ["1","return#;2>1","##2>1","switchon##4>1","'Urgent'>>1","1>>'Low'"]
+  "'Low'" ["'Low'","when#2>'Low'","##1>'Low'","switchon##4>'Low'","1>>'Low'","'Low'>>3"]
+  "3" ["3","return#;2>3","##2>3","switchon##4>3","'Low'>>3","3>>2"]
+  "2" ["2","return#;2>2","whenelse#3>2","switchon##4>2","3>>2"]

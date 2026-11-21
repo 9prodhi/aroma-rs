@@ -1,0 +1,24 @@
+id = "meta03-flow-update-input-reference"
+category = "flow-update"
+lang = "sfmeta"
+repo = "https://github.com/SalesforceLabs/lwc-ui-orchestrator"
+commit = "6572f3e2f6efe99825f8b69a5d9af568ae889154"
+source_file = "force-app/main/default/flows/UIJobTaskFlow_Sample.flow-meta.xml"
+source_lines = [331, 340]
+query = """
+    <recordUpdates>
+        <name>Update_Account</name>
+        <label>Update Account</label>
+        <locationX>1018</locationX>
+        <locationY>674</locationY>
+"""
+required = [
+    "<inputReference>",
+    "<targetReference>",
+]
+notes = "Flow recordUpdates persisting changes using an inputReference collection."
+answer_witness = [
+    "SalesforceLabs/AnimalShelterStarter:force-app/main/default/flows/Adopter_Match_clean_up_Subflow.flow-meta.xml:392",
+    "navikt/crm-ips:force-app/main/default/flows/IPS_worktrailSetParticipantPassive.flow-meta.xml:428",
+    "navikt/crm-ips:force-app/main/default/flows/IPS_Recruitment_Program.flow-meta.xml:425",
+]

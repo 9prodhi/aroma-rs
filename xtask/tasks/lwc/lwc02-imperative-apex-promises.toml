@@ -1,0 +1,33 @@
+id = "lwc02-imperative-apex-promises"
+category = "apex"
+lang = "lwcjs"
+repo = "https://github.com/SalesforceLabs/AnimalShelterStarter"
+commit = "c6eec92002eedde52ed332469b37f5552912ab86"
+source_file = "force-app/main/default/lwc/recordAlerts/recordAlerts.js"
+source_lines = [24, 79]
+query = """
+                // Define a mapping of severity levels to numerical values for sorting
+                const severityOrder = {
+                    'High': 1,
+                    'Medium': 2,
+                    'Low': 3,
+                    'Information Only': 4,
+                    'Undefined': 5
+                };
+
+                // Sort the result based on severity
+                const sortedResult = result.sort((a, b) => {
+                    // Compare the mapped numerical values of severity levels
+                    return severityOrder[a.animalshelters__Severity_Level__c] - severityOrder[b.animalshelters__Severity_Level__c];
+                });
+"""
+required = [
+    ".then(",
+    ".catch(",
+    "variant: 'error'",
+]
+notes = "Imperative Apex invocation using Promise then and catch blocks with toast error handling."
+answer_witness = [
+    "SalesforceLabs/AnimalShelterStarter:force-app/main/default/lwc/microchipLookup/microchipLookup.js:165",
+    "SalesforceLabs/AnimalShelterStarter:force-app/main/default/lwc/recordImage/recordImage.js:116",
+]

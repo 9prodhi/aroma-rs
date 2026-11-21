@@ -1,0 +1,18 @@
+id = "nl08-before-insert-context-test"
+category = "trigger-guard"
+repo = "https://github.com/jongpie/NebulaLogger"
+commit = "b792ac8d8b4eb31b14a164a24951c3cb4125a616"
+source_file = "nebula-logger/core/tests/log-management/classes/LogEntryHandler_Tests.cls"
+source_lines = [132, 147]
+query = """
+LogEntry__c matchingLogEntry = new LogEntry__c(DatabaseResultJson__c = 'some value');
+LogEntry__c nonMatchingLogEntry = new LogEntry__c(DatabaseResultJson__c = null);
+System.Assert.isNotNull(matchingLogEntry.DatabaseResultJson__c);
+System.Assert.isNull(nonMatchingLogEntry.DatabaseResultJson__c);
+"""
+required = [
+    "System.TriggerOperation.BEFORE_INSERT",
+    "overrideTriggerableContext(context).execute()",
+]
+include_tests = true
+notes = "Handler test that simulates a BEFORE_INSERT trigger context instead of performing DML."

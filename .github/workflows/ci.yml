@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  test:
+    name: test (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check the pinned toolchain
+        run: grep -q 'channel = "1.90.0"' rust-toolchain.toml
+
+      - name: Install Rust 1.90.0 (same as rust-toolchain.toml)
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: "1.90.0"
+          components: rustfmt, clippy
+
+      - name: C compiler for grammar build scripts
+        run: cc --version
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Fetch reference artifacts (CC BY-NC-SA 4.0, never vendored)
+        run: cargo run --locked -p xtask -- fetch-reference
+
+      - name: rustfmt
+        run: cargo fmt --all -- --check
+
+      - name: clippy
+        run: cargo clippy --locked --workspace --all-targets -- -D warnings
+
+      - name: test
+        run: cargo test --locked --workspace

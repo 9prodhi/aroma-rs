@@ -1,0 +1,17 @@
+id = "np09-opps-for-contact-secure"
+category = "soql-security"
+repo = "https://github.com/SalesforceFoundation/NPSP"
+commit = "f5072b44781e7f31cb396c6919cfa7d0ead0ec6a"
+source_file = "force-app/main/default/classes/CON_DeleteContactOverrideSelector.cls"
+source_lines = [99, 106]
+query = """
+return [
+    SELECT Name, AccountId, Primary_Contact__c, Primary_Contact__r.AccountId, IsWon, IsClosed
+    FROM Opportunity
+    WHERE Primary_Contact__c = :contactId
+];
+"""
+required = [
+    "WITH SECURITY_ENFORCED",
+]
+notes = "Selector method: the SOQL needs WITH SECURITY_ENFORCED like its sibling selectors."

@@ -1,0 +1,23 @@
+id = "lwc09-template-for-each"
+category = "template"
+lang = "lwchtml"
+repo = "https://github.com/trailheadapps/lwc-recipes"
+commit = "b5af6ecb2f8d5d75d161b2a702d899f6e4ffc878"
+source_file = "force-app/main/default/lwc/helloForEach/helloForEach.html"
+source_lines = [1, 12]
+query = """
+        <c-view-source source="lwc/helloForEach" slot="footer">
+            Loop through an array of items in a template.
+        </c-view-source>
+    </lightning-card>
+"""
+required = [
+    "for:each={",
+    "for:item=",
+    "key={",
+]
+notes = "Iterate over an array in template markup with for:each and bind item keys."
+answer_witness = [
+    "trailheadapps/lwc-recipes:force-app/main/default/lwc/apexImperativeMethod/apexImperativeMethod.html:1",
+    "trailheadapps/lwc-recipes:force-app/main/default/lwc/apexImperativeMethodWithParams/apexImperativeMethodWithParams.html:1",
+]

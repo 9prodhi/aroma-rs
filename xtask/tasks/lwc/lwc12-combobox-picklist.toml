@@ -1,0 +1,24 @@
+id = "lwc12-combobox-picklist"
+category = "ui"
+lang = "lwchtml"
+repo = "https://github.com/SalesforceFoundation/EDA"
+commit = "b311845eb082fc6b8fafdbcebdbe03cc570df3a6"
+source_file = "force-app/main/default/lwc/relationshipMappingModalBody/relationshipMappingModalBody.html"
+source_lines = [13, 25]
+query = """
+                    name={inputAttributeReference.relationshipMappingName}
+                    label={labelReference.relationshipMappingName}
+                    value={relationshipLookupNameComboboxVModel.value}
+                    placeholder={labelReference.comboboxPlaceholderText}
+"""
+required = [
+    "<lightning-combobox",
+    "options={",
+    "onchange={",
+]
+notes = "Render a lightning-combobox bound to dynamic options and change handler."
+answer_witness = [
+    "SalesforceFoundation/EDA:force-app/main/default/lwc/autoEnrollmentMappingModalBody/autoEnrollmentMappingModalBody.html:17",
+    "SalesforceFoundation/EDA:force-app/main/default/lwc/primaryAffiliationsModalBody/primaryAffiliationsModalBody.html:17",
+    "SalesforceFoundation/EDA:force-app/main/settingsComponentLibrary/lwc/settingsRowInput/settingsRowInput.html:13",
+]

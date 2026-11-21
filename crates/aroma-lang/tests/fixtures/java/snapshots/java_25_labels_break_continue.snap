@@ -1,0 +1,18 @@
+---
+source: crates/aroma-lang/tests/java_adapter.rs
+---
+unit 0
+compat:  ["{#}", "{", ["#:#", {"outer"}, ":", ["for(#)#", "for", "(", ["int[]#:#", "int", "[", "]", {$"row"}, ":", {$"rows"}], ")", ["{#}", "{", ["for(#)#", "for", "(", ["int#:#", "int", {$"cell"}, ":", {$"row"}], ")", ["{##}", "{", ["if##", "if", ["(#)", "(", ["#<#", {$"cell"}, "<", {"0"}], ")"], ["continue#;", "continue", {"outer"}, ";"]], ["if##", "if", ["(#)", "(", ["#==#", {$"cell"}, "==", {"0"}], ")"], ["break#;", "break", {"outer"}, ";"]], "}"]], "}"]]], "}"]
+default: ["{#}", "{", ["#:#", {"outer"}, ":", ["for(#)#", "for", "(", ["int[]#:#", "int", "[", "]", {$"row"#0}, ":", {$"rows"}], ")", ["{#}", "{", ["for(#)#", "for", "(", ["int#:#", "int", {$"cell"#1}, ":", {$"row"#0}], ")", ["{##}", "{", ["if##", "if", ["(#)", "(", ["#<#", {$"cell"#1}, "<", {"0"}], ")"], ["continue#;", "continue", {"outer"}, ";"]], ["if##", "if", ["(#)", "(", ["#==#", {$"cell"#1}, "==", {"0"}], ")"], ["break#;", "break", {"outer"}, ";"]], "}"]], "}"]]], "}"]
+features:
+  "outer" ["outer","#:#1>outer","outer>>#VAR"]
+  "row" ["#VAR","int[]#:#4>#VAR","for(#)#3>#VAR","#:#3>#VAR","outer>>#VAR","#VAR>>#VAR","int[]#:#4>>>int#:#4"]
+  "rows" ["#VAR","int[]#:#6>#VAR","for(#)#3>#VAR","#:#3>#VAR","#VAR>>#VAR","#VAR>>#VAR"]
+  "cell" ["#VAR","int#:#2>#VAR","for(#)#3>#VAR","for(#)#5>#VAR","#VAR>>#VAR","#VAR>>#VAR","int#:#2>>>#<#1","int#:#2>>>#==#1"]
+  "row" ["#VAR","int#:#4>#VAR","for(#)#3>#VAR","for(#)#5>#VAR","int[]#:#4>>>int#:#4","#VAR>>#VAR","#VAR>>#VAR"]
+  "cell" ["#VAR","#<#1>#VAR","if##2>#VAR","for(#)#5>#VAR","int#:#2>>>#<#1","#VAR>>#VAR","#VAR>>0","#<#1>>>#==#1"]
+  "0" ["0","#<#3>0","if##2>0","for(#)#5>0","#VAR>>0","0>>outer"]
+  "outer" ["outer","continue#;2>outer","if##3>outer","for(#)#5>outer","0>>outer","outer>>#VAR"]
+  "cell" ["#VAR","#==#1>#VAR","if##2>#VAR","for(#)#5>#VAR","#<#1>>>#==#1","int#:#2>>>#==#1","outer>>#VAR","#VAR>>0"]
+  "0" ["0","#==#3>0","if##2>0","for(#)#5>0","#VAR>>0","0>>outer"]
+  "outer" ["outer","break#;2>outer","if##3>outer","for(#)#5>outer","0>>outer"]

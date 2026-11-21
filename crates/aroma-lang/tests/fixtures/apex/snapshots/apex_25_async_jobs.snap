@@ -1,0 +1,19 @@
+---
+source: crates/aroma-lang/tests/apex_adapter.rs
+---
+unit 0
+tree: ["{####}", "{", ["##;", {"httprequest"}, ["#=#", {$"req"#0}, "=", ["new#()", "new", {"httprequest"}, "(", ")"]], ";"], ["#;", ["#.##", {$"req"#0}, ".", {"setmethod"}, ["(#)", "(", {"'POST'"}, ")"]], ";"], ["#;", ["#.##", ["new#()", "new", {"http"}, "(", ")"], ".", {"send"}, ["(#)", "(", {$"req"#0}, ")"]], ";"], ["#;", ["#.##", {"system"}, ".", {"enqueuejob"}, ["(#)", "(", ["new##", "new", {"retryjob"}, ["(#)", "(", {$"ids"}, ")"]], ")"]], ";"], "}"]
+features:
+  "httprequest" ["httprequest","##;1>httprequest","httprequest>>#VAR"]
+  "req" ["#VAR","#=#1>#VAR","##;2>#VAR","httprequest>>#VAR","#VAR>>httprequest","#=#1>>>#.##1","#=#1>>>(#)2"]
+  "httprequest" ["httprequest","new#()2>httprequest","#=#3>httprequest","##;2>httprequest","#VAR>>httprequest","httprequest>>#VAR"]
+  "req" ["#VAR","#.##1>#VAR","#;1>#VAR","#=#1>>>#.##1","httprequest>>#VAR","#VAR>>setmethod","#.##1>>>(#)2"]
+  "setmethod" ["setmethod","#.##3>setmethod","#;1>setmethod","#VAR>>setmethod","setmethod>>'POST'"]
+  "'POST'" ["'POST'","#.##4>'POST'","#;1>'POST'","setmethod>>'POST'","'POST'>>http"]
+  "http" ["http","new#()2>http","#.##1>http","#;1>http","'POST'>>http","http>>send"]
+  "send" ["send","#.##3>send","#;1>send","http>>send","send>>#VAR"]
+  "req" ["#VAR","#.##4>#VAR","#;1>#VAR","#.##1>>>(#)2","#=#1>>>(#)2","send>>#VAR","#VAR>>system"]
+  "system" ["system","#.##1>system","#;1>system","#VAR>>system","system>>enqueuejob"]
+  "enqueuejob" ["enqueuejob","#.##3>enqueuejob","#;1>enqueuejob","system>>enqueuejob","enqueuejob>>retryjob"]
+  "retryjob" ["retryjob","new##2>retryjob","#.##4>retryjob","#;1>retryjob","enqueuejob>>retryjob","retryjob>>#VAR"]
+  "ids" ["#VAR","new##3>#VAR","#.##4>#VAR","#;1>#VAR","retryjob>>#VAR"]

@@ -1,0 +1,41 @@
+id = "lwc20-quick-action-modal"
+category = "quick-action"
+lang = "component"
+repo = "https://github.com/SalesforceLabs/revenue-cloud-foundations"
+commit = "c8506522ba45bb2c0015d41fa5eace51eed1ff91"
+required = [
+    "new CloseActionScreenEvent()",
+    "this.dispatchEvent(",
+]
+notes = "Close a screen quick action by dispatching CloseActionScreenEvent after save or cancellation; the panel markup is contextual."
+answer_witness = [
+    "SalesforceLabs/revenue-cloud-foundations:unpackaged/post_billing_ui/lwc/rlmBillingScheduleGroupModal/rlmBillingScheduleGroupModal.js:464",
+    "SalesforceLabs/revenue-cloud-foundations:unpackaged/post_large_stx/lwc/rlmPreProcessOrderAction/rlmPreProcessOrderAction.js:392",
+]
+
+[[parts]]
+lang = "lwchtml"
+source_file = "unpackaged/post_inapp/lwc/rlmLearningReorderableList/rlmLearningReorderableList.html"
+source_lines = [1, 27]
+query = """
+    <lightning-dual-listbox
+      name="selectBlocks"
+      label="Select Blocks"
+      source-label="Available Blocks"
+      selected-label="Selected Blocks"
+      options={blocks}
+      value={selectedBlocks}
+      onchange={handleOptionChange}
+    ></lightning-dual-listbox>
+"""
+
+[[parts]]
+lang = "lwcjs"
+source_file = "unpackaged/post_inapp/lwc/rlmLearningReorderableList/rlmLearningReorderableList.js"
+source_lines = [50, 65]
+query = """
+      await updateSectionBlocks({
+        sectionId: this.recordId,
+        blockIds: this.selectedBlocks
+      });
+"""

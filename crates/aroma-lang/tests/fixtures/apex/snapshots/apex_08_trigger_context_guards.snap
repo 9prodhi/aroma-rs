@@ -1,0 +1,31 @@
+---
+source: crates/aroma-lang/tests/apex_adapter.rs
+---
+unit 0
+tree: ["{#}", "{", ["if##", "if", ["(#)", "(", ["#&&#", ["#.#", {"trigger"}, ".", {"isafter"}], "&&", ["#.#", {"trigger"}, ".", {"isupdate"}]], ")"], ["{#}", "{", ["for(##:#)#", "for", "(", {"opportunity"}, {$"opp"#0}, ":", ["#.#", {"trigger"}, ".", {"new"}], ")", ["{##}", "{", ["##;", {"opportunity"}, ["#=#", {$"old"#1}, "=", ["#.##", ["#.#", {"trigger"}, ".", {"oldmap"}], ".", {"get"}, ["(#)", "(", ["#.#", {$"opp"#0}, ".", {"id"}], ")"]]], ";"], ["if##", "if", ["(#)", "(", ["#!=#", ["#.#", {$"opp"#0}, ".", {"stagename"}], "!=", ["#.#", {$"old"#1}, ".", {"stagename"}]], ")"], ["{#}", "{", ["#;", ["#.##", {$"auditlog"}, ".", {"record"}, ["(#,#)", "(", ["#.#", {$"opp"#0}, ".", {"id"}], ",", ["#.#", {$"old"#1}, ".", {"stagename"}], ")"]], ";"], "}"]], "}"]], "}"]], "}"]
+features:
+  "trigger" ["trigger","#.#1>trigger","#&&#1>trigger","if##2>trigger","trigger>>isafter"]
+  "isafter" ["isafter","#.#3>isafter","#&&#1>isafter","if##2>isafter","trigger>>isafter","isafter>>trigger"]
+  "trigger" ["trigger","#.#1>trigger","#&&#3>trigger","if##2>trigger","isafter>>trigger","trigger>>isupdate"]
+  "isupdate" ["isupdate","#.#3>isupdate","#&&#3>isupdate","if##2>isupdate","trigger>>isupdate","isupdate>>opportunity"]
+  "opportunity" ["opportunity","for(##:#)#3>opportunity","if##3>opportunity","isupdate>>opportunity","opportunity>>#VAR"]
+  "opp" ["#VAR","for(##:#)#4>#VAR","if##3>#VAR","opportunity>>#VAR","#VAR>>trigger","for(##:#)#4>>>id","for(##:#)#4>>>stagename"]
+  "trigger" ["trigger","#.#1>trigger","for(##:#)#6>trigger","if##3>trigger","#VAR>>trigger","trigger>>new"]
+  "new" ["new","#.#3>new","for(##:#)#6>new","if##3>new","trigger>>new","new>>opportunity"]
+  "opportunity" ["opportunity","##;1>opportunity","for(##:#)#8>opportunity","if##3>opportunity","new>>opportunity","opportunity>>#VAR"]
+  "old" ["#VAR","#=#1>#VAR","##;2>#VAR","for(##:#)#8>#VAR","opportunity>>#VAR","#VAR>>trigger","#=#1>>>stagename","#=#1>>>stagename"]
+  "trigger" ["trigger","#.#1>trigger","#.##1>trigger","#=#3>trigger","#VAR>>trigger","trigger>>oldmap"]
+  "oldmap" ["oldmap","#.#3>oldmap","#.##1>oldmap","#=#3>oldmap","trigger>>oldmap","oldmap>>get"]
+  "get" ["get","#.##3>get","#=#3>get","##;2>get","oldmap>>get","get>>#VAR"]
+  "opp" ["#VAR","#.#1>#VAR","#.##4>#VAR","#=#3>#VAR","for(##:#)#4>>>id","get>>#VAR","#VAR>>id","id>>>stagename","id>>>id"]
+  "id" ["id","#.#3>id","#.##4>id","#=#3>id","#VAR>>id","id>>#VAR"]
+  "opp" ["#VAR","#.#1>#VAR","#!=#1>#VAR","if##2>#VAR","id>>>stagename","for(##:#)#4>>>stagename","id>>#VAR","#VAR>>stagename","stagename>>>id"]
+  "stagename" ["stagename","#.#3>stagename","#!=#1>stagename","if##2>stagename","#VAR>>stagename","stagename>>#VAR"]
+  "old" ["#VAR","#.#1>#VAR","#!=#3>#VAR","if##2>#VAR","#=#1>>>stagename","stagename>>#VAR","#VAR>>stagename","stagename>>>stagename"]
+  "stagename" ["stagename","#.#3>stagename","#!=#3>stagename","if##2>stagename","#VAR>>stagename","stagename>>#VAR"]
+  "auditlog" ["#VAR","#.##1>#VAR","#;1>#VAR","if##3>#VAR","stagename>>#VAR","#VAR>>record"]
+  "record" ["record","#.##3>record","#;1>record","if##3>record","#VAR>>record","record>>#VAR"]
+  "opp" ["#VAR","#.#1>#VAR","(#,#)2>#VAR","#.##4>#VAR","stagename>>>id","id>>>id","record>>#VAR","#VAR>>id"]
+  "id" ["id","#.#3>id","(#,#)2>id","#.##4>id","#VAR>>id","id>>#VAR"]
+  "old" ["#VAR","#.#1>#VAR","(#,#)4>#VAR","#.##4>#VAR","stagename>>>stagename","#=#1>>>stagename","id>>#VAR","#VAR>>stagename"]
+  "stagename" ["stagename","#.#3>stagename","(#,#)4>stagename","#.##4>stagename","#VAR>>stagename"]

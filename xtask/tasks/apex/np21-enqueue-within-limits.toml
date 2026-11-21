@@ -1,0 +1,18 @@
+id = "np21-enqueue-within-limits"
+category = "async"
+repo = "https://github.com/SalesforceFoundation/NPSP"
+commit = "f5072b44781e7f31cb396c6919cfa7d0ead0ec6a"
+source_file = "force-app/main/default/classes/RD2_QueueableService.cls"
+source_lines = [88, 105]
+query = """
+Set<Id> toProcess = removeAlreadyEnqueuedRecurringDonations(rdIds);
+
+if (toProcess.size() == 0) {
+    return;
+}
+"""
+required = [
+    "Limits.getQueueableJobs() < Limits.getLimitQueueableJobs()",
+    "System.enqueueJob(service)",
+]
+notes = "Enqueue the queueable service only while Limits leave queueable jobs available, otherwise run it synchronously."

@@ -1,0 +1,17 @@
+id = "nl12-bigobject-queueable-rechain"
+category = "async"
+repo = "https://github.com/jongpie/NebulaLogger"
+commit = "b792ac8d8b4eb31b14a164a24951c3cb4125a616"
+source_file = "nebula-logger/recipes/classes/ExampleBigObjectDataGenerator.cls"
+source_lines = [9, 21]
+query = """
+for (Integer i = 0; i < 150; i++) {
+  Logger.info('hello, testing some bulk logging into big object via queueable job, record index is: ' + i);
+  this.targetRecordCountToCreate--;
+}
+"""
+required = [
+    "Logger.saveLog()",
+    "System.enqueueJob(new",
+]
+notes = "Queueable execute that logs in bulk, saves the log, then enqueues a new instance of itself while work remains."

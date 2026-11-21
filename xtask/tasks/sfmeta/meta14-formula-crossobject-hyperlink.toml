@@ -1,0 +1,27 @@
+id = "meta14-formula-crossobject-hyperlink"
+category = "formula-field"
+lang = "sfmeta"
+repo = "https://github.com/afawcett/declarative-lookup-rollup-summaries"
+commit = "3b8bac1d400205d289c0b5aafd7dafbff0e3ac31"
+source_file = "dlrs/main/objects/LookupRollupSummaryLog__c/fields/ParentRecord__c.field-meta.xml"
+source_lines = [1, 13]
+query = """
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ParentRecord__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <label>Parent Record</label>
+    <type>Text</type>
+</CustomField>
+"""
+required = [
+    "HYPERLINK(",
+    "<formula>",
+    "<formulaTreatBlanksAs>",
+]
+notes = "Custom formula field constructing a navigational link using HYPERLINK."
+answer_witness = [
+    "SalesforceFoundation/NPSP:unpackaged/config/trial/objects/npe5__Affiliation__c.object:12",
+    "navikt/crm-arbeidsgiver-base:force-app/main/default/objects/IACase__c/fields/Link__c.field-meta.xml:5",
+    "navikt/crm-arbeidsgiver-base:force-app/main/default/objects/Contract__c/fields/TAG_Link__c.field-meta.xml:8",
+]

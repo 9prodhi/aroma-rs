@@ -1,0 +1,25 @@
+id = "lwc13-datatable-actions"
+category = "datatable"
+lang = "lwchtml"
+repo = "https://github.com/alexed1/LightningFlowComponents"
+commit = "5de6df2c7ce5d23d50e45887c48920b1bfa4f511"
+source_file = "flow_action_components/SendHTMLEmail/force-app/main/default/lwc/addNewMembers/addNewMembers.html"
+source_lines = [11, 51]
+query = """
+			<lightning-combobox label={label.Search} name="mdtype" onchange={typeChange} options={_memberTypes}
+								value={selectedType}></lightning-combobox>
+		</lightning-layout-item>
+		<lightning-layout-item padding="horizontal-small" flexibility="grow">
+			<lightning-input type="search" label={label.For} name="search" onchange={searchEventHandler}
+								onkeyup={listenForEnter} disabled={isSearchDisabled}></lightning-input>
+"""
+required = [
+    "<lightning-datatable",
+    "key-field=",
+    "onrowaction={",
+]
+notes = "Configure a lightning-datatable with columns, key-field, and row action handler."
+answer_witness = [
+    "alexed1/LightningFlowComponents:flow_action_components/SendBetterEmail/force-app/main/default/lwc/sendBetterEmailAddNewMembers/sendBetterEmailAddNewMembers.html:11",
+    "alexed1/LightningFlowComponents:flow_action_components/SendRichEmailCPE/force-app/main/default/lwc/addNewMembers/addNewMembers.html:1",
+]

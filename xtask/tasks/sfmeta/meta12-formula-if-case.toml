@@ -1,0 +1,27 @@
+id = "meta12-formula-if-case"
+category = "formula-field"
+lang = "sfmeta"
+repo = "https://github.com/SalesforceLabs/AnimalShelterStarter"
+commit = "c6eec92002eedde52ed332469b37f5552912ab86"
+source_file = "force-app/main/default/objects/Locations__c/fields/Block_Unit__c.field-meta.xml"
+source_lines = [1, 34]
+query = """
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Block_Unit__c</fullName>
+    <description>Displays the full path of the Location including Site, Block, Unit</description>
+    <externalId>false</externalId>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Full Location Name</label>
+    <type>Text</type>
+</CustomField>
+"""
+required = [
+    "CASE(",
+    "IF(",
+    "<formula>",
+]
+notes = "Custom formula field evaluating hierarchical text paths with CASE and nested IF conditions."
+answer_witness = [
+    "navikt/crm-ips:force-app/main/default/objects/ips_report__c/fields/IPS_subject__c.field-meta.xml:6",
+    "navikt/crm-arbeidsgiver-base:force-app/main/default/objects/Activity/fields/TAG_Status__c.field-meta.xml:5",
+]

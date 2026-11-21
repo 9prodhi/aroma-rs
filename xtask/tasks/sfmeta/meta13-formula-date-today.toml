@@ -1,0 +1,27 @@
+id = "meta13-formula-date-today"
+category = "formula-field"
+lang = "sfmeta"
+repo = "https://github.com/SalesforceFoundation/EDA"
+commit = "b311845eb082fc6b8fafdbcebdbe03cc570df3a6"
+source_file = "force-app/main/default/objects/Attribute__c/fields/Expired__c.field-meta.xml"
+source_lines = [1, 13]
+query = """
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Expired__c</fullName>
+    <description>Indicates whether the Attribute has expired. This is selected automatically if the Attribute End Date is in the past.</description>
+    <externalId>false</externalId>
+    <label>Expired</label>
+    <type>Checkbox</type>
+</CustomField>
+"""
+required = [
+    "TODAY()",
+    "<formula>",
+    "<formulaTreatBlanksAs>",
+]
+notes = "Custom formula field calculating record expiration based on TODAY() date arithmetic."
+answer_witness = [
+    "SalesforceLabs/AnimalShelterStarter:force-app/main/default/objects/Animal__c/fields/Calculated_Age__c.field-meta.xml:6",
+    "navikt/crm-ips:force-app/main/default/objects/Work_Trail__c/fields/passive_status__c.field-meta.xml:8",
+    "SalesforceFoundation/Households:src/objects/Household__c.object:650",
+]

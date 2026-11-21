@@ -1,0 +1,25 @@
+id = "meta09-vr-ispickval-isblank"
+category = "validation-rule"
+lang = "sfmeta"
+repo = "https://github.com/SalesforceLabs/AnimalShelterStarter"
+commit = "c6eec92002eedde52ed332469b37f5552912ab86"
+source_file = "force-app/main/default/objects/Animal__c/validationRules/PTS_Required_Fields.validationRule-meta.xml"
+source_lines = [1, 10]
+query = """
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PTS_Required_Fields</fullName>
+    <active>true</active>
+    <errorMessage>You have indicated this animal has been PTS. Please provide a reason using the PTS Reason field and enter a date using the deceased date field.</errorMessage>
+</ValidationRule>
+"""
+required = [
+    "ISPICKVAL(",
+    "ISBLANK(",
+    "<errorConditionFormula>",
+]
+notes = "Validation rule enforcing required dependent fields using ISPICKVAL and ISBLANK."
+answer_witness = [
+    "navikt/crm-ips:force-app/main/default/objects/ips_Job__c/validationRules/IPS_EndDate_Required.validationRule-meta.xml:7",
+    "navikt/crm-arbeidsgiver-base:force-app/main/default/objects/Contract__c/validationRules/Missing_field_StartDate.validationRule-meta.xml:8",
+    "SalesforceLabs/Configurable-Self-Registration-for-Experience-Cloud:force-app/main/default/objects/Custom_Registration_Configuration__mdt/validationRules/Field_Label_Required.validationRule-meta.xml:8",
+]

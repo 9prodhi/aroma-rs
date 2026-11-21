@@ -1,0 +1,26 @@
+id = "lwc01-wire-picklist-values"
+category = "wire"
+lang = "lwcjs"
+repo = "https://github.com/SalesforceLabs/Imhotep-App-Builder"
+commit = "f2e3f770c2393fe54a8059d812fa19caa39a9a1a"
+source_file = "force-app/main/default/lwc/imhotepMyProjects/imhotepMyProjects.js"
+source_lines = [139, 155]
+query = """
+    projectStatusPicklistValues({ data, error }) {
+        if (data) {
+            this.splitProjectsByStatus();
+        } else if (error) {
+            console.error('Error loading picklist values:', error);
+        }
+    }
+"""
+required = [
+    "@wire(getPicklistValues,",
+    "recordTypeId:",
+    "data.values.map(",
+]
+notes = "Fetch record-type picklist values through a wired handler and map the returned values into UI options. Replaces the unanswerable getRecord/getFieldValue full-unit task in slot lwc01."
+answer_witness = [
+    "SalesforceLabs/Imhotep-App-Builder:force-app/main/default/lwc/imhotepMetadataComponentList/imhotepMetadataComponentList.js:168",
+    "SalesforceLabs/Imhotep-App-Builder:force-app/main/default/lwc/imhotepMyProjects/imhotepMyProjects.js:160",
+]

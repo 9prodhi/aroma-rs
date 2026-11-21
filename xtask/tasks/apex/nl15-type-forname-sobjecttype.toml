@@ -1,0 +1,16 @@
+id = "nl15-type-forname-sobjecttype"
+category = "other"
+repo = "https://github.com/jongpie/NebulaLogger"
+commit = "b792ac8d8b4eb31b14a164a24951c3cb4125a616"
+source_file = "nebula-logger/core/main/log-management/classes/LoggerSObjectMetadata.cls"
+source_lines = [17, 23]
+query = """
+String namespacePrefix = getNamespacePrefix();
+String qualifiedApiName = String.isBlank(namespacePrefix) ? sobjectApiName : namespacePrefix + '__' + sobjectApiName;
+"""
+required = [
+    "System.Type.forName(",
+    "newInstance()",
+    ".getSObjectType()",
+]
+notes = "Resolve an SObjectType from an API name through System.Type.forName(...).newInstance().getSObjectType()."

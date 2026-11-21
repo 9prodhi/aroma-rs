@@ -1,0 +1,17 @@
+---
+source: crates/aroma-lang/tests/apex_adapter.rs
+---
+unit 0
+tree: ["{##}", "{", ["##;", ["##", {"list"}, ["<#>", "<", {"opportunity"}, ">"]], ["#=#", {$"opps"#0}, "=", ["[#]", "[", ["###withuser_mode##", ["select#,#", "select", {"amount"}, ",", {"name"}], ["from#", "from", {"opportunity"}], ["where#", "where", ["#>#", {"amount"}, ">", [":#", ":", {$"minamount"}]]], "with", "user_mode", ["order by#", "order by", ["#desc", {"amount"}, "desc"]], ["limit#", "limit", {"50"}]], "]"]], ";"], ["return#;", "return", {$"opps"#0}, ";"], "}"]
+features:
+  "list" ["list","##1>list","##;1>list","list>>opportunity"]
+  "opportunity" ["opportunity","<#>2>opportunity","##2>opportunity","##;1>opportunity","list>>opportunity","opportunity>>#VAR"]
+  "opps" ["#VAR","#=#1>#VAR","##;2>#VAR","opportunity>>#VAR","#VAR>>amount","#=#1>>>return#;2"]
+  "amount" ["amount","select#,#2>amount","###withuser_mode##1>amount","[#]2>amount","#VAR>>amount","amount>>name"]
+  "name" ["name","select#,#4>name","###withuser_mode##1>name","[#]2>name","amount>>name","name>>opportunity"]
+  "opportunity" ["opportunity","from#2>opportunity","###withuser_mode##2>opportunity","[#]2>opportunity","name>>opportunity","opportunity>>amount"]
+  "amount" ["amount","#>#1>amount","where#2>amount","###withuser_mode##3>amount","opportunity>>amount","amount>>#VAR"]
+  "minamount" ["#VAR",":#2>#VAR","#>#3>#VAR","where#2>#VAR","amount>>#VAR","#VAR>>amount"]
+  "amount" ["amount","#desc1>amount","order by#2>amount","###withuser_mode##6>amount","#VAR>>amount","amount>>50"]
+  "50" ["50","limit#2>50","###withuser_mode##7>50","[#]2>50","amount>>50","50>>#VAR"]
+  "opps" ["#VAR","return#;2>#VAR","#=#1>>>return#;2","50>>#VAR"]

@@ -1,0 +1,16 @@
+id = "ar11-dynamic-soql-test"
+category = "test-setup"
+repo = "https://github.com/trailheadapps/apex-recipes"
+commit = "eda6167c5126a34daf66d9e1371ff6957ae223bd"
+source_file = "force-app/tests/Data Recipes/DynamicSOQLRecipes_Tests.cls"
+source_lines = [24, 37]
+query = """
+String acctName = [SELECT Name FROM Account LIMIT 1].Name;
+"""
+required = [
+    "Test.startTest()",
+    "Test.stopTest()",
+    "System.Assert.areEqual(",
+]
+include_tests = true
+notes = "Unit test shape: arrange from setup data, call the method between startTest/stopTest, assert the result size."

@@ -1,0 +1,15 @@
+---
+source: crates/aroma-lang/tests/apex_adapter.rs
+---
+unit 0
+tree: ["{#}", "{", ["for(##:#)#", "for", "(", {"account"}, {$"acc"#0}, ":", ["#.#", {"trigger"}, ".", {"new"}], ")", ["{#}", "{", ["if##", "if", ["(#)", "(", ["#==null", ["#.#", {$"acc"#0}, ".", {"industry"}], "==", "null"], ")"], ["{#}", "{", ["#;", ["#=#", ["#.#", {$"acc"#0}, ".", {"industry"}], "=", {"'Other'"}], ";"], "}"]], "}"]], "}"]
+features:
+  "account" ["account","for(##:#)#3>account","account>>#VAR"]
+  "acc" ["#VAR","for(##:#)#4>#VAR","account>>#VAR","#VAR>>trigger","for(##:#)#4>>>industry","for(##:#)#4>>>industry"]
+  "trigger" ["trigger","#.#1>trigger","for(##:#)#6>trigger","#VAR>>trigger","trigger>>new"]
+  "new" ["new","#.#3>new","for(##:#)#6>new","trigger>>new","new>>#VAR"]
+  "acc" ["#VAR","#.#1>#VAR","#==null1>#VAR","if##2>#VAR","for(##:#)#4>>>industry","new>>#VAR","#VAR>>industry","industry>>>industry"]
+  "industry" ["industry","#.#3>industry","#==null1>industry","if##2>industry","#VAR>>industry","industry>>#VAR"]
+  "acc" ["#VAR","#.#1>#VAR","#=#1>#VAR","#;1>#VAR","industry>>>industry","for(##:#)#4>>>industry","industry>>#VAR","#VAR>>industry"]
+  "industry" ["industry","#.#3>industry","#=#1>industry","#;1>industry","#VAR>>industry","industry>>'Other'"]
+  "'Other'" ["'Other'","#=#3>'Other'","#;1>'Other'","if##3>'Other'","industry>>'Other'"]

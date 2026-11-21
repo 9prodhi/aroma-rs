@@ -1,0 +1,22 @@
+id = "ar15-queueable-update-guarded"
+category = "async"
+repo = "https://github.com/trailheadapps/apex-recipes"
+commit = "eda6167c5126a34daf66d9e1371ff6957ae223bd"
+source_file = "force-app/main/default/classes/Async Apex Recipes/QueueableRecipes.cls"
+source_lines = [27, 45]
+query = """
+List<Account> accounts = [
+    SELECT Id, Description
+    FROM Account
+    LIMIT 1000
+];
+for (Account acct : accounts) {
+    acct.Description += ' Edited by Queueable class';
+}
+"""
+required = [
+    "update accounts;",
+    "catch (DmlException dmle)",
+    "dmle.getMessage()",
+]
+notes = "Queueable execute: query and edit records, then one guarded update that logs the DmlException message."

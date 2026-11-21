@@ -1,0 +1,17 @@
+id = "nl03-purger-finish-chain"
+category = "async"
+repo = "https://github.com/jongpie/NebulaLogger"
+commit = "b792ac8d8b4eb31b14a164a24951c3cb4125a616"
+source_file = "nebula-logger/core/main/log-management/classes/LogBatchPurger.cls"
+source_lines = [138, 162]
+query = """
+Logger.setAsyncContext(batchableContext);
+Logger.setParentLogTransactionId(this.originalTransactionId);
+LoggerBatchableContext input = new LoggerBatchableContext(batchableContext, this.currentSObjectType);
+this.executePlugins(BatchableMethod.FINISH, input, null);
+"""
+required = [
+    "System.Database.executeBatch(",
+    "Logger.saveLog()",
+]
+notes = "Batch finish that chains the next batch for the next SObject type and logs the outcome."

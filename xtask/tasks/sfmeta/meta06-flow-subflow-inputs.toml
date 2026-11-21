@@ -1,0 +1,26 @@
+id = "meta06-flow-subflow-inputs"
+category = "flow-subflow"
+lang = "sfmeta"
+repo = "https://github.com/SalesforceLabs/AnimalShelterStarter"
+commit = "c6eec92002eedde52ed332469b37f5552912ab86"
+source_file = "force-app/main/default/flows/Animal_Human_Relationship_Management.flow-meta.xml"
+source_lines = [415, 438]
+query = """
+    <subflows>
+        <description>Gets the RecordType ID for the Animal_Relationship RecordType on the Relationships object</description>
+        <name>Get_Record_Type_for_Animal_Relationship</name>
+        <label>Get Record Type for Animal Relationship</label>
+        <locationX>314</locationX>
+        <locationY>134</locationY>
+"""
+required = [
+    "<flowName>",
+    "<inputAssignments>",
+    "<storeOutputAutomatically>true</storeOutputAutomatically>",
+]
+notes = "Flow subflow call passing input parameter assignments and storing outputs automatically."
+answer_witness = [
+    "SalesforceLabs/AnimalShelterStarter:force-app/main/default/flows/Animal_Action_Vaccination_Process.flow-meta.xml:1057",
+    "SalesforceLabs/AnimalShelterStarter:force-app/main/default/flows/Animal_Adoption_Update_Automation.flow-meta.xml:412",
+    "SalesforceLabs/AnimalShelterStarter:force-app/main/default/flows/Adopter_Profile_Create_new_Adopter_Profile.flow-meta.xml:1039",
+]

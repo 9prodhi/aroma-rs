@@ -1,0 +1,6 @@
+# tree-sitter 0.25.10 depends on tree-sitter-language 0.1.9, whose rust-version is 1.90.
+# Pinning the exact toolchain keeps rustfmt/clippy output identical locally and in CI.
+[toolchain]
+channel = "1.90.0"
+components = ["rustfmt", "clippy"]
+profile = "minimal"

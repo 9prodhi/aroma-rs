@@ -1,0 +1,26 @@
+---
+source: crates/aroma-lang/tests/java_adapter.rs
+---
+unit 0
+compat:  ["{#}", "{", ["for(#)#", "for", "(", ["##:#", ["#.##", {"Map"}, ".", {"Entry"}, ["<#,#>", "<", {"String"}, ",", {"Integer"}, ">"]], {$"entry"}, ":", ["#.#", {$"counts"}, ".", ["#()", {"entrySet"}, "(", ")"]]], ")", ["{##}", "{", ["#;", ["##", ["#.#.##", {"java"}, ".", {"util"}, ".", {"List"}, ["<#>", "<", {"String"}, ">"]], ["#=#", {$"keys"}, "=", ["new#", "new", ["#()", ["#.#.#<>", {"java"}, ".", {"util"}, ".", {"ArrayList"}, "<", ">"], "(", ")"]]]], ";"], ["#;", ["#.#", {$"keys"}, ".", ["#(#)", {"add"}, "(", ["#.#", {$"entry"}, ".", ["#()", {"getKey"}, "(", ")"]], ")"]], ";"], "}"]], "}"]
+default: ["{#}", "{", ["for(#)#", "for", "(", ["##:#", ["#.##", {"Map"}, ".", {"Entry"}, ["<#,#>", "<", {"String"}, ",", {"Integer"}, ">"]], {$"entry"#0}, ":", ["#.#", {$"counts"}, ".", ["#()", {"entrySet"}, "(", ")"]]], ")", ["{##}", "{", ["#;", ["##", ["#.#.##", {"java"}, ".", {"util"}, ".", {"List"}, ["<#>", "<", {"String"}, ">"]], ["#=#", {$"keys"#1}, "=", ["new#", "new", ["#()", ["#.#.#<>", {"java"}, ".", {"util"}, ".", {"ArrayList"}, "<", ">"], "(", ")"]]]], ";"], ["#;", ["#.#", {$"keys"#1}, ".", ["#(#)", {"add"}, "(", ["#.#", {$"entry"#0}, ".", ["#()", {"getKey"}, "(", ")"]], ")"]], ";"], "}"]], "}"]
+features:
+  "Map" ["Map","#.##1>Map","##:#1>Map","for(#)#3>Map","Map>>Entry"]
+  "Entry" ["Entry","#.##3>Entry","##:#1>Entry","for(#)#3>Entry","Map>>Entry","Entry>>String"]
+  "String" ["String","<#,#>2>String","#.##4>String","##:#1>String","Entry>>String","String>>Integer"]
+  "Integer" ["Integer","<#,#>4>Integer","#.##4>Integer","##:#1>Integer","String>>Integer","Integer>>#VAR"]
+  "entry" ["#VAR","##:#2>#VAR","for(#)#3>#VAR","Integer>>#VAR","#VAR>>#VAR","##:#2>>>getKey"]
+  "counts" ["#VAR","#.#1>#VAR","##:#4>#VAR","for(#)#3>#VAR","#VAR>>#VAR","#VAR>>entrySet"]
+  "entrySet" ["entrySet","#()1>entrySet","#.#3>entrySet","##:#4>entrySet","#VAR>>entrySet","entrySet>>java"]
+  "java" ["java","#.#.##1>java","##1>java","#;1>java","entrySet>>java","java>>util"]
+  "util" ["util","#.#.##3>util","##1>util","#;1>util","java>>util","util>>List"]
+  "List" ["List","#.#.##5>List","##1>List","#;1>List","util>>List","List>>String"]
+  "String" ["String","<#>2>String","#.#.##6>String","##1>String","List>>String","String>>#VAR"]
+  "keys" ["#VAR","#=#1>#VAR","##2>#VAR","#;1>#VAR","String>>#VAR","#VAR>>java","#=#1>>>add"]
+  "java" ["java","#.#.#<>1>java","#()1>java","new#2>java","#VAR>>java","java>>util"]
+  "util" ["util","#.#.#<>3>util","#()1>util","new#2>util","java>>util","util>>ArrayList"]
+  "ArrayList" ["ArrayList","#.#.#<>5>ArrayList","#()1>ArrayList","new#2>ArrayList","util>>ArrayList","ArrayList>>#VAR"]
+  "keys" ["#VAR","#.#1>#VAR","#;1>#VAR","for(#)#5>#VAR","#=#1>>>add","ArrayList>>#VAR","#VAR>>add"]
+  "add" ["add","#(#)1>add","#.#3>add","#;1>add","#VAR>>add","add>>#VAR"]
+  "entry" ["#VAR","#.#1>#VAR","#(#)3>#VAR","#.#3>#VAR","##:#2>>>getKey","add>>#VAR","#VAR>>getKey"]
+  "getKey" ["getKey","#()1>getKey","#.#3>getKey","#(#)3>getKey","#VAR>>getKey"]

@@ -1,0 +1,22 @@
+id = "lwc07-load-script-static-resource"
+category = "static-resource"
+lang = "lwcjs"
+repo = "https://github.com/trailheadapps/lwc-recipes"
+commit = "b5af6ecb2f8d5d75d161b2a702d899f6e4ffc878"
+source_file = "force-app/main/default/lwc/libsChartjs/libsChartjs.js"
+source_lines = [62, 77]
+query = """
+            const canvas = document.createElement('canvas');
+            this.template.querySelector('div.chart').appendChild(canvas);
+            const ctx = canvas.getContext('2d');
+            this.chart = new window.Chart(ctx, this.config);
+"""
+required = [
+    "loadScript(this,",
+    "catch(",
+]
+notes = "Asynchronously load third-party JavaScript libraries from static resources via loadScript."
+answer_witness = [
+    "trailheadapps/lwc-recipes:force-app/main/default/lwc/libsD3/libsD3.js:25",
+    "trailheadapps/lwc-recipes:force-app/main/default/lwc/libsFullCalendar/libsFullCalendar.js:19",
+]

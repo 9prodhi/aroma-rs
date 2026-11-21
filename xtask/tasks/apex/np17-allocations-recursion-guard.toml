@@ -1,0 +1,18 @@
+id = "np17-allocations-recursion-guard"
+category = "trigger-guard"
+repo = "https://github.com/SalesforceFoundation/NPSP"
+commit = "f5072b44781e7f31cb396c6919cfa7d0ead0ec6a"
+source_file = "force-app/main/default/classes/ALLO_Allocations_TDTM.cls"
+source_lines = [96, 133]
+query = """
+if (settings.Default_Allocations_Enabled__c && settings.Default__c == null) {
+    SObject obj = newList.isEmpty() ? oldList[0] : newList[0];
+    obj.addError(Label.alloDefaultGAUMissing);
+}
+"""
+required = [
+    "TDTM_ProcessControl.isRecursive(",
+    "TDTM_TriggerHandler.processDML(dmlWrapper)",
+    "TDTM_ProcessControl.setRecursionFlag(",
+]
+notes = "TDTM run(): dispatch by SObject type and trigger action behind a recursion flag, then process the deferred DML with the flag set."

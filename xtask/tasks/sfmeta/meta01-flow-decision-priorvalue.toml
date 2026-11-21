@@ -1,0 +1,28 @@
+id = "meta01-flow-decision-priorvalue"
+category = "flow-decision"
+lang = "sfmeta"
+repo = "https://github.com/navikt/crm-ips"
+commit = "ce5e5445c23126bdae9597fbf9c4692f1b013d7f"
+source_file = "force-app/main/default/flows/IPS_Publish_Platform_Event_Role_Changed.flow-meta.xml"
+source_lines = [235, 299]
+query = """
+    <decisions>
+        <name>Role_Changed</name>
+        <label>Role Changed ?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Profile_Changed_To_Nav_Kontor</name>
+"""
+required = [
+    "$Record.",
+    "$Record__Prior.",
+    "<conditionLogic>",
+]
+notes = "Flow decision evaluating current versus prior record values using $Record and $Record__Prior."
+answer_witness = [
+    "SalesforceLabs/Imhotep-App-Builder:force-app/main/default/flows/Imhotep_Story_AfterUpdated.flow:5",
+    "navikt/crm-arbeidsgiver-base:force-app/main/default/flows/TAG_Task.flow-meta.xml:112",
+    "navikt/crm-arbeidsgiver-base:force-app/main/default/flows/TAG_CreateOpportunityfromRekrutteringshjelp.flow-meta.xml:5",
+]

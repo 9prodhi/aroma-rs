@@ -1,0 +1,13 @@
+---
+source: crates/aroma-lang/tests/java_adapter.rs
+---
+unit 0
+compat:  ["{##}", "{", ["#;", ["#.#", {$"registry"}, ".", ["#(#)", {"bind"}, "(", ["#,int[].class", ["#.class", {"String"}, ".", "class"], ",", "int", "[", "]", ".", "class"], ")"]], ";"], ["#;", ["##", ["#<?>", {"Class"}, "<", "?", ">"], ["#=#", {$"c"}, "=", ["#.class", {"Fixture"}, ".", "class"]]], ";"], "}"]
+default: ["{##}", "{", ["#;", ["#.#", {$"registry"}, ".", ["#(#)", {"bind"}, "(", ["#,int[].class", ["#.class", {"String"}, ".", "class"], ",", "int", "[", "]", ".", "class"], ")"]], ";"], ["#;", ["##", ["#<?>", {"Class"}, "<", "?", ">"], ["#=#", {$"c"#0}, "=", ["#.class", {"Fixture"}, ".", "class"]]], ";"], "}"]
+features:
+  "registry" ["#VAR","#.#1>#VAR","#;1>#VAR","#VAR>>bind"]
+  "bind" ["bind","#(#)1>bind","#.#3>bind","#;1>bind","#VAR>>bind","bind>>String"]
+  "String" ["String","#.class1>String","#,int[].class1>String","#(#)3>String","bind>>String","String>>Class"]
+  "Class" ["Class","#<?>1>Class","##1>Class","#;1>Class","String>>Class","Class>>#VAR"]
+  "c" ["#VAR","#=#1>#VAR","##2>#VAR","#;1>#VAR","Class>>#VAR","#VAR>>Fixture"]
+  "Fixture" ["Fixture","#.class1>Fixture","#=#3>Fixture","##2>Fixture","#VAR>>Fixture"]

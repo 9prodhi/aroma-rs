@@ -1,0 +1,25 @@
+id = "lwc08-search-debounce"
+category = "events"
+lang = "lwcjs"
+repo = "https://github.com/trailheadapps/lwc-recipes"
+commit = "b5af6ecb2f8d5d75d161b2a702d899f6e4ffc878"
+source_file = "force-app/main/default/lwc/compositionContactSearch/compositionContactSearch.js"
+source_lines = [11, 26]
+query = """
+            try {
+                this.contacts = await findContacts({ searchKey });
+                this.error = undefined;
+            } catch (error) {
+                this.error = error;
+                this.contacts = undefined;
+            }
+"""
+required = [
+    "window.clearTimeout(",
+    "setTimeout(",
+]
+notes = "Debounce search input with window.clearTimeout and setTimeout before invoking Apex; both async and synchronous timer callbacks qualify."
+answer_witness = [
+    "trailheadapps/lwc-recipes:force-app/main/default/lwc/apexWireMethodWithParams/apexWireMethodWithParams.js:16",
+    "trailheadapps/lwc-recipes:force-app/main/default/lwc/graphqlVariables/graphqlVariables.js:52",
+]

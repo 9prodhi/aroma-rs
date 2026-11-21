@@ -1,0 +1,23 @@
+id = "lwc06-custom-event-dispatch"
+category = "events"
+lang = "lwcjs"
+repo = "https://github.com/afawcett/declarative-lookup-rollup-summaries"
+commit = "3b8bac1d400205d289c0b5aafd7dafbff0e3ac31"
+source_file = "dlrs/main/lwc/manageChildTriggers/manageChildTriggers.js"
+source_lines = [195, 204]
+query = """
+    const deployResult = event.detail.deployResult;
+    if (deployResult.success === true) {
+      this.isNotDeploying = true;
+      this.isLoading = false;
+"""
+required = [
+    "this.dispatchEvent(",
+    "new CustomEvent(",
+    "detail:",
+]
+notes = "Dispatch a CustomEvent carrying detail payload from an event handler."
+answer_witness = [
+    "afawcett/declarative-lookup-rollup-summaries:dlrs/main/lwc/autocompleteCombobox/autocompleteCombobox.js:179",
+    "afawcett/declarative-lookup-rollup-summaries:dlrs/main/lwc/cronBuilder/cronBuilder.js:297",
+]

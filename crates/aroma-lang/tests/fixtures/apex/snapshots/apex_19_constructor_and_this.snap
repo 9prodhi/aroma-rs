@@ -1,0 +1,10 @@
+---
+source: crates/aroma-lang/tests/apex_adapter.rs
+---
+unit 0
+tree: ["{##}", "{", ["#;", ["#=#", ["this.#", "this", ".", {"total"}], "=", {$"amount"}], ";"], ["#;", ["#.#(this)", {$"ledger"}, ".", {"register"}, "(", "this", ")"], ";"], "}"]
+features:
+  "total" ["total","this.#3>total","#=#1>total","#;1>total","total>>#VAR"]
+  "amount" ["#VAR","#=#3>#VAR","#;1>#VAR","total>>#VAR","#VAR>>#VAR"]
+  "ledger" ["#VAR","#.#(this)1>#VAR","#;1>#VAR","#VAR>>#VAR","#VAR>>register"]
+  "register" ["register","#.#(this)3>register","#;1>register","#VAR>>register"]

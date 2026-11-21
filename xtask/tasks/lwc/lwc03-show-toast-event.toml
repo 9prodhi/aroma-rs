@@ -1,0 +1,21 @@
+id = "lwc03-show-toast-event"
+category = "toast"
+lang = "lwcjs"
+repo = "https://github.com/trailheadapps/lwc-recipes"
+commit = "b5af6ecb2f8d5d75d161b2a702d899f6e4ffc878"
+source_file = "force-app/main/default/lwc/miscToastNotification/miscToastNotification.js"
+source_lines = [27, 34]
+query = """
+            title: this.titleText,
+            message: this.messageText,
+            variant: this.variant
+"""
+required = [
+    "new ShowToastEvent({",
+    "this.dispatchEvent(",
+]
+notes = "Dispatch a platform ShowToastEvent with title, message, and variant."
+answer_witness = [
+    "trailheadapps/lwc-recipes:force-app/main/default/lwc/datatableInlineEditWithApex/datatableInlineEditWithApex.js:22",
+    "trailheadapps/lwc-recipes:force-app/main/default/lwc/datatableInlineEditWithUiApi/datatableInlineEditWithUiApi.js:46",
+]

@@ -1,0 +1,16 @@
+id = "np19-enablement-state-json"
+category = "json"
+repo = "https://github.com/SalesforceFoundation/NPSP"
+commit = "f5072b44781e7f31cb396c6919cfa7d0ead0ec6a"
+source_file = "force-app/main/default/classes/RD2_EnablementService.cls"
+source_lines = [169, 181]
+query = """
+RD2_EnablementDelegate_CTRL.EnablementState state = new RD2_EnablementDelegate_CTRL.EnablementState();
+state.isMetaConfirmed = false;
+"""
+required = [
+    "String.isNotBlank(",
+    "JSON.deserialize(",
+    "catch (Exception e)",
+]
+notes = "Deserialize a JSON state blob from custom settings into a typed object only when it is present, tolerating parse errors."

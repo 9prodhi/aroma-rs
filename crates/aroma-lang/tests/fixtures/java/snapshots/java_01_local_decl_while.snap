@@ -1,0 +1,20 @@
+---
+source: crates/aroma-lang/tests/java_adapter.rs
+---
+unit 0
+compat:  ["{###}", "{", ["#;", ["##", {"StringBuilder"}, ["#=#", {$"out"}, "=", ["new#", "new", ["#()", {"StringBuilder"}, "(", ")"]]]], ";"], ["#;", ["##", {"Iterator"}, ["#=#", {$"it"}, "=", ["#.#", {$"queue"}, ".", ["#()", {"iterator"}, "(", ")"]]]], ";"], ["while##", "while", ["(#)", "(", ["#.#", {$"it"}, ".", ["#()", {"hasNext"}, "(", ")"]], ")"], ["{#}", "{", ["#;", ["#.#", {$"out"}, ".", ["#(#)", {"append"}, "(", ["#.#", {$"it"}, ".", ["#()", {"next"}, "(", ")"]], ")"]], ";"], "}"]], "}"]
+default: ["{###}", "{", ["#;", ["##", {"StringBuilder"}, ["#=#", {$"out"#0}, "=", ["new#", "new", ["#()", {"StringBuilder"}, "(", ")"]]]], ";"], ["#;", ["##", {"Iterator"}, ["#=#", {$"it"#1}, "=", ["#.#", {$"queue"}, ".", ["#()", {"iterator"}, "(", ")"]]]], ";"], ["while##", "while", ["(#)", "(", ["#.#", {$"it"#1}, ".", ["#()", {"hasNext"}, "(", ")"]], ")"], ["{#}", "{", ["#;", ["#.#", {$"out"#0}, ".", ["#(#)", {"append"}, "(", ["#.#", {$"it"#1}, ".", ["#()", {"next"}, "(", ")"]], ")"]], ";"], "}"]], "}"]
+features:
+  "StringBuilder" ["StringBuilder","##1>StringBuilder","#;1>StringBuilder","StringBuilder>>#VAR"]
+  "out" ["#VAR","#=#1>#VAR","##2>#VAR","#;1>#VAR","StringBuilder>>#VAR","#VAR>>StringBuilder","#=#1>>>append"]
+  "StringBuilder" ["StringBuilder","#()1>StringBuilder","new#2>StringBuilder","#=#3>StringBuilder","#VAR>>StringBuilder","StringBuilder>>Iterator"]
+  "Iterator" ["Iterator","##1>Iterator","#;1>Iterator","StringBuilder>>Iterator","Iterator>>#VAR"]
+  "it" ["#VAR","#=#1>#VAR","##2>#VAR","#;1>#VAR","Iterator>>#VAR","#VAR>>#VAR","#=#1>>>hasNext","#=#1>>>next"]
+  "queue" ["#VAR","#.#1>#VAR","#=#3>#VAR","##2>#VAR","#VAR>>#VAR","#VAR>>iterator"]
+  "iterator" ["iterator","#()1>iterator","#.#3>iterator","#=#3>iterator","#VAR>>iterator","iterator>>#VAR"]
+  "it" ["#VAR","#.#1>#VAR","while##2>#VAR","#=#1>>>hasNext","iterator>>#VAR","#VAR>>hasNext","hasNext>>>next"]
+  "hasNext" ["hasNext","#()1>hasNext","#.#3>hasNext","while##2>hasNext","#VAR>>hasNext","hasNext>>#VAR"]
+  "out" ["#VAR","#.#1>#VAR","#;1>#VAR","while##3>#VAR","#=#1>>>append","hasNext>>#VAR","#VAR>>append"]
+  "append" ["append","#(#)1>append","#.#3>append","#;1>append","#VAR>>append","append>>#VAR"]
+  "it" ["#VAR","#.#1>#VAR","#(#)3>#VAR","#.#3>#VAR","hasNext>>>next","#=#1>>>next","append>>#VAR","#VAR>>next"]
+  "next" ["next","#()1>next","#.#3>next","#(#)3>next","#VAR>>next"]

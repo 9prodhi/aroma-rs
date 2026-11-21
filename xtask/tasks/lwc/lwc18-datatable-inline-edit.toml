@@ -1,0 +1,38 @@
+id = "lwc18-datatable-inline-edit"
+category = "datatable"
+lang = "component"
+repo = "https://github.com/trailheadapps/lwc-recipes"
+commit = "b5af6ecb2f8d5d75d161b2a702d899f6e4ffc878"
+required = [
+    "<lightning-datatable",
+    "onsave={",
+    "draft-values={",
+]
+notes = "Persist datatable inline edits through a save handler and draft-values binding."
+answer_witness = [
+    "trailheadapps/lwc-recipes:force-app/main/default/lwc/datatableInlineEditWithApex/datatableInlineEditWithApex.html:2",
+    "trailheadapps/lwc-recipes:force-app/main/default/lwc/datatableInlineEditWithUiApi/datatableInlineEditWithUiApi.html:2",
+]
+
+[[parts]]
+lang = "lwchtml"
+source_file = "force-app/main/default/lwc/graphqlMutations/graphqlMutations.html"
+source_lines = [2, 27]
+query = """
+                    key-field="Id"
+                    data={contacts}
+                    columns={columns}
+"""
+
+[[parts]]
+lang = "lwcjs"
+source_file = "force-app/main/default/lwc/graphqlMutations/graphqlMutations.js"
+source_lines = [101, 143]
+query = """
+    async handleSave(event) {
+        // Convert datatable draft values into record objects
+        const params = event.detail.draftValues.slice().map((draftValue) => {
+            const fields = Object.assign({}, draftValue);
+            return { fields };
+        });
+"""
